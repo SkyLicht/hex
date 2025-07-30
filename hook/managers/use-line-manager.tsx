@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
+import {HEX_CREATE_ROUTE} from "@/hook/refers";
 
 // Line
 export interface LineSmall {
@@ -16,7 +17,7 @@ export interface FactoryWithLines {
     lines: LineSmall[];
 }
 
-const API_BASE_URL = "http://localhost:8000/api/v1/layout";
+const API_BASE_URL = HEX_CREATE_ROUTE("layout");
 
 interface UseLinesResult {
     factories: FactoryWithLines[] | null;

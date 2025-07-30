@@ -43,7 +43,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 5,
@@ -56,7 +57,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -64,14 +66,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x5"
+        "render_type": "conveyor_x5",
+        "operators": null
       },
       {
         "index": 10,
@@ -112,21 +116,24 @@
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -152,14 +159,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -167,35 +176,40 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Insert Pallet",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "pallet"
+        "render_type": "pallet",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x4"
+        "render_type": "conveyor_x4",
+        "operators": null
       },
       {
         "index": 6,
@@ -203,14 +217,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -222,7 +238,8 @@
             "direction": "left"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -230,14 +247,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -245,14 +264,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "rotator"
+        "render_type": "rotator",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 2,
@@ -279,7 +300,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 5,
@@ -292,7 +314,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -300,21 +323,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 10,
@@ -389,21 +415,24 @@
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -450,14 +479,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -465,49 +496,56 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Insert Pallet",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "pallet"
+        "render_type": "pallet",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Remove Pallet",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "pallet"
+        "render_type": "pallet",
+        "operators": null
       },
       {
         "index": 6,
@@ -515,14 +553,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -534,7 +574,8 @@
             "direction": "center"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -542,14 +583,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       }
     ],
     "pth": [
@@ -559,7 +602,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 10,
@@ -580,7 +624,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -601,7 +646,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -609,7 +655,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 3,
@@ -645,7 +692,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -686,7 +734,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -741,7 +790,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -749,7 +799,8 @@
         "owner": "EE",
         "automatic": true,
         "data_collector": null,
-        "render_type": "wave_oven"
+        "render_type": "wave_oven",
+        "operators": null
       },
       {
         "index": 3,
@@ -757,7 +808,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "carrier"
+        "render_type": "carrier",
+        "operators": null
       },
       {
         "index": 3,
@@ -770,14 +822,16 @@
             "direction": "center"
           }
         },
-        "render_type": "conveyor_x7"
+        "render_type": "conveyor_x7",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI PTH",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 3,
@@ -785,7 +839,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 6,
@@ -793,7 +848,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 3,
@@ -801,7 +857,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -814,7 +871,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ict_auto"
+        "render_type": "ict_auto",
+        "operators": null
       },
       {
         "index": 6,
@@ -822,7 +880,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 3,
@@ -830,7 +889,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -838,7 +898,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -846,7 +907,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "battery_insert"
+        "render_type": "battery_insert",
+        "operators": null
       },
       {
         "index": 3,
@@ -854,7 +916,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -862,7 +925,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_hs"
+        "render_type": "install_hs",
+        "operators": null
       },
       {
         "index": 3,
@@ -875,7 +939,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ft_cell"
+        "render_type": "ft_cell",
+        "operators": null
       },
       {
         "index": 3,
@@ -883,7 +948,8 @@
         "owner": "Test",
         "automatic": true,
         "data_collector": null,
-        "render_type": "ft_cell"
+        "render_type": "ft_cell",
+        "operators": null
       },
       {
         "index": 3,
@@ -891,7 +957,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -899,7 +966,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_socket"
+        "render_type": "install_socket",
+        "operators": null
       },
       {
         "index": 3,
@@ -907,14 +975,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 3,
@@ -922,7 +992,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -930,7 +1001,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_socket"
+        "render_type": "install_socket",
+        "operators": null
       },
       {
         "index": 3,
@@ -938,7 +1010,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -968,7 +1041,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_socket"
+        "render_type": "install_socket",
+        "operators": null
       }
     ]
   },
@@ -1016,14 +1090,16 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 5,
@@ -1036,7 +1112,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -1044,21 +1121,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 10,
@@ -1099,21 +1179,24 @@
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -1160,14 +1243,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -1175,28 +1260,32 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 6,
@@ -1204,14 +1293,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -1223,7 +1314,8 @@
             "direction": "left"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -1231,14 +1323,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -1246,14 +1340,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "rotator"
+        "render_type": "rotator",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 2,
@@ -1280,7 +1376,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 5,
@@ -1293,7 +1390,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -1301,14 +1399,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 10,
@@ -1366,14 +1466,16 @@
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -1437,14 +1539,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -1452,28 +1556,32 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 6,
@@ -1481,21 +1589,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -1507,7 +1618,8 @@
             "direction": "center"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -1515,18 +1627,19 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       }
     ],
     "pth": [
-
       {
         "index": 3,
         "name": "Conveyor",
@@ -1538,7 +1651,8 @@
             "direction": "center"
           }
         },
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 3,
@@ -1551,7 +1665,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ict"
+        "render_type": "ict",
+        "operators": null
       },
       {
         "index": 3,
@@ -1559,7 +1674,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 3,
@@ -1572,7 +1688,8 @@
             "direction": "left"
           }
         },
-        "render_type": "ft_grid"
+        "render_type": "ft_grid",
+        "operators": null
       },
       {
         "index": 3,
@@ -1585,7 +1702,8 @@
             "direction": "left"
           }
         },
-        "render_type": "back_plate"
+        "render_type": "back_plate",
+        "operators": null
       },
       {
         "index": 3,
@@ -1634,14 +1752,13 @@
           }
         ]
       },
-
       {
         "index": 3,
         "name": "Manual 3",
         "owner": "Automation",
         "automatic": true,
-
         "render_type": "manual_ass",
+        "data_collector": null,
         "operators": [
           {
             "render": "front",
@@ -1649,7 +1766,6 @@
           }
         ]
       },
-
       {
         "index": 3,
         "name": "Packing",
@@ -1672,7 +1788,6 @@
           }
         ]
       }
-
     ]
   },
   "J03": {
@@ -1719,14 +1834,16 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 5,
@@ -1739,7 +1856,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -1747,21 +1865,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 10,
@@ -1802,21 +1923,24 @@
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -1863,14 +1987,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -1878,28 +2004,32 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 6,
@@ -1907,14 +2037,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -1926,7 +2058,8 @@
             "direction": "left"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -1934,14 +2067,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -1949,14 +2084,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "rotator"
+        "render_type": "rotator",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 2,
@@ -1983,7 +2120,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 5,
@@ -1996,7 +2134,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -2004,14 +2143,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 10,
@@ -2069,14 +2210,16 @@
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -2140,14 +2283,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -2155,28 +2300,32 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 6,
@@ -2184,21 +2333,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -2210,7 +2362,8 @@
             "direction": "center"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -2218,18 +2371,19 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       }
     ],
     "pth": [
-
       {
         "index": 3,
         "name": "Conveyor",
@@ -2241,7 +2395,8 @@
             "direction": "center"
           }
         },
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 3,
@@ -2254,7 +2409,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ict"
+        "render_type": "ict",
+        "operators": null
       },
       {
         "index": 3,
@@ -2262,7 +2418,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor_x3"
+        "render_type": "conveyor_x3",
+        "operators": null
       },
       {
         "index": 3,
@@ -2275,7 +2432,8 @@
             "direction": "left"
           }
         },
-        "render_type": "ft_grid"
+        "render_type": "ft_grid",
+        "operators": null
       },
       {
         "index": 3,
@@ -2288,7 +2446,8 @@
             "direction": "left"
           }
         },
-        "render_type": "back_plate"
+        "render_type": "back_plate",
+        "operators": null
       },
       {
         "index": 3,
@@ -2337,14 +2496,13 @@
           }
         ]
       },
-
       {
         "index": 3,
         "name": "Manual 3",
         "owner": "Automation",
         "automatic": true,
-
         "render_type": "manual_ass",
+        "data_collector": null,
         "operators": [
           {
             "render": "front",
@@ -2352,7 +2510,6 @@
           }
         ]
       },
-
       {
         "index": 3,
         "name": "Packing",
@@ -2375,7 +2532,6 @@
           }
         ]
       }
-
     ]
   },
   "J05": {
@@ -2457,7 +2613,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 5,
@@ -2470,7 +2627,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -2478,14 +2636,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x5"
+        "render_type": "conveyor_x5",
+        "operators": null
       },
       {
         "index": 10,
@@ -2526,14 +2686,16 @@
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -2559,14 +2721,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -2574,42 +2738,48 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x4"
+        "render_type": "conveyor_x4",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x4"
+        "render_type": "conveyor_x4",
+        "operators": null
       },
       {
         "index": 6,
@@ -2617,14 +2787,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -2636,7 +2808,8 @@
             "direction": "left"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -2644,21 +2817,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -2666,14 +2842,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "rotator"
+        "render_type": "rotator",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 2,
@@ -2700,7 +2878,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 5,
@@ -2713,7 +2892,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -2721,14 +2901,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 10,
@@ -2803,14 +2985,16 @@
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -2857,14 +3041,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -2872,42 +3058,48 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 6,
@@ -2915,14 +3107,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -2934,7 +3128,8 @@
             "direction": "center"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -2942,21 +3137,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       }
     ],
     "pth": [
@@ -2993,6 +3191,7 @@
         "name": "Conveyor",
         "owner": "Automation",
         "automatic": true,
+        "operators": null,
         "data_collector": {
           "name": "PTH_INPUT",
           "render": {
@@ -3082,7 +3281,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3090,7 +3290,8 @@
         "owner": "EE",
         "automatic": true,
         "data_collector": null,
-        "render_type": "wave_oven"
+        "render_type": "wave_oven",
+        "operators": null
       },
       {
         "index": 3,
@@ -3103,14 +3304,16 @@
             "direction": "center"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI PTH",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 3,
@@ -3118,7 +3321,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 6,
@@ -3126,7 +3330,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 3,
@@ -3134,7 +3339,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3147,7 +3353,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ict_auto"
+        "render_type": "ict_auto",
+        "operators": null
       },
       {
         "index": 3,
@@ -3160,7 +3367,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ft_cell"
+        "render_type": "ft_cell",
+        "operators": null
       },
       {
         "index": 3,
@@ -3168,7 +3376,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3176,7 +3385,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_socket"
+        "render_type": "install_socket",
+        "operators": null
       },
       {
         "index": 3,
@@ -3184,7 +3394,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3192,7 +3403,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3200,7 +3412,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_socket"
+        "render_type": "install_socket",
+        "operators": null
       },
       {
         "index": 3,
@@ -3208,7 +3421,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3278,7 +3492,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 5,
@@ -3291,7 +3506,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -3299,14 +3515,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x5"
+        "render_type": "conveyor_x5",
+        "operators": null
       },
       {
         "index": 10,
@@ -3347,14 +3565,16 @@
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -3380,14 +3600,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -3395,42 +3617,48 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x4"
+        "render_type": "conveyor_x4",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor_x4"
+        "render_type": "conveyor_x4",
+        "operators": null
       },
       {
         "index": 6,
@@ -3438,14 +3666,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -3457,7 +3687,8 @@
             "direction": "left"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -3465,21 +3696,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3487,14 +3721,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "rotator"
+        "render_type": "rotator",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 2,
@@ -3521,7 +3757,8 @@
             "direction": "left"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 5,
@@ -3534,7 +3771,8 @@
             "direction": "right"
           }
         },
-        "render_type": "spi"
+        "render_type": "spi",
+        "operators": null
       },
       {
         "index": 6,
@@ -3542,14 +3780,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 10,
@@ -3624,14 +3864,16 @@
         "name": "Shuttle",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "shuttle"
+        "render_type": "shuttle",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       },
       {
         "index": 11,
@@ -3678,14 +3920,16 @@
             "direction": "right"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -3693,42 +3937,48 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Reflow Oven",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "reflow_oven"
+        "render_type": "reflow_oven",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 6,
@@ -3736,14 +3986,16 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
@@ -3755,7 +4007,8 @@
             "direction": "center"
           }
         },
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 6,
@@ -3763,21 +4016,24 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Conveyor",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 7,
         "name": "Sliding",
         "owner": "Automation",
         "data_collector": null,
-        "render_type": "sliding"
+        "render_type": "sliding",
+        "operators": null
       }
     ],
     "pth": [
@@ -3797,9 +4053,24 @@
       },
       {
         "index": 3,
+        "name": "Juki",
+        "owner": "EE",
+        "automatic": true,
+        "data_collector": null,
+        "render_type": "juki",
+        "operators": [
+          {
+            "render": "rear",
+            "bound": "radial_fuzion_juki_facc"
+          }
+        ]
+      },
+      {
+        "index": 3,
         "name": "Conveyor",
         "owner": "Automation",
         "automatic": true,
+        "operators": null,
         "data_collector": {
           "name": "PTH_INPUT",
           "render": {
@@ -3889,7 +4160,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3897,7 +4169,8 @@
         "owner": "EE",
         "automatic": true,
         "data_collector": null,
-        "render_type": "wave_oven"
+        "render_type": "wave_oven",
+        "operators": null
       },
       {
         "index": 3,
@@ -3910,14 +4183,16 @@
             "direction": "center"
           }
         },
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 11,
         "name": "AOI PTH",
         "owner": "EE",
         "data_collector": null,
-        "render_type": "aoi_holly"
+        "render_type": "aoi_holly",
+        "operators": null
       },
       {
         "index": 3,
@@ -3925,7 +4200,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 6,
@@ -3933,7 +4209,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "buffer_ng"
+        "render_type": "buffer_ng",
+        "operators": null
       },
       {
         "index": 3,
@@ -3941,7 +4218,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3954,7 +4232,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ict_auto"
+        "render_type": "ict_auto",
+        "operators": null
       },
       {
         "index": 3,
@@ -3967,7 +4246,8 @@
             "direction": "right"
           }
         },
-        "render_type": "ft_cell"
+        "render_type": "ft_cell",
+        "operators": null
       },
       {
         "index": 3,
@@ -3975,7 +4255,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3983,7 +4264,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_socket"
+        "render_type": "install_socket",
+        "operators": null
       },
       {
         "index": 3,
@@ -3991,7 +4273,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -3999,7 +4282,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,
@@ -4007,7 +4291,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "install_socket"
+        "render_type": "install_socket",
+        "operators": null
       },
       {
         "index": 3,
@@ -4015,7 +4300,8 @@
         "owner": "Automation",
         "automatic": true,
         "data_collector": null,
-        "render_type": "conveyor"
+        "render_type": "conveyor",
+        "operators": null
       },
       {
         "index": 3,

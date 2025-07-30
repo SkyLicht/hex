@@ -43,7 +43,6 @@ function StationShapeManager(props: Props) {
                 rx={props.rx}
                 fill={getColorByOwner(props.owner)}
                 x={props.width - 20}
-                y
             />
 
             <rect
@@ -81,44 +80,6 @@ function StationShapeManager(props: Props) {
 
         </>
     );
-
-
-    // if (props.render === "ft_grid") return (
-    //     <>
-    //         {/* Generate cells in a 2x? grid based on total cells needed */}
-    //         {(() => {
-    //             // You can configure this based on your needs
-    //             const totalCells = 24; // This could come from props or be calculated
-    //             const rows = 2;
-    //             const cols = Math.ceil(totalCells / rows); // Calculate columns needed
-    //
-    //             return Array.from({ length: totalCells }, (_, index) => {
-    //                 const cellWidth = props.width / cols;
-    //                 const cellHeight = props.height / rows;
-    //
-    //                 const row = Math.floor(index / cols);
-    //                 const col = index % cols;
-    //
-    //                 const x = col * cellWidth;
-    //                 const y = row * cellHeight;
-    //
-    //                 return (
-    //                     <rect
-    //                         key={index}
-    //                         width={cellWidth}
-    //                         height={cellHeight}
-    //                         x={x}
-    //                         y={y}
-    //                         rx={props.rx}
-    //                         fill={"#89a7bc"}
-    //                         stroke="#fff"
-    //                         strokeWidth={1}
-    //                     />
-    //                 );
-    //             });
-    //         })()}
-    //     </>
-    // );
 
 
     if (props.render === "ft_grid") return (

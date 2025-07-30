@@ -1,6 +1,8 @@
 type Summary = {
     total: number;
     fail_test: number;
+    last_added: string;
+    to_repair_last_added: string;
 }
 
 export type GroupName = {
@@ -64,7 +66,9 @@ interface WebSocketData {
 export function InitSummaryLines(): SummaryLines {
     const createDefaultSummary = (): Summary => ({
         total: 0,
-        fail_test: 0
+        fail_test: 0,
+        to_repair_last_added: "",
+        last_added: ""
     });
 
     const createDefaultGroupName = (): GroupName => ({
@@ -116,29 +120,80 @@ export function DecodeSummary(data: WebSocketData): SummaryLines {
     Object.entries(lines).forEach(([lineCode, lineData]: [string, LineData]) => {
         if (lineCode in summaryLines && lineData.groups) {
             const lineGroups: GroupName = {
-                SMT_INPUT1: {total: 0, fail_test: 0},
-                SPI1: {total: 0, fail_test: 0},
-                REFLOW_VI1: {total: 0, fail_test: 0},
-                AOI_B2: {total: 0, fail_test: 0},
-                SMT_INPUT2: {total: 0, fail_test: 0},
-                SPI2: {total: 0, fail_test: 0},
-                REFLOW_VI2: {total: 0, fail_test: 0},
-                AOI_T2: {total: 0, fail_test: 0},
-                PTH_INPUT: {total: 0, fail_test: 0},
-                TOUCH_INSPECT: {total: 0, fail_test: 0},
-                TOUCH_UP: {total: 0, fail_test: 0},
-                ICT: {total: 0, fail_test: 0},
-                FT: {total: 0, fail_test: 0},
-                FINAL_VI: {total: 0, fail_test: 0},
-                FINAL_INSPECT: {total: 0, fail_test: 0},
-                PACKING: {total: 0, fail_test: 0},
+                SMT_INPUT1: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                SPI1: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                REFLOW_VI1: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                AOI_B2: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                SMT_INPUT2: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                SPI2: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                REFLOW_VI2: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                AOI_T2: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                PTH_INPUT: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                TOUCH_INSPECT: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                TOUCH_UP: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                ICT: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                FT: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                FINAL_VI: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                FINAL_INSPECT: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
+                PACKING: {
+                    total: 0, fail_test: 0, to_repair_last_added: "",
+                    last_added: ""
+                },
             };
 
             // Process each group within the line - no more hours nesting
             Object.entries(lineData.groups).forEach(([groupName, groupData]: [string, GroupData]) => {
+
                 const summary: Summary = {
                     total: groupData.total || 0,
-                    fail_test: groupData.to_repair || 0
+                    fail_test: groupData.to_repair || 0,
+                    last_added: groupData.last_added || "",
+                    to_repair_last_added: groupData.to_repair_last_added || ""
                 };
 
                 // Map group names directly to our structure

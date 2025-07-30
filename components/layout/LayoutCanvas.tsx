@@ -231,7 +231,7 @@ export default function LayoutCanvas(props: LayoutCanvasProps) {
                                     groups={props.currentHourSummary[line.line_id]}
                                     stations={lines[line.line_id].smt}
                                     size={size}
-                                    onSelect={() => {
+                                    onSelectStation={() => {
                                         console.log("dsadsadsf")
                                     }}
                                     offsetX={line.x}
@@ -241,7 +241,7 @@ export default function LayoutCanvas(props: LayoutCanvasProps) {
                                     groups={props.currentHourSummary[line.line_id]}
                                     stations={lines[line.line_id].pth}
                                     size={size}
-                                    onSelect={() => {
+                                    onSelectStation={() => {
                                         console.log("dsadsadsf")
                                     }}
                                     offsetX={line.x + 250}

@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
+import {HEX_CREATE_ROUTE} from "@/hook/refers";
 
 // Define the type for each platform/service item
 export interface InServiceItem {
@@ -18,7 +19,7 @@ export interface InServiceItem {
     updated_at: string;
 }
 
-const API_BASE_URL = "http://localhost:8000/api/v1/platform";
+const API_BASE_URL = HEX_CREATE_ROUTE("platform");
 
 type UseAllInServiceResult = {
     items: InServiceItem[] | null;

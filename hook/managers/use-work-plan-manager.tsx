@@ -1,8 +1,9 @@
 'use client'
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import {HEX_CREATE_ROUTE} from "@/hook/refers";
 
 // You can replace this with process.env.NEXT_PUBLIC_API_URL in a real setup
-const API_BASE_URL = "http://localhost:8000/api/v1/planner"; // Set your API IP and port here
+const API_BASE_URL = HEX_CREATE_ROUTE("planner"); // Set your API IP and port here
 
 export interface CreateWorkPlanInput {
     platform_id?: string;
@@ -31,8 +32,8 @@ interface Platform {
     components_list_id: string;
     f_n: number;
     in_service: boolean;
-    created_at: string;
-    updated_at: string;
+    created_at?: string;
+    updated_at?: string;
 }
 
 interface Factory {
@@ -57,7 +58,8 @@ export interface WorkPlan {
     line_id: string;
     planned_hours: number;
     target_oee: number;
-    uph_i: number;
+    uph_i?: number;
+    uph?: number;
     start_hour: number;
     end_hour: number;
     str_date: string;
@@ -65,10 +67,14 @@ export interface WorkPlan {
     head_count: number;
     ft: number;
     ict: number;
-    created_at: string;
-    updated_at: string;
+    line: string;
+    factory: string;
+    uph_meta: number;
+    commit: number;
+    commit_full: number;
+    created_at?: string;
+    updated_at?: string;
     platform: Platform;
-    line: Line;
 }
 
 interface UseCreateWorkPlanResult {
@@ -156,4 +162,72 @@ export function useGetWorkPlansByStrDate(): UseGetWorkPlansByStrDateResult {
     };
 
     return { loading, error, data, getWorkPlans };
+}
+
+interface UseGetWorkPlanByDateAndLineNameResult {
+    loading: boolean;
+    error: string | null;
+    data: WorkPlan | null;
+    getWorkPlan: (str_date: string, line_name: string) => Promise<void>;
+}
+
+
+export async function getWorkPlanByDateAndLineName(
+    str_date: string,
+    line_name: string
+): Promise<WorkPlan | null> {
+
+    console.log("SDffd")
+    try {
+        const response = await fetch(
+            `${API_BASE_URL}/get_work_plan_by_str_date_and_line_name?str_date=${encodeURIComponent(str_date)}&line_name=${encodeURIComponent(line_name)}`,
+            {
+                cache: 'no-store', // or 'force-cache' depending on your needs
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch work plan: ${response.statusText}`);
+        }
+
+        const data: WorkPlan = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching work plan:', error);
+        return null;
+    }
+}
+
+
+
+// Hook version for easier use in React components
+export function useGetWorkPlanByDateAndLineName() {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [data, setData] = useState<WorkPlan | null>(null);
+
+    const fetchWorkPlan = useCallback(async (str_date: string, line_name: string) => {
+        setLoading(true);
+        setError(null);
+
+        try {
+            const result = await getWorkPlanByDateAndLineName(str_date, line_name);
+            setData(result);
+            if (!result) {
+                setError('No work plan found');
+            }
+        } catch (err) {
+            setError('Failed to fetch work plan');
+            setData(null);
+        } finally {
+            setLoading(false);
+        }
+    }, []); // Empty dependency array since the function doesn't depend on any external values
+
+    return {
+        loading,
+        error,
+        data,
+        fetchWorkPlan
+    };
 }

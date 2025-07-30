@@ -5,10 +5,13 @@ interface StationBannerProps {
     num2: number;
     num3: number;
     num4: number;
+    num5: number;
     x: number;
     y: number;
     fontSize?: number;
     justify?: string;
+    label: string;
+    onClick: () => void;
 }
 
 const StationBanner: React.FC<StationBannerProps> = ({
@@ -16,15 +19,18 @@ const StationBanner: React.FC<StationBannerProps> = ({
                                                          num2,
                                                          num3,
                                                          num4,
+                                                         num5,
                                                          x,
                                                          y,
                                                          fontSize = 12,
-                                                         justify = "center"
+                                                         justify = "center",
+                                                         label,
+                                                         onClick
                                                      }) => {
-    const [showNum4, setShowNum4] = useState(false);
+    const [showNum4, setShowNum4] = useState(true);
     const [animationKey, setAnimationKey] = useState(0);
 
-    const rectWidth = 80;
+    const rectWidth = 73;
     const rectHeight = 40;
     const prussianBlue = "#003153";
 
@@ -63,95 +69,142 @@ const StationBanner: React.FC<StationBannerProps> = ({
 
     const rectY = y - rectHeight / 2;
 
-    // Calculate text center position
-    const textCenterX = (() => {
-        if (justify === "center") {
-            return x;
-        }
-        if (justify === "left") {
-            return x - rectWidth / 2;
-        }
-        if (justify === "right") {
-            return x + rectWidth / 2;
-        }
-        return x;
-    })();
 
-    // Column positions
-    const col1X = textCenterX - 20; // First column (num1)
-    const col2X = textCenterX + 20; // Second column (num2, num3)
+    // 2x2 Grid positions - Left aligned
+    const gridSpacingX = 40; // Distance between columns
+    const gridSpacingY = 19; // Distance between rows
+    const leftMargin = 3; // Left margin from rectangle edge
 
-    // Row positions
-    const row1Y = y - 5; // First row
-    const row2Y = y + 10; // Second row
+    // Column positions (0 = left, 1 = right) - aligned to left
+    const col0X = rectX + leftMargin; // Left column
+    const col1X = rectX + leftMargin + gridSpacingX; // Right column
+
+    // Row positions (0 = top, 1 = bottom)
+    const row0Y = y - gridSpacingY / 2; // Top row
+    const row1Y = y + gridSpacingY / 2; // Bottom row
 
     // num4 position - aligned to the left of the rectangle
     const num4X = rectX + 10; // Left aligned within the rectangle bounds
 
+
     return (
-        <g>
+        <g
+            onClick={e => {
+                onClick(); // Call the onClick prop
+                e.stopPropagation();
+            }}
+            style={{cursor: "pointer"}}
+        >
+            {/* Invisible clickable area - covers the entire banner */}
+            <rect
+                x={rectX}
+                y={rectY - 25} // Extended to cover label area above
+                width={rectWidth}
+                height={rectHeight + 25} // Extended height to include label
+                fill="transparent"
+                stroke="none"
+
+            />
+            {/* Add this filter definition in your SVG's <defs> section */}
+            <defs>
+                <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow
+                        dx="2"
+                        dy="2"
+                        stdDeviation="3"
+                        floodColor="rgba(0,0,0,0.3)"
+                    />
+                </filter>
+            </defs>
+
+
             {/* Main rectangle */}
             <rect
                 x={rectX}
                 y={rectY}
                 width={rectWidth}
                 height={rectHeight}
-                rx={4}
-                fill="none"
+                rx={5}
+
+                fill="#eff0f3"
                 stroke={prussianBlue}
-                strokeWidth={1.5}
+                strokeWidth={0}
+                filter="url(#dropShadow)"
+
             />
 
-            {/* num1 - First column, centered vertically */}
+            {/* Rest of your existing code remains the same */}
+            {/* num1 - Position (0,0) - Top left */}
+            <text
+                x={rectX}
+                y={rectY - 10}
+                textAnchor="start"
+                fontSize={8}
+                fontWeight="bold"
+                fill={prussianBlue}
+                fontFamily="var(--font-geist-mono)"
+                style={{
+                    dominantBaseline: "middle",
+                    userSelect: "none",
+                    pointerEvents: "none" // Prevent text from interfering with clicks
+                }}
+            >
+                {label}
+            </text>
+
+            {/* num5 - Position (0,1) - Top right */}
             <text
                 x={col1X}
-                y={y}
-                textAnchor="middle"
+                y={row0Y + 2}
+                textAnchor="start"
                 fontSize={fontSize}
                 fontWeight="bold"
                 fill={prussianBlue}
                 fontFamily="var(--font-geist-mono)"
                 style={{
                     dominantBaseline: "middle",
-                    userSelect: "none"
+                    userSelect: "none",
+                    pointerEvents: "none"
+                }}
+            >
+                {num5}
+            </text>
+
+            <text
+                x={col0X}
+                y={row0Y + 2}
+                textAnchor="start"
+                fontSize={fontSize}
+                fontWeight="bold"
+                fill={prussianBlue}
+                fontFamily="var(--font-geist-mono)"
+                style={{
+                    dominantBaseline: "middle",
+                    userSelect: "none",
+                    pointerEvents: "none"
                 }}
             >
                 {num1}
             </text>
 
-            {/* num2 - Second column, first row */}
+            {/* num2 - Position (1,0) - Bottom left */}
             <text
-                x={col2X}
-                y={row1Y}
-                textAnchor="middle"
-                fontSize={fontSize}
+                x={col0X}
+                y={row1Y + 2}
+                textAnchor="start"
+                fontSize={fontSize - 4}
                 fontWeight="bold"
                 fill={prussianBlue}
                 fontFamily="var(--font-geist-mono)"
                 style={{
                     dominantBaseline: "middle",
-                    userSelect: "none"
+                    userSelect: "none",
+                    pointerEvents: "none"
                 }}
             >
-                {num2}
+                {num2}%
             </text>
 
-            {/* num3 - Second column, second row */}
-            <text
-                x={col2X}
-                y={row2Y}
-                textAnchor="middle"
-                fontSize={fontSize}
-                fontWeight="bold"
-                fill={prussianBlue}
-                fontFamily="var(--font-geist-mono)"
-                style={{
-                    dominantBaseline: "middle",
-                    userSelect: "none"
-                }}
-            >
-                {num3}
-            </text>
 
             {/* num4 - Above rectangle with simple fade animation, left aligned, with + sign */}
             {showNum4 && (
@@ -167,7 +220,8 @@ const StationBanner: React.FC<StationBannerProps> = ({
                     style={{
                         dominantBaseline: "middle",
                         userSelect: "none",
-                        animation: "fadeInOutBounce 4s ease-in-out"
+                        animation: "fadeInOutBounce 4s ease-in-out",
+                        pointerEvents: "none"
                     }}
                 >
                     +{num4}
@@ -201,10 +255,10 @@ const StationBanner: React.FC<StationBannerProps> = ({
             }
         `}
                 </style>
-
             </defs>
         </g>
     );
+
 };
 
 export default StationBanner;

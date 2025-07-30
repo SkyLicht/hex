@@ -14,7 +14,7 @@ export const RenderLineLabel = (
                 fill="#003153"
                 stroke={"#003153"}
                 strokeWidth={2}
-                rx={3}
+                rx={0}
             />
 
             <text

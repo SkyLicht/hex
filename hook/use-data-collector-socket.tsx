@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import {DecodeSummary, InitSummaryLines} from "@/data/decoder/decoder-summary-update";
+import {DecodeSummary, InitSummaryLines, SummaryLines} from "@/data/decoder/decoder-summary-update";
 
 export interface MonitorData {
     CONTAINER_NO: string;
@@ -34,7 +34,7 @@ export interface UseWebSocketMonitorReturn {
 }
 
 export const useWebSocketMonitor = (
-    url: string = 'ws://localhost:9091/ws/monitor',
+    url: string = 'ws://10.13.33.129:9091/ws/monitor',
     options?: {
         reconnectAttempts?: number;
         reconnectInterval?: number;

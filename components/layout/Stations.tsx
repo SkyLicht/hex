@@ -3,68 +3,23 @@
 import React, {useState} from "react";
 import StationShapeManager from "@/components/layout/shapes/StationShapeManager";
 
-
-import DataBanner from "./live_data/HourlyBanner";
 import {GroupName} from "@/data/decoder/decoder-summary-update";
+import {StationRender} from "@/features/requests/layout-config";
+import StationBanner from "@/components/layout/live_data/StationBanner";
+
 
 type SizeOption = "small" | "medium" | "normal" | "big";
 
 interface StationsProps {
-    stations: Station[];
+    stations: StationRender[];
     size: SizeOption;
-    onSelect: (st: Station, event?: React.MouseEvent) => void;
+    onSelectStation: (st: StationRender, event?: React.MouseEvent) => void;
+    onSelectDataCollector: (dc: string) => void;
     offsetX?: number; // New prop
     offsetY?: number; // New prop
     groups: GroupName
 }
 
-type RenderType =
-    "default"
-    | "conveyor"
-    | "conveyor_x5"
-    | "conveyor_x4"
-    | "conveyor_x3"
-    | "conveyor_x7"
-    | "rotator"
-    | "shuttle"
-    | "panasonic_npm"
-    | "battery_insert"
-    | "spi"
-    | "loader"
-    | "install_socket"
-    | "buffer_ng"
-    | "carrier"
-    | "ft_cell"
-    | "fuzion"
-    | "reflow_oven"
-    | "wave_oven"
-    | "facc"
-    | "install_hs"
-    | "sliding"
-    | "ict_auto"
-    | "juki"
-    | "manual_ass"
-    | "pallet"; // add more as you grow
-
-type Station = {
-    index: number;
-    name: string;
-    owner: string;
-    automatic?: boolean;
-    data_collector?: {
-        name: string;
-        render?: {
-            direction: "right" | "left" | "center";
-        };
-    };
-
-    render_type?: RenderType | null;
-    operator: {
-        render: string,
-        bound: string
-    };
-    operators?: { render: "front" | "rear"; bound: string }[]; // From your code's operatorAssignments section
-};
 
 type ShapeProps = {
     width: number;
@@ -73,7 +28,7 @@ type ShapeProps = {
     fontSize: number;
 };
 
-function getStationShape(size: SizeOption, renderType: RenderType | null | undefined): ShapeProps {
+function getStationShape(size: SizeOption, renderType: string | undefined): ShapeProps {
     if (size === "small") {
         if (renderType === "conveyor") {
             return {width: 15, height: 15, rx: 0, fontSize: 0};
@@ -180,14 +135,15 @@ function getStationShape(size: SizeOption, renderType: RenderType | null | undef
 export const Stations: React.FC<StationsProps> = ({
                                                       stations,
                                                       size,
-                                                      onSelect,
+                                                      onSelectStation,
+                                                      onSelectDataCollector,
                                                       offsetX = 0,
                                                       offsetY = 0,
                                                       groups
                                                   }) => {
 
 
-    const shapes = stations.map(st => getStationShape(size, st.render_type || null));
+    const shapes = stations.map(st => getStationShape(size, st.render_type || undefined));
     const widths = shapes.map(shape => shape.width);
     const gap = 2;
 
@@ -243,7 +199,7 @@ export const Stations: React.FC<StationsProps> = ({
                         key={i}
                         transform={`translate(${x - shape.width / 2}, ${y})`}
                         onClick={e => {
-                            onSelect(st, e); // Pass the event
+                            onSelectStation(st, e); // Pass the event
                             e.stopPropagation();
                         }}
                         onMouseEnter={() => {
@@ -261,42 +217,13 @@ export const Stations: React.FC<StationsProps> = ({
                             strokeWidth={strokeWidth}
                             rx={shape.rx}
                         />
-                        {isDataName && groupData && (
-                            <DataBanner
-                                units={groupData.total}
-                                fail_test={groupData.fail_test}
-                                fpy={95}
-                                oee={87}
-                                x={shape.width / 2}
-                                justify={st.data_collector?.render?.direction || "center"}
-                                y={-50}
-                                fontSize={14}
-                                padding={8}
-                            />
-                        )}
 
-                        {/*{st.data_collector !== null && (*/}
-                        {/*    <AnimatedCounter*/}
-                        {/*        count={0}*/}
-                        {/*        x={shape.width / 2}*/}
-                        {/*        y={-50}*/}
-                        {/*        width={35}*/}
-                        {/*        height={35}*/}
-                        {/*    />*/}
+                        {/*{st.data_collector && (*/}
 
                         {/*)}*/}
-
-                        {st.data_collector && (
+                        {isDataName && groupData && (
                             <>
-                                <line
-                                    x1={shape.width / 2}
-                                    y1={-35}
-                                    x2={shape.width / 2}
-                                    y2={-5}
-                                    stroke="#888"
-                                    strokeWidth={1}
-                                    strokeDasharray="4 2"
-                                />
+
                                 <g
                                     onClick={e => {
                                         e.stopPropagation();
@@ -304,41 +231,46 @@ export const Stations: React.FC<StationsProps> = ({
                                     }}
                                     style={{cursor: "pointer"}}
                                 >
-                                    {/*<text*/}
-                                    {/*    x={shape.width / 2}*/}
-                                    {/*    y={-40}*/}
-                                    {/*    textAnchor="middle"*/}
-                                    {/*    fontSize={10}*/}
-                                    {/*    fontWeight="bold"*/}
-                                    {/*    letterSpacing={0.5}*/}
-                                    {/*    fill="#3730a3"*/}
-                                    {/*    style={{*/}
-                                    {/*        dominantBaseline: "middle",*/}
-                                    {/*        userSelect: "none",*/}
-                                    {/*        pointerEvents: "none"*/}
-                                    {/*    }}*/}
-                                    {/*>*/}
-                                    {/*    {st.data_collector.name}*/}
-                                    {/*</text>*/}
+                                    <line
+                                        x1={shape.width / 2}
+                                        y1={-30}
+                                        x2={shape.width / 2}
+                                        y2={-5}
+                                        stroke="#003153"
+                                        strokeWidth={1}
+                                        strokeDasharray="2 2"
+                                    />
+
+                                    <rect
+                                        x={(shape.width - 10) / 2}
+                                        y={-5}
+                                        width={10}
+                                        height={8}
+                                        rx={0}
+                                        fill="#003153"
+                                    />
+
                                 </g>
-                                <rect
-                                    x={(shape.width - 10) / 2}
-                                    y={-5}
-                                    width={10}
-                                    height={8}
-                                    rx={0}
-                                    fill="#1d1d1d"
+
+                                <StationBanner
+                                    num1={groupData.total}
+                                    num2={(groupData.fail_test == 0 ? 100 : (100 - ((groupData.fail_test / groupData.total) * 100)).toFixed(0)) as number}
+                                    num3={groupData.fail_test}
+                                    num4={groupData.total}
+                                    num5={getMinutesToNow(groupData.last_added)}
+                                    x={shape.width / 2}
+                                    justify={st.data_collector?.render?.direction || "center"}
+                                    y={-50}
+                                    label={st.data_collector?.name || "none"}
+                                    onClick={() => {
+                                        console.log("Clicked on station banner");
+                                        onSelectDataCollector(st.data_collector?.name || "none");
+
+                                    }}
                                 />
-                                <line
-                                    x1={shape.width / 2}
-                                    y1={0}
-                                    x2={shape.width / 2}
-                                    y2={0}
-                                    stroke="#888"
-                                    strokeWidth={1}
-                                    strokeDasharray="4 2"
-                                />
+
                             </>
+
                         )}
 
 
@@ -413,3 +345,26 @@ const UserIcon: React.FC<{ x: number; y: number; size?: number }> = ({x, y, size
         </svg>
     </g>
 );
+
+export function getMinutesToNow(isoDateString: string): number {
+    // Parse the UTC timestamp but treat it as if it's in local timezone
+    const utcTime = new Date(isoDateString);
+
+    // Create a new date with the same year, month, day, hour, minute, second
+    // but in local timezone (ignoring the original timezone)
+    const givenTime = new Date(
+        utcTime.getUTCFullYear(),
+        utcTime.getUTCMonth(),
+        utcTime.getUTCDate(),
+        utcTime.getUTCHours(),
+        utcTime.getUTCMinutes(),
+        utcTime.getUTCSeconds()
+    );
+
+    const currentTime = new Date();
+
+    // Get difference in milliseconds, then convert to minutes
+    const diffInMs = currentTime.getTime() - givenTime.getTime();
+    return Math.floor(diffInMs / (1000 * 60));
+}
+
