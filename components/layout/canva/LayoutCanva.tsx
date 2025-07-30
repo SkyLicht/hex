@@ -134,19 +134,18 @@ const LayoutCanva = ({currentHourSummary, selectedLine, onOpenDialog, onOpenColl
             <div
                 ref={containerRef}
                 className="w-full h-full overflow-auto flex items-center justify-center"
-                style={{cursor: dragging.current ? "grabbing" : "grab"}}
+                // style={{cursor: dragging.current ? "grabbing" : "grab"}}
             >
                 <svg
                     width="100%"
                     height="100%"
                     style={{
-                        transition: "width 0.3s, height 0.3s",
+                        // transition: "width 0.3s, height 0.3s",
                         display: "block",
                         // borderRadius: "1rem",
                         background: "transparent"
                     }}
-                    // onMouseDown={onMouseDown}
-                    preserveAspectRatio="xMinYMin meet"
+
                 >
                     <g
                         transform={`translate(${pan.x},${pan.y})`}

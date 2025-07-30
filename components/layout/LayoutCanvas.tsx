@@ -113,7 +113,7 @@ export default function LayoutCanvas(props: LayoutCanvasProps) {
         setSelectedStation(null);
     };
 
-    const drawLines = () => {
+    const measureLines = () => {
 
         type line_position = {
             line_id: string,
@@ -192,7 +192,7 @@ export default function LayoutCanvas(props: LayoutCanvasProps) {
             <div
                 ref={containerRef}
                 className="w-full h-full overflow-auto flex items-center justify-center relative"
-                style={{cursor: dragging.current ? "grabbing" : "grab"}}
+                // style={{cursor: dragging.current ? "grabbing" : "grab"}}
             >
                 <svg
                     width="100%"
@@ -211,7 +211,7 @@ export default function LayoutCanvas(props: LayoutCanvasProps) {
                         style={{transition: "transform 0.2s"}}
                     >
 
-                        {drawLines().map((line, index) => (
+                        {measureLines().map((line, index) => (
                             <>
                                 <rect
                                     key={`line-${line.y}-${index}`}

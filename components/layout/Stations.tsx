@@ -253,11 +253,9 @@ export const Stations: React.FC<StationsProps> = ({
                                 </g>
 
                                 <StationBanner
-                                    num1={groupData.total}
+                                    num1={100}
                                     num2={(groupData.fail_test == 0 ? 100 : (100 - ((groupData.fail_test / groupData.total) * 100)).toFixed(0)) as number}
-                                    num3={groupData.fail_test}
-                                    num4={groupData.total}
-                                    num5={getMinutesToNow(groupData.last_added)}
+                                    num3={4}
                                     x={shape.width / 2}
                                     justify={st.data_collector?.render?.direction || "center"}
                                     y={-50}
@@ -348,6 +346,10 @@ const UserIcon: React.FC<{ x: number; y: number; size?: number }> = ({x, y, size
 
 export function getMinutesToNow(isoDateString: string): number {
     // Parse the UTC timestamp but treat it as if it's in local timezone
+
+    if (isoDateString === undefined || isoDateString === null || isoDateString === "") {
+        return 0;
+    }
     const utcTime = new Date(isoDateString);
 
     // Create a new date with the same year, month, day, hour, minute, second

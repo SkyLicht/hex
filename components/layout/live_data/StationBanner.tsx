@@ -4,12 +4,10 @@ interface StationBannerProps {
     num1: number;
     num2: number;
     num3: number;
-    num4: number;
-    num5: number;
     x: number;
     y: number;
     fontSize?: number;
-    justify?: string;
+    justify?: 'left' | 'center' | 'right';
     label: string;
     onClick: () => void;
 }
@@ -18,158 +16,78 @@ const StationBanner: React.FC<StationBannerProps> = ({
                                                          num1,
                                                          num2,
                                                          num3,
-                                                         num4,
-                                                         num5,
                                                          x,
                                                          y,
                                                          fontSize = 12,
-                                                         justify = "center",
+                                                         justify = 'center',
                                                          label,
-                                                         onClick
+                                                         onClick,
                                                      }) => {
-    const [showNum4, setShowNum4] = useState(true);
-    const [animationKey, setAnimationKey] = useState(0);
-
     const rectWidth = 73;
     const rectHeight = 40;
-    const prussianBlue = "#003153";
+    const prussianBlue = '#003153';
 
-    // Animation for num4 - triggers whenever num4 changes
-    useEffect(() => {
-        setShowNum4(false); // Hide first
-
-        const showTimer = setTimeout(() => {
-            setShowNum4(true);
-            setAnimationKey(prev => prev + 1); // Force re-render for animation
-
-            // Hide after 3 seconds
-            const hideTimer = setTimeout(() => {
-                setShowNum4(false);
-            }, 3900);
-
-            return () => clearTimeout(hideTimer);
-        }, 100);
-
-        return () => clearTimeout(showTimer);
-    }, [num4]); // Dependency on num4 to trigger on value change
-
-    // Calculate rectangle position based on justify
-    const rectX = (() => {
-        if (justify === "center") {
-            return x - rectWidth / 2;
-        }
-        if (justify === "left") {
-            return x - rectWidth;
-        }
-        if (justify === "right") {
-            return x;
-        }
-        return x - rectWidth / 2;
-    })();
-
+    const rectX = justify === 'center' ? x - rectWidth / 2 : justify === 'left' ? x - rectWidth : x;
     const rectY = y - rectHeight / 2;
 
+    const gridSpacingX = 40;
+    const gridSpacingY = 19;
+    const leftMargin = 3;
 
-    // 2x2 Grid positions - Left aligned
-    const gridSpacingX = 40; // Distance between columns
-    const gridSpacingY = 19; // Distance between rows
-    const leftMargin = 3; // Left margin from rectangle edge
-
-    // Column positions (0 = left, 1 = right) - aligned to left
-    const col0X = rectX + leftMargin; // Left column
-    const col1X = rectX + leftMargin + gridSpacingX; // Right column
-
-    // Row positions (0 = top, 1 = bottom)
-    const row0Y = y - gridSpacingY / 2; // Top row
-    const row1Y = y + gridSpacingY / 2; // Bottom row
-
-    // num4 position - aligned to the left of the rectangle
-    const num4X = rectX + 10; // Left aligned within the rectangle bounds
-
+    const col0X = rectX + leftMargin;
+    const col1X = rectX + leftMargin + gridSpacingX;
+    const row0Y = y - gridSpacingY / 2;
+    const row1Y = y + gridSpacingY / 2;
 
     return (
         <g
-            onClick={e => {
-                onClick(); // Call the onClick prop
+            onClick={(e) => {
+                onClick();
                 e.stopPropagation();
             }}
-            style={{cursor: "pointer"}}
+            style={{cursor: 'pointer'}}
         >
-            {/* Invisible clickable area - covers the entire banner */}
             <rect
                 x={rectX}
-                y={rectY - 25} // Extended to cover label area above
+                y={rectY - 25}
                 width={rectWidth}
-                height={rectHeight + 25} // Extended height to include label
+                height={rectHeight + 25}
                 fill="transparent"
                 stroke="none"
-
             />
-            {/* Add this filter definition in your SVG's <defs> section */}
+
             <defs>
                 <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow
-                        dx="2"
-                        dy="2"
-                        stdDeviation="3"
-                        floodColor="rgba(0,0,0,0.3)"
-                    />
+                    <feDropShadow dx="2" dy="2" stdDeviation="1" floodColor={num3 > 3 ? "rgba(138,23,51,0.2)":"rgba(0,0,0,0.3)"}/>
                 </filter>
             </defs>
 
-
-            {/* Main rectangle */}
             <rect
                 x={rectX}
                 y={rectY}
                 width={rectWidth}
                 height={rectHeight}
                 rx={5}
-
-                fill="#eff0f3"
+                fill={"#eff0f3"}
                 stroke={prussianBlue}
                 strokeWidth={0}
                 filter="url(#dropShadow)"
-
             />
 
-            {/* Rest of your existing code remains the same */}
-            {/* num1 - Position (0,0) - Top left */}
+            {/* Label */}
             <text
                 x={rectX}
-                y={rectY - 10}
+                y={rectY - 8}
                 textAnchor="start"
-                fontSize={8}
+                fontSize={12}
                 fontWeight="bold"
                 fill={prussianBlue}
-                fontFamily="var(--font-geist-mono)"
-                style={{
-                    dominantBaseline: "middle",
-                    userSelect: "none",
-                    pointerEvents: "none" // Prevent text from interfering with clicks
-                }}
+                style={{dominantBaseline: 'middle', userSelect: 'none', pointerEvents: 'none'}}
             >
                 {label}
             </text>
 
-            {/* num5 - Position (0,1) - Top right */}
-            <text
-                x={col1X}
-                y={row0Y + 2}
-                textAnchor="start"
-                fontSize={fontSize}
-                fontWeight="bold"
-                fill={prussianBlue}
-                fontFamily="var(--font-geist-mono)"
-                style={{
-                    dominantBaseline: "middle",
-                    userSelect: "none",
-                    pointerEvents: "none"
-                }}
-            >
-                {num5}
-            </text>
-
+            {/* num1 - Top left */}
             <text
                 x={col0X}
                 y={row0Y + 2}
@@ -177,88 +95,61 @@ const StationBanner: React.FC<StationBannerProps> = ({
                 fontSize={fontSize}
                 fontWeight="bold"
                 fill={prussianBlue}
-                fontFamily="var(--font-geist-mono)"
-                style={{
-                    dominantBaseline: "middle",
-                    userSelect: "none",
-                    pointerEvents: "none"
-                }}
+
+                style={{dominantBaseline: 'middle', userSelect: 'none', pointerEvents: 'none'}}
             >
                 {num1}
             </text>
 
-            {/* num2 - Position (1,0) - Bottom left */}
+            {/* num2 - Bottom left */}
             <text
                 x={col0X}
                 y={row1Y + 2}
                 textAnchor="start"
-                fontSize={fontSize - 4}
+                fontSize={fontSize - 1 }
                 fontWeight="bold"
                 fill={prussianBlue}
-                fontFamily="var(--font-geist-mono)"
-                style={{
-                    dominantBaseline: "middle",
-                    userSelect: "none",
-                    pointerEvents: "none"
-                }}
+
+                style={{dominantBaseline: 'middle', userSelect: 'none', pointerEvents: 'none'}}
             >
                 {num2}%
             </text>
 
+            {/* flame icon above num3 */}
 
-            {/* num4 - Above rectangle with simple fade animation, left aligned, with + sign */}
-            {showNum4 && (
-                <text
-                    key={animationKey} // Force re-render for animation restart
-                    x={num4X}
-                    y={rectY - 10}
-                    textAnchor="start" // Left align the text
-                    fontSize={fontSize + 2}
-                    fontWeight="bold"
-                    fill="#d82222"
-                    fontFamily="var(--font-geist-mono)"
-                    style={{
-                        dominantBaseline: "middle",
-                        userSelect: "none",
-                        animation: "fadeInOutBounce 4s ease-in-out",
-                        pointerEvents: "none"
-                    }}
-                >
-                    +{num4}
-                </text>
+            {num3 > 3 && (
+                <g transform={`translate(${col1X + 2}, ${row1Y - 36}) scale(1)`}>
+                    <path
+                        d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3
+             -1.072-2.143-.224-4.054 2-6
+             .5 2.5 2 4.9 4 6.5
+             2 1.6 3 3.5 3 5.5
+             a7 7 0 1 1-14 0
+             c0-1.153.433-2.294 1-3
+             a2.5 2.5 0 0 0 2.5 2.5z"
+                        fill="none"
+                        stroke="#FF5722"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </g>
             )}
 
-            {/* CSS animation definition */}
-            <defs>
-                <style>
-                    {`
-            @keyframes fadeInOutBounce {
-                0% { 
-                    opacity: 0; 
-                    transform: translateY(-10px) ; 
-                }
-                15% { 
-                    opacity: 1; 
-                    transform: translateY(0px) ; 
-                }
-                25% { 
-                    transform: translateY(0px); 
-                }
-                75% { 
-                    opacity: 1; 
-                    transform: translateY(0px) ; 
-                }
-                100% { 
-                    opacity: 0; 
-                    transform: translateY(-3px) ; 
-                }
-            }
-        `}
-                </style>
-            </defs>
+
+            {/* num3 - Bottom right */}
+            <text
+                x={col1X + (num3 < 9 ? 10 : num3 < 99 ? 3 : -3)}
+                y={row1Y - 3}
+                fontSize={fontSize + 5}
+                fontWeight="bold"
+                fill="#FF5722"
+                style={{dominantBaseline: 'middle', userSelect: 'none', pointerEvents: 'none'}}
+            >
+                {num3}
+            </text>
         </g>
     );
-
 };
 
 export default StationBanner;
