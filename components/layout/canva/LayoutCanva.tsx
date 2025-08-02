@@ -4,9 +4,11 @@ import {SummaryLines} from "@/data/decoder/decoder-summary-update";
 import {RenderLineLabel} from "@/components/layout/live_data/LineLabel";
 import {getLayoutLine} from "@/features/requests/layout-config";
 import {Stations} from "@/components/layout/Stations";
+import {WipSummaryLines} from "@/data/decoder/decoder-summary-wip-update";
 
 interface Props {
     currentHourSummary: SummaryLines;
+    wipSummary: WipSummaryLines;
     selectedLine: string | null;
     onOpenDialog: () => void; // Add this prop
     onOpenCollectorDetail: (data_name: string) => void
@@ -14,7 +16,13 @@ interface Props {
 }
 
 
-const LayoutCanva = ({currentHourSummary, selectedLine, onOpenDialog, onOpenCollectorDetail}: Props) => {
+const LayoutCanva = ({
+                         currentHourSummary,
+                         wipSummary,
+                         selectedLine,
+                         onOpenDialog,
+                         onOpenCollectorDetail
+                     }: Props) => {
 
     const [pan, setPan] = useState<{ x: number; y: number }>({x: 0, y: 0});
     const anchorSVG = useRef<{ x: number; y: number }>({x: 0, y: 0});
@@ -100,9 +108,9 @@ const LayoutCanva = ({currentHourSummary, selectedLine, onOpenDialog, onOpenColl
 
             line_position.id = line
             line_position.x = 0
-            line_position.y = index * 500
+            line_position.y = index * 400
             line_position.width = 1520
-            line_position.height = 500
+            line_position.height = 400
 
             return line_position
         })
@@ -176,6 +184,7 @@ const LayoutCanva = ({currentHourSummary, selectedLine, onOpenDialog, onOpenColl
 
                                     <Stations
                                         groups={currentHourSummary[line.id]}
+                                        wips={wipSummary[line.id]}
                                         stations={stations.smt}
                                         size={"small"}
                                         onSelectStation={() => {
@@ -190,6 +199,7 @@ const LayoutCanva = ({currentHourSummary, selectedLine, onOpenDialog, onOpenColl
 
                                     <Stations
                                         groups={currentHourSummary[line.id]}
+                                        wips={wipSummary[line.id]}
                                         stations={stations.pth}
                                         size={"small"}
                                         onSelectStation={() => {

@@ -7,7 +7,7 @@ interface StationBannerProps {
     x: number;
     y: number;
     fontSize?: number;
-    justify?: 'left' | 'center' | 'right';
+    justify: string;
     label: string;
     onClick: () => void;
 }
@@ -58,7 +58,8 @@ const StationBanner: React.FC<StationBannerProps> = ({
 
             <defs>
                 <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow dx="2" dy="2" stdDeviation="1" floodColor={num3 > 3 ? "rgba(138,23,51,0.2)":"rgba(0,0,0,0.3)"}/>
+                    <feDropShadow dx="2" dy="2" stdDeviation="1"
+                                  floodColor={num3 > 3 ? "rgba(138,23,51,0.2)" : "rgba(0,0,0,0.3)"}/>
                 </filter>
             </defs>
 
@@ -84,7 +85,7 @@ const StationBanner: React.FC<StationBannerProps> = ({
                 fill={prussianBlue}
                 style={{dominantBaseline: 'middle', userSelect: 'none', pointerEvents: 'none'}}
             >
-                {label}
+                {label == "FINAL_INSPECT" ? "F_INSPECT" : label}
             </text>
 
             {/* num1 - Top left */}
@@ -106,7 +107,7 @@ const StationBanner: React.FC<StationBannerProps> = ({
                 x={col0X}
                 y={row1Y + 2}
                 textAnchor="start"
-                fontSize={fontSize - 1 }
+                fontSize={fontSize - 1}
                 fontWeight="bold"
                 fill={prussianBlue}
 
@@ -138,16 +139,19 @@ const StationBanner: React.FC<StationBannerProps> = ({
 
 
             {/* num3 - Bottom right */}
-            <text
-                x={col1X + (num3 < 9 ? 10 : num3 < 99 ? 3 : -3)}
-                y={row1Y - 3}
-                fontSize={fontSize + 5}
-                fontWeight="bold"
-                fill="#FF5722"
-                style={{dominantBaseline: 'middle', userSelect: 'none', pointerEvents: 'none'}}
-            >
-                {num3}
-            </text>
+            {num3 != 0 && (
+                <text
+                    x={col1X + (num3 < 9 ? 10 : num3 < 99 ? 3 : -3)}
+                    y={row1Y - 3}
+                    fontSize={fontSize + 5}
+                    fontWeight="bold"
+                    fill="#FF5722"
+                    style={{dominantBaseline: 'middle', userSelect: 'none', pointerEvents: 'none'}}
+                >
+                    {num3}
+                </text>
+            )}
+
         </g>
     );
 };

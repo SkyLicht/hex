@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import {useCurrentHourPPID} from "@/hook/statistics/use-get-datacollector-details";
+import {useCurrentHourPPID, usePPIDCurrentDay} from "@/hook/statistics/use-get-datacollector-details";
 import {DataCollectorNameToGroupName} from "@/lib/maps";
 
 interface Props {
@@ -14,7 +14,7 @@ const DataCollectorDetails = ({
                               }: Props) => {
 
 
-    const {data, loading, error, refetch} = useCurrentHourPPID(DataCollectorNameToGroupName(collector_name), lane_name);
+    const {data, loading, error, refetch} = usePPIDCurrentDay(DataCollectorNameToGroupName(collector_name), lane_name);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;

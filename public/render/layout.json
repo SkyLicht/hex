@@ -982,7 +982,12 @@
         "index": 11,
         "name": "AOI",
         "owner": "EE",
-        "data_collector": null,
+        "data_collector": {
+          "name": "FINAL_VI",
+          "render": {
+            "direction": "left"
+          }
+        },
         "render_type": "aoi_holly",
         "operators": null
       },
@@ -1000,7 +1005,12 @@
         "name": "CPU Assembly",
         "owner": "Automation",
         "automatic": true,
-        "data_collector": null,
+        "data_collector": {
+          "name": "FINAL_INSPECT",
+          "render": {
+            "direction": "center"
+          }
+        },
         "render_type": "install_socket",
         "operators": null
       },

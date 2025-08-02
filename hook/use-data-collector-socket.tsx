@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import {DecodeSummary, InitSummaryLines, SummaryLines} from "@/data/decoder/decoder-summary-update";
+import {DecodeWipSummary, InitWipSummaryLines, WipSummaryLines} from "@/data/decoder/decoder-summary-wip-update";
 
 export interface MonitorData {
     CONTAINER_NO: string;
@@ -27,6 +28,7 @@ export interface WebSocketMessage {
 export interface UseWebSocketMonitorReturn {
     data: MonitorData[];
     currentHourSummary: SummaryLines;
+    currentWip: WipSummaryLines;
     latestMessage: WebSocketMessage | null;
     connectionStatus: 'connecting' | 'connected' | 'disconnected' | 'error';
     error: string | null;
@@ -34,7 +36,7 @@ export interface UseWebSocketMonitorReturn {
 }
 
 export const useWebSocketMonitor = (
-    url: string = 'ws://10.13.33.129:9091/ws/monitor',
+    url: string,
     options?: {
         reconnectAttempts?: number;
         reconnectInterval?: number;
@@ -46,15 +48,16 @@ export const useWebSocketMonitor = (
 ): UseWebSocketMonitorReturn => {
     const [data, setData] = useState<MonitorData[]>([]);
     const [currentHourSummary, setCurrentHourSummary] = useState<SummaryLines>(InitSummaryLines());
+    const [currentWip, setCurrentWip] = useState<WipSummaryLines>(InitWipSummaryLines);
     const [latestMessage, setLatestMessage] = useState<WebSocketMessage | null>(null);
     const [connectionStatus, setConnectionStatus] = useState<'connecting' | 'connected' | 'disconnected' | 'error'>('disconnected');
     const [error, setError] = useState<string | null>(null);
-    
+
     const wsRef = useRef<WebSocket | null>(null);
     const reconnectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const reconnectAttemptsRef = useRef(0);
     const optionsRef = useRef(options);
-    
+
     // Update options ref when options change
     useEffect(() => {
         optionsRef.current = options;
@@ -62,7 +65,7 @@ export const useWebSocketMonitor = (
 
     const connect = useCallback(() => {
         // Prevent multiple connections
-        if (wsRef.current?.readyState === WebSocket.OPEN || 
+        if (wsRef.current?.readyState === WebSocket.OPEN ||
             wsRef.current?.readyState === WebSocket.CONNECTING) {
             return;
         }
@@ -87,7 +90,7 @@ export const useWebSocketMonitor = (
             console.log('Attempting to connect to WebSocket:', url);
             setConnectionStatus('connecting');
             setError(null);
-            
+
             wsRef.current = new WebSocket(url);
 
             wsRef.current.onopen = (event) => {
@@ -113,7 +116,17 @@ export const useWebSocketMonitor = (
                         setCurrentHourSummary(productionMessage)
 
                     }
-                    
+
+                    if (message.type === 'wip_summary_update') {
+                        // Specific production data usage
+                        console.log("inside summary_update")
+                        const wipSummary = DecodeWipSummary(message);
+
+                        // Accessing data
+                        setCurrentWip(wipSummary)
+
+                    }
+
                     // if (message.message === 'DATA_UPDATE' && Array.isArray(message.data)) {
                     //     setData(message.data);
                     //     setLatestMessage(message);
@@ -129,12 +142,12 @@ export const useWebSocketMonitor = (
                 console.log('WebSocket disconnected:', event.code, event.reason, 'wasClean:', event.wasClean);
                 setConnectionStatus('disconnected');
                 onDisconnect?.();
-                
+
                 // Only attempt to reconnect if it wasn't a clean close and we haven't exceeded attempts
                 if (!event.wasClean && reconnectAttemptsRef.current < reconnectAttempts) {
                     reconnectAttemptsRef.current++;
                     console.log(`Attempting reconnect ${reconnectAttemptsRef.current}/${reconnectAttempts} in ${reconnectInterval}ms`);
-                    
+
                     reconnectTimeoutRef.current = setTimeout(() => {
                         connect();
                     }, reconnectInterval);
@@ -160,22 +173,22 @@ export const useWebSocketMonitor = (
 
     const reconnect = useCallback(() => {
         console.log('Manual reconnect requested');
-        
+
         // Clear any pending reconnection
         if (reconnectTimeoutRef.current) {
             clearTimeout(reconnectTimeoutRef.current);
             reconnectTimeoutRef.current = null;
         }
-        
+
         // Close existing connection
         if (wsRef.current) {
             wsRef.current.close();
             wsRef.current = null;
         }
-        
+
         // Reset reconnection attempts
         reconnectAttemptsRef.current = 0;
-        
+
         // Attempt to connect
         connect();
     }, [connect]);
@@ -186,13 +199,13 @@ export const useWebSocketMonitor = (
 
         return () => {
             console.log('WebSocket hook cleaning up...');
-            
+
             // Clear reconnection timeout
             if (reconnectTimeoutRef.current) {
                 clearTimeout(reconnectTimeoutRef.current);
                 reconnectTimeoutRef.current = null;
             }
-            
+
             // Close WebSocket connection
             if (wsRef.current) {
                 // Set a flag to prevent reconnection on cleanup
@@ -206,6 +219,7 @@ export const useWebSocketMonitor = (
     return {
         data,
         currentHourSummary,
+        currentWip,
         latestMessage,
         connectionStatus,
         error,

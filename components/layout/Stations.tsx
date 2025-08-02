@@ -1,11 +1,12 @@
 'use client'
 
-import React, {useState} from "react";
+import React, {JSX, useState} from "react";
 import StationShapeManager from "@/components/layout/shapes/StationShapeManager";
 
-import {GroupName} from "@/data/decoder/decoder-summary-update";
+import {SummaryGroupName} from "@/data/decoder/decoder-summary-update";
 import {StationRender} from "@/features/requests/layout-config";
 import StationBanner from "@/components/layout/live_data/StationBanner";
+import {WipGroupName} from "@/data/decoder/decoder-summary-wip-update";
 
 
 type SizeOption = "small" | "medium" | "normal" | "big";
@@ -17,7 +18,8 @@ interface StationsProps {
     onSelectDataCollector: (dc: string) => void;
     offsetX?: number; // New prop
     offsetY?: number; // New prop
-    groups: GroupName
+    groups: SummaryGroupName
+    wips: WipGroupName
 }
 
 
@@ -139,7 +141,8 @@ export const Stations: React.FC<StationsProps> = ({
                                                       onSelectDataCollector,
                                                       offsetX = 0,
                                                       offsetY = 0,
-                                                      groups
+                                                      groups,
+                                                      wips
                                                   }) => {
 
 
@@ -156,6 +159,95 @@ export const Stations: React.FC<StationsProps> = ({
         x += (widths[i - 1] / 2) + gap + (widths[i] / 2);
         xCenters.push(x);
     }
+
+// Function to render data collector connection lines
+    const renderDataCollectorLines = () => {
+        const lines: JSX.Element[] = [];
+
+        // Find stations with data collectors
+        const dataCollectorStations = stations
+            .map((station, index) => ({station, index}))
+            .filter(({station}) => station.data_collector !== null);
+
+        // Connect adjacent data collector stations
+        for (let i = 0; i < dataCollectorStations.length - 1; i++) {
+            const currentStation = dataCollectorStations[i];
+            const nextStation = dataCollectorStations[i + 1];
+
+            const currentX = xCenters[currentStation.index] + offsetX;
+            const nextX = xCenters[nextStation.index] + offsetX;
+
+            // Position the line below the stations
+            const lineY = centerY + Math.max(shapes[currentStation.index].height / 2, shapes[nextStation.index].height / 2) + 20 + offsetY;
+
+            // Calculate positions for the |---| style
+            const leftVerticalX = Math.round(currentX + 10);
+            const rightVerticalX = Math.round(nextX - 10);
+            const horizontalY = Math.round(lineY);
+            const verticalTop = horizontalY - 5;
+            const verticalBottom = horizontalY + 5;
+
+            // Calculate middle position for label
+            const middleX = (leftVerticalX + rightVerticalX) / 2;
+            const labelY = horizontalY + 20;
+
+            // Get the first data collector name
+            const dataCollectorName = currentStation.station.data_collector?.name || '';
+
+            lines.push(
+                <g key={`data-collector-line-group-${i}`}>
+                    {/* Left vertical line */}
+                    <line
+                        x1={leftVerticalX}
+                        y1={verticalTop}
+                        x2={leftVerticalX}
+                        y2={verticalBottom}
+                        stroke="black"
+                        strokeWidth={1}
+                        shapeRendering="crispEdges"
+                    />
+
+                    {/* Horizontal line */}
+                    <line
+                        x1={leftVerticalX}
+                        y1={horizontalY}
+                        x2={rightVerticalX}
+                        y2={horizontalY}
+                        stroke="black"
+                        strokeWidth={1}
+                        shapeRendering="crispEdges"
+                    />
+
+                    {/* Right vertical line */}
+                    <line
+                        x1={rightVerticalX}
+                        y1={verticalTop}
+                        x2={rightVerticalX}
+                        y2={verticalBottom}
+                        stroke="black"
+                        strokeWidth={1}
+                        shapeRendering="crispEdges"
+                    />
+
+                    {/* Label */}
+                    <text
+                        x={middleX}
+                        y={labelY}
+                        textAnchor="middle"
+                        fontSize="14"
+
+                        fill="black"
+                        fontFamily="Arial, sans-serif "
+                    >
+                        {wips[dataCollectorName].currentPpidCount}
+
+                    </text>
+                </g>
+            );
+        }
+
+        return lines;
+    };
 
 
     type OperatorAssignment = { i: number; operator: { render: "front" | "rear"; bound: string } };
@@ -253,9 +345,9 @@ export const Stations: React.FC<StationsProps> = ({
                                 </g>
 
                                 <StationBanner
-                                    num1={100}
+                                    num1={groupData.total}
                                     num2={(groupData.fail_test == 0 ? 100 : (100 - ((groupData.fail_test / groupData.total) * 100)).toFixed(0)) as number}
-                                    num3={4}
+                                    num3={getMinutesToNow(groupData.last_added)}
                                     x={shape.width / 2}
                                     justify={st.data_collector?.render?.direction || "center"}
                                     y={-50}
@@ -275,6 +367,10 @@ export const Stations: React.FC<StationsProps> = ({
                     </g>
                 )
             })}
+
+            {/* Render data collector connection lines */}
+            {renderDataCollectorLines()}
+
             {/*{Object.entries(operatorGroups).map(([bound, members], groupIdx) => {*/}
             {/*    const byRender = {front: [] as OperatorAssignment[], rear: [] as OperatorAssignment[]};*/}
             {/*    members.forEach(m => {*/}
@@ -369,4 +465,3 @@ export function getMinutesToNow(isoDateString: string): number {
     const diffInMs = currentTime.getTime() - givenTime.getTime();
     return Math.floor(diffInMs / (1000 * 60));
 }
-

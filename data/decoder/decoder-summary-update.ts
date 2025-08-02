@@ -5,7 +5,7 @@ type Summary = {
     to_repair_last_added: string;
 }
 
-export type GroupName = {
+export type SummaryGroupName = {
     SMT_INPUT1: Summary
     SPI1: Summary
     REFLOW_VI1: Summary
@@ -25,17 +25,17 @@ export type GroupName = {
 }
 
 export type SummaryLines = {
-    J01: GroupName,
-    J02: GroupName,
-    J03: GroupName,
-    J04: GroupName,
-    J05: GroupName,
-    J06: GroupName,
-    J07: GroupName,
-    J08: GroupName,
-    J09: GroupName,
-    J10: GroupName,
-    J11: GroupName,
+    J01: SummaryGroupName,
+    J02: SummaryGroupName,
+    J03: SummaryGroupName,
+    J04: SummaryGroupName,
+    J05: SummaryGroupName,
+    J06: SummaryGroupName,
+    J07: SummaryGroupName,
+    J08: SummaryGroupName,
+    J09: SummaryGroupName,
+    J10: SummaryGroupName,
+    J11: SummaryGroupName,
 }
 
 // Define proper types for the new structure
@@ -71,7 +71,7 @@ export function InitSummaryLines(): SummaryLines {
         last_added: ""
     });
 
-    const createDefaultGroupName = (): GroupName => ({
+    const createDefaultGroupName = (): SummaryGroupName => ({
         SMT_INPUT1: createDefaultSummary(),
         SPI1: createDefaultSummary(),
         REFLOW_VI1: createDefaultSummary(),
@@ -119,7 +119,7 @@ export function DecodeSummary(data: WebSocketData): SummaryLines {
     // Process each line
     Object.entries(lines).forEach(([lineCode, lineData]: [string, LineData]) => {
         if (lineCode in summaryLines && lineData.groups) {
-            const lineGroups: GroupName = {
+            const lineGroups: SummaryGroupName = {
                 SMT_INPUT1: {
                     total: 0, fail_test: 0, to_repair_last_added: "",
                     last_added: ""
