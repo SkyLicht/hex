@@ -2,9 +2,9 @@ import { RendererMachineContainer } from '@/src/render_layout/renderer/renderer_
 import { ViewBoxType } from '@/src/render_layout/type/view-box-type'
 
 class RendererMachineRotator extends RendererMachineContainer {
-    constructor(x: number, y: number, viewBox: ViewBoxType) {
+    constructor(x: number, y: number, viewBox: ViewBoxType, direction: string) {
         // Call the parent constructor with a ShapePointType
-        super({ x, y })
+        super({ x, y }, direction)
 
         // Set the proper dimensions and calculate anchors
         const dimensions = this.getContainerSize(viewBox)
@@ -16,9 +16,9 @@ class RendererMachineRotator extends RendererMachineContainer {
             case ViewBoxType.H_W_M_1536:
                 return { width: 30, height: 20 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
-                return { width: 120, height: 60 } // Larger loader for bigger viewport
+                return { width: 30, height: 20 } // Larger loader for bigger viewport
             default:
-                return { width: 100, height: 50 }
+                return { width: 30, height: 20 }
         }
     }
 

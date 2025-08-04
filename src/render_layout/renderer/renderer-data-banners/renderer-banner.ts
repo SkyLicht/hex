@@ -70,6 +70,12 @@ class RendererBanner {
         anchor: ShapeAnchors,
         anchors: ShapeAnchorsType
     ): ShapePointType {
+        // Safety check for undefined anchors
+        if (!anchors) {
+            console.warn('Anchors are undefined, returning default point')
+            return { x: 0, y: 0 }
+        }
+
         const anchorMap = {
             [ShapeAnchors.TOP_LEFT]: anchors.topLeft,
             [ShapeAnchors.TOP_CENTER]: anchors.topCenter,

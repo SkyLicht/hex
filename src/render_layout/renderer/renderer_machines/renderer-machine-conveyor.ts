@@ -3,9 +3,15 @@ import { ViewBoxType } from '@/src/render_layout/type/view-box-type'
 
 class RendererMachineConveyor extends RendererMachineContainer {
     variant: string
-    constructor(x: number, y: number, viewBox: ViewBoxType, variant: string) {
+    constructor(
+        x: number,
+        y: number,
+        viewBox: ViewBoxType,
+        variant: string,
+        direction: string
+    ) {
         // Call the parent constructor with a ShapePointType
-        super({ x, y })
+        super({ x, y }, direction)
         this.variant = variant
         // Set the proper dimensions and calculate anchors
         const dimensions = this.getContainerSize(viewBox)
@@ -18,9 +24,9 @@ class RendererMachineConveyor extends RendererMachineContainer {
                 case ViewBoxType.H_W_M_1536:
                     return { width: 15, height: 15 } // Loader-specific dimensions
                 case ViewBoxType.H_W_L_1080:
-                    return { width: 120, height: 60 } // Larger loader for bigger viewport
+                    return { width: 15, height: 15 } // Larger loader for bigger viewport
                 default:
-                    return { width: 100, height: 50 }
+                    return { width: 15, height: 15 }
             }
         }
 
@@ -29,9 +35,9 @@ class RendererMachineConveyor extends RendererMachineContainer {
                 case ViewBoxType.H_W_M_1536:
                     return { width: 20, height: 15 } // Loader-specific dimensions
                 case ViewBoxType.H_W_L_1080:
-                    return { width: 120, height: 60 } // Larger loader for bigger viewport
+                    return { width: 20, height: 15 } // Larger loader for bigger viewport
                 default:
-                    return { width: 100, height: 50 }
+                    return { width: 20, height: 15 }
             }
         }
 
@@ -40,9 +46,9 @@ class RendererMachineConveyor extends RendererMachineContainer {
                 case ViewBoxType.H_W_M_1536:
                     return { width: 30, height: 15 } // Loader-specific dimensions
                 case ViewBoxType.H_W_L_1080:
-                    return { width: 120, height: 60 } // Larger loader for bigger viewport
+                    return { width: 30, height: 15 } // Larger loader for bigger viewport
                 default:
-                    return { width: 100, height: 50 }
+                    return { width: 30, height: 15 }
             }
         }
 
@@ -51,9 +57,20 @@ class RendererMachineConveyor extends RendererMachineContainer {
                 case ViewBoxType.H_W_M_1536:
                     return { width: 50, height: 15 } // Loader-specific dimensions
                 case ViewBoxType.H_W_L_1080:
-                    return { width: 120, height: 60 } // Larger loader for bigger viewport
+                    return { width: 50, height: 15 } // Larger loader for bigger viewport
                 default:
-                    return { width: 100, height: 50 }
+                    return { width: 50, height: 15 }
+            }
+        }
+
+        if (this.variant === 'x7') {
+            switch (viewBox) {
+                case ViewBoxType.H_W_M_1536:
+                    return { width: 60, height: 15 } // Loader-specific dimensions
+                case ViewBoxType.H_W_L_1080:
+                    return { width: 60, height: 15 } // Larger loader for bigger viewport
+                default:
+                    return { width: 60, height: 15 }
             }
         }
 
@@ -61,9 +78,9 @@ class RendererMachineConveyor extends RendererMachineContainer {
             case ViewBoxType.H_W_M_1536:
                 return { width: 20, height: 50 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
-                return { width: 120, height: 60 } // Larger loader for bigger viewport
+                return { width: 20, height: 50 } // Larger loader for bigger viewport
             default:
-                return { width: 100, height: 50 }
+                return { width: 20, height: 50 }
         }
     }
 

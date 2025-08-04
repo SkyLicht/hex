@@ -6,7 +6,6 @@ import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-r
 import {
     emptyAnchors,
     getShapeAnchor,
-    ShapeAnchors,
 } from '@/src/render_layout/type/shape/shape-type'
 
 export function fileToFactoryRender(file): FactoryRenderA6 {
@@ -63,6 +62,7 @@ export function fileToFactoryRender(file): FactoryRenderA6 {
                     },
                     render: {
                         type: machine.render.type,
+                        direction: machine.render.direction, // ADD THIS LINE
                     },
                 }
             }
@@ -110,9 +110,11 @@ export function fileToFactoryRender(file): FactoryRenderA6 {
             },
             render: {
                 type: _l.render.type,
+                direction: _l.render.direction,
             },
             machines: machines_render,
             data_collectors: data_collectors_render,
+            groups: _l.groups,
         })
     })
 

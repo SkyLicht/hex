@@ -13,7 +13,7 @@ const FactoryAreaRenderer = ({ dimension }: Props) => {
                 y={y}
                 width={width}
                 height={height}
-                fill="#f8fafc"
+                fill="#000"
                 stroke="#ccc"
             />
         </g>

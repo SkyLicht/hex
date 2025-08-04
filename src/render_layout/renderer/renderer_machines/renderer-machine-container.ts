@@ -8,14 +8,16 @@ import {
 
 export class RendererMachineContainer {
     container: ShapeContainerType
-
-    constructor(layout: ShapePointType) {
+    direction: string
+    constructor(layout: ShapePointType, _direction: string) {
         this.container = this.createInitialShapeContainer(
             layout.x,
             layout.y,
             0,
             0
         )
+
+        this.direction = _direction
     }
 
     createInitialShapeContainer(
@@ -26,15 +28,13 @@ export class RendererMachineContainer {
     ): ShapeContainerType {
         const point: ShapePointType = { x, y }
         const dimensions: ShapeDimensionsType = { width, height }
-
-        // Initialize anchors with zeros - will be calculated later
         const anchors: ShapeAnchorsType = emptyAnchors
 
         return {
             dimensions,
             position: {
                 point,
-                offSet: { x: 3, y: 0 }, // Default offset to zero
+                offSet: { x: 3, y: 0 },
             },
             anchors,
         }
@@ -44,6 +44,7 @@ export class RendererMachineContainer {
         // Set dimensions
         this.container.dimensions = dimensions
         this.container.position.point.y -= dimensions.height / 2
+
         const { x, y } = this.container.position.point
         const { width, height } = this.container.dimensions
         // Calculate anchors based on position and dimensions

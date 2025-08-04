@@ -1,4 +1,4 @@
-import { RenderRender } from '@/src/render_layout/type/render/render-render'
+import { RenderMachineRender } from '@/src/render_layout/type/render/render-machine-render'
 import { RenderMeasures } from '@/src/render_layout/type/render/render-measures'
 import { LineRenderer } from '@/src/render_layout/type/line-render'
 
@@ -7,7 +7,7 @@ export interface AreaRender {
     label: string
     dimensions: RenderMeasures
     measures: RenderMeasures
-    render: RenderRender
+    render: RenderMachineRender
 }
 
 export interface ProductionArea {
@@ -15,6 +15,6 @@ export interface ProductionArea {
     label: string
     dimensions: RenderMeasures
     measures: RenderMeasures
-    render: RenderRender
+    render: RenderMachineRender
     lines: LineRenderer[]
 }

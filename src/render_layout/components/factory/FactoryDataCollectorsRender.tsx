@@ -3,7 +3,7 @@ import React from 'react'
 interface Props {
     dataCollectors: DataCollectorRenderer[]
 }
-const FactoryDataCollectorsRender = ({ dataCollectors }: Props) => {
+export const FactoryDataCollectorsRender = ({ dataCollectors }: Props) => {
     return (
         <g>
             {dataCollectors.map((dataCollector) => {
@@ -28,7 +28,7 @@ const FactoryDataCollectorsRender = ({ dataCollectors }: Props) => {
                             fill={'#b5becd'}
                         ></rect>
                         <rect
-                            key={`data_collector-render-rect-${dataCollector.id}`}
+                            key={`data_collector-render-rect-2-${dataCollector.id}`}
                             x={dataCollector.dimensions.x}
                             y={dataCollector.dimensions.y}
                             width={dataCollector.dimensions.width}
@@ -46,5 +46,3 @@ const FactoryDataCollectorsRender = ({ dataCollectors }: Props) => {
         </g>
     )
 }
-
-export default FactoryDataCollectorsRender

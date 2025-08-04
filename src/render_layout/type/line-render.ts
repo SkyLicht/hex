@@ -1,6 +1,6 @@
 import { MachineRenderer } from '@/src/render_layout/type/machine-renderer'
 import { RenderMeasures } from '@/src/render_layout/type/render/render-measures'
-import { RenderRender } from '@/src/render_layout/type/render/render-render'
+import { RenderMachineRender } from '@/src/render_layout/type/render/render-machine-render'
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
 
 export interface LineRenderer {
@@ -9,7 +9,17 @@ export interface LineRenderer {
     link: string
     dimensions: RenderMeasures
     measures: RenderMeasures
-    render: RenderRender
+    render: RenderMachineRender
     machines: Array<MachineRenderer>
     data_collectors: Array<DataCollectorRenderer>
+    groups: LineGroupRenderer[]
+}
+
+export interface LineGroupRenderer {
+    id: string
+    index: number
+    label: string
+    banner_id: string
+    range_form: number
+    range_to: number
 }

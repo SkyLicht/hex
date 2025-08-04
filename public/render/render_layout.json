@@ -94,22 +94,104 @@
             "from_anchor": "top",
             "to_anchor": "bottomCenter"
           }
+        },
+        {
+          "id": "j01_collector_pth_input",
+          "label": "PTH Input",
+          "collector_id": "PTH_INPUT",
+          "link": "manual3_j01",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j01_collector_touch_inspect",
+          "label": "TOUCH INSPECT",
+          "collector_id": "TOUCH_INSPECT",
+          "link": "conveyor24_j01",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j01_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "TOUCH_UP",
+          "link": "aoi5_pth_j01",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j01_collector_ict",
+          "label": "ICT",
+          "collector_id": "ICT",
+          "link": "ict_auto_j01",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j01_collector_ft",
+          "label": "FT",
+          "collector_id": "FT",
+          "link": "ft_cell1_j01",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j01_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "FINAL_VI",
+          "link": "aoi6_pth_j01",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j01_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "FINAL_INSPECT",
+          "link": "cpu_assembly_j01",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j01_collector_packing",
+          "label": "Packing",
+          "collector_id": "PACKING",
+          "link": "packing_j01",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
         }
       ],
       "groups": [
         {
+          "id": "8fe70fa3-5a5c-469f-b74a-b0d981d5d790",
           "index": 0,
           "label": "SMT",
           "banner_id": "sdf",
           "range_form": 0,
-          "range_to": 15
+          "range_to": 55
         },
         {
-          "index": 0,
+          "id": "feda8262-c6bb-43d2-bef1-85f3fc9f8bad",
+          "index": 1,
           "label": "PTH",
           "banner_id": "sdf",
-          "range_form": 0,
-          "range_to": 0
+          "range_form": 55,
+          "range_to": 93
         }
       ],
       "render": {
@@ -122,7 +204,7 @@
           "owner": "automation",
           "render": {
             "type": "loader_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -131,7 +213,7 @@
           "owner": "ee",
           "render": {
             "type": "gkg_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -140,7 +222,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -149,7 +231,7 @@
           "owner": "automation",
           "render": {
             "type": "spi_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -158,7 +240,7 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -167,7 +249,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x3_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -176,7 +258,7 @@
           "owner": "automation",
           "render": {
             "type": "shuttle_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -185,7 +267,7 @@
           "owner": "automation",
           "render": {
             "type": "npm_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -194,7 +276,7 @@
           "owner": "automation",
           "render": {
             "type": "npm_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -203,7 +285,7 @@
           "owner": "automation",
           "render": {
             "type": "shuttle_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -212,7 +294,7 @@
           "owner": "automation",
           "render": {
             "type": "sliding_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -221,7 +303,7 @@
           "owner": "ee",
           "render": {
             "type": "fuzion_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -230,7 +312,7 @@
           "owner": "ee",
           "render": {
             "type": "fuzion_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -239,7 +321,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -248,7 +330,7 @@
           "owner": "mm",
           "render": {
             "type": "aoi_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -257,7 +339,7 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -266,7 +348,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -275,7 +357,7 @@
           "owner": "automation",
           "render": {
             "type": "insert_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -284,7 +366,7 @@
           "owner": "ee",
           "render": {
             "type": "reflow_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -293,7 +375,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -302,7 +384,7 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -311,7 +393,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -320,7 +402,7 @@
           "owner": "mm",
           "render": {
             "type": "aoi_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -329,7 +411,7 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -338,7 +420,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -347,7 +429,7 @@
           "owner": "automation",
           "render": {
             "type": "rotator_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -356,7 +438,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x3_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -365,7 +447,7 @@
           "owner": "ee",
           "render": {
             "type": "gkg_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -374,7 +456,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -383,7 +465,7 @@
           "owner": "mm",
           "render": {
             "type": "spi_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -392,17 +474,16 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
-
         {
           "id": "conveyor11_j01",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -411,7 +492,7 @@
           "owner": "automation",
           "render": {
             "type": "shuttle_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -420,7 +501,7 @@
           "owner": "automation",
           "render": {
             "type": "npm_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -429,7 +510,7 @@
           "owner": "automation",
           "render": {
             "type": "npm_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -438,7 +519,7 @@
           "owner": "automation",
           "render": {
             "type": "npm_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -447,7 +528,7 @@
           "owner": "automation",
           "render": {
             "type": "npm_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -456,7 +537,7 @@
           "owner": "automation",
           "render": {
             "type": "shuttle_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -465,7 +546,7 @@
           "owner": "automation",
           "render": {
             "type": "sliding_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -474,7 +555,7 @@
           "owner": "ee",
           "render": {
             "type": "fuzion_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -483,7 +564,7 @@
           "owner": "ee",
           "render": {
             "type": "fuzion_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -492,7 +573,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -501,7 +582,7 @@
           "owner": "mm",
           "render": {
             "type": "aoi_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -510,7 +591,7 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -519,7 +600,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -528,7 +609,7 @@
           "owner": "automation",
           "render": {
             "type": "insert_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -537,7 +618,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -546,7 +627,7 @@
           "owner": "ee",
           "render": {
             "type": "reflow_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -555,7 +636,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -564,7 +645,7 @@
           "owner": "automation",
           "render": {
             "type": "remove_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -573,7 +654,7 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -582,7 +663,7 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -591,7 +672,7 @@
           "owner": "mm",
           "render": {
             "type": "aoi_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -600,7 +681,7 @@
           "owner": "automation",
           "render": {
             "type": "buffer_machine",
-            "direction": "left"
+            "direction": "right"
           }
         },
         {
@@ -609,7 +690,1625 @@
           "owner": "automation",
           "render": {
             "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor19_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "radial_j01",
+          "label": "Radial",
+          "owner": "ee",
+          "render": {
+            "type": "radial_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor20_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion1_dim_j01",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor21_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "sliding_pth_j01",
+          "label": "Sliding",
+          "owner": "automation",
+          "render": {
+            "type": "sliding_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "juki1_j01",
+          "label": "JKUI",
+          "owner": "ee",
+          "render": {
+            "type": "juki_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor22_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "facc1_j01",
+          "label": "FACC",
+          "owner": "ee",
+          "render": {
+            "type": "facc_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "facc2_j01",
+          "label": "FACC",
+          "owner": "ee",
+          "render": {
+            "type": "facc_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor23_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "manual1_j01",
+          "label": "Manual",
+          "owner": "automation",
+          "render": {
+            "type": "manual_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "manual2_j01",
+          "label": "Manual",
+          "owner": "automation",
+          "render": {
+            "type": "manual_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "manual3_j01",
+          "label": "Manual",
+          "owner": "automation",
+          "render": {
+            "type": "manual_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "flux_j01",
+          "label": "Fluxer",
+          "owner": "mm",
+          "render": {
+            "type": "flux_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "wave_j01",
+          "label": "Wave Soldier",
+          "owner": "automation",
+          "render": {
+            "type": "wave_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "carrier_j01",
+          "label": "Carrier",
+          "owner": "automation",
+          "render": {
+            "type": "carrier_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor24_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x7_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi5_pth_j01",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor25_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer9_j01",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor26_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ict_auto_j01",
+          "label": "ICT Auto",
+          "owner": "test",
+          "render": {
+            "type": "ict_auto_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer10_j01",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor27_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor28_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "insert_battery_j01",
+          "label": "Insert Battery",
+          "owner": "automation",
+          "render": {
+            "type": "insert_battery_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor29_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "install_hs_j01",
+          "label": "Install H/S",
+          "owner": "automation",
+          "render": {
+            "type": "install_hs_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ft_cell1_j01",
+          "label": "FT Cell",
+          "owner": "test",
+          "render": {
+            "type": "ft_cell_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ft_cell2_j01",
+          "label": "FT Cell",
+          "owner": "test",
+          "render": {
+            "type": "ft_cell_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor30_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "install_socket_j01",
+          "label": "Install Socket",
+          "owner": "automation",
+          "render": {
+            "type": "install_socket_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor31_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi6_pth_j01",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor32_j01",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "cpu_assembly_j01",
+          "label": "Cpu Assembly",
+          "owner": "automation",
+          "render": {
+            "type": "cpu_assembly_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "packing_j01",
+          "label": "Packing",
+          "owner": "production",
+          "render": {
+            "type": "packing_j01_machine",
+            "direction": "right"
+          }
+        }
+      ]
+    },
+    {
+      "id": "production_line_j02",
+      "link": "production_area",
+      "label": "J02",
+      "data_collector": [
+      ],
+      "groups": [
+        {
+          "id": "27720e31-d79f-48d1-b167-1cd55cd24d5b",
+          "index": 0,
+          "label": "SMT",
+          "banner_id": "sdf",
+          "range_form": 0,
+          "range_to": 55
+        },
+        {
+          "id": "0f8e84a2-c279-44bd-b94b-a700acd5030d",
+          "index": 1,
+          "label": "PTH",
+          "banner_id": "sdf",
+          "range_form": 55,
+          "range_to": 93
+        }
+      ],
+      "render": {
+        "type": "production_line"
+      },
+      "machines": [
+        {
+          "id": "loader_j02",
+          "label": "Loader",
+          "owner": "automation",
+          "render": {
+            "type": "loader_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "gkg_bot_j02",
+          "label": "GKG",
+          "owner": "ee",
+          "render": {
+            "type": "gkg_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor1_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "spi_bot_j02",
+          "label": "SPI",
+          "owner": "automation",
+          "render": {
+            "type": "spi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer1_j02",
+          "label": "Buffer",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor2_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x3_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "shuttle1_bot_j02",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_bot_npm1_j02",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_bot_npm2_j02",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "shuttle2_bot_j02",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "sliding_bot_j02",
+          "label": "Sliding",
+          "owner": "automation",
+          "render": {
+            "type": "sliding_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion1_bot_j02",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion2_bot_j02",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor4_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi1_bot_j02",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer2_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor5_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "insert_bot_j02",
+          "label": "Insert Pallet",
+          "owner": "automation",
+          "render": {
+            "type": "insert_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "reflow_bot_j02",
+          "label": "Reflow Oven",
+          "owner": "ee",
+          "render": {
+            "type": "reflow_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor6_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer3_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor7_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi2_bot_j02",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer4_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor8_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "rotator_top_j02",
+          "label": "Rotator",
+          "owner": "automation",
+          "render": {
+            "type": "rotator_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor9_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x3_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "gkg_top_j02",
+          "label": "GKG",
+          "owner": "ee",
+          "render": {
+            "type": "gkg_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor10_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "spi_top_j02",
+          "label": "SPI",
+          "owner": "mm",
+          "render": {
+            "type": "spi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer5_j02",
+          "label": "Buffer",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor11_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "shuttle1_j02",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm1_j02",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm2_j02",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm3_j02",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm4_j02",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "shuttle2_j02",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "sliding_top_j02",
+          "label": "Sliding",
+          "owner": "automation",
+          "render": {
+            "type": "sliding_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion1_top_j02",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion2_top_j02",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor13_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi3_top_j02",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer6_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor14_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "insert_top_j02",
+          "label": "Insert Pallet",
+          "owner": "automation",
+          "render": {
+            "type": "insert_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor15_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "reflow_top_j02",
+          "label": "Reflow Oven",
+          "owner": "ee",
+          "render": {
+            "type": "reflow_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor16_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "remove_top_j02",
+          "label": "Remove Pallet",
+          "owner": "automation",
+          "render": {
+            "type": "remove_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer7_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor17_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi4_top_j02",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer8_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor18_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor19_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "radial_j02",
+          "label": "Radial",
+          "owner": "ee",
+          "render": {
+            "type": "radial_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor20_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion1_dim_j02",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor21_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "sliding_pth_j02",
+          "label": "Sliding",
+          "owner": "automation",
+          "render": {
+            "type": "sliding_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "juki1_j02",
+          "label": "JKUI",
+          "owner": "ee",
+          "render": {
+            "type": "juki_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor22_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "facc1_j02",
+          "label": "FACC",
+          "owner": "ee",
+          "render": {
+            "type": "facc_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "facc2_j02",
+          "label": "FACC",
+          "owner": "ee",
+          "render": {
+            "type": "facc_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor23_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "manual1_j02",
+          "label": "Manual",
+          "owner": "automation",
+          "render": {
+            "type": "manual_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "manual2_j02",
+          "label": "Manual",
+          "owner": "automation",
+          "render": {
+            "type": "manual_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "manual3_j02",
+          "label": "Manual",
+          "owner": "automation",
+          "render": {
+            "type": "manual_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "flux_j02",
+          "label": "Fluxer",
+          "owner": "mm",
+          "render": {
+            "type": "flux_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "wave_j02",
+          "label": "Wave Soldier",
+          "owner": "automation",
+          "render": {
+            "type": "wave_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "carrier_j02",
+          "label": "Carrier",
+          "owner": "automation",
+          "render": {
+            "type": "carrier_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor24_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x7_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi5_pth_j02",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor25_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer9_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor26_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ict_auto_j02",
+          "label": "ICT Auto",
+          "owner": "test",
+          "render": {
+            "type": "ict_auto_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer10_j02",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor27_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor28_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "insert_battery_j02",
+          "label": "Insert Battery",
+          "owner": "automation",
+          "render": {
+            "type": "insert_battery_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor29_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "install_hs_j02",
+          "label": "Install H/S",
+          "owner": "automation",
+          "render": {
+            "type": "install_hs_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ft_cell1_j02",
+          "label": "FT Cell",
+          "owner": "test",
+          "render": {
+            "type": "ft_cell_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ft_cell2_j02",
+          "label": "FT Cell",
+          "owner": "test",
+          "render": {
+            "type": "ft_cell_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor30_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "install_socket_j02",
+          "label": "Install Socket",
+          "owner": "automation",
+          "render": {
+            "type": "install_socket_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor31_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi6_pth_j02",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor32_j02",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "cpu_assembly_j02",
+          "label": "Cpu Assembly",
+          "owner": "automation",
+          "render": {
+            "type": "cpu_assembly_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "packing_j02",
+          "label": "Packing",
+          "owner": "production",
+          "render": {
+            "type": "packing_j01_machine",
+            "direction": "right"
+          }
+        }
+      ]
+    },
+    {
+      "id": "production_line_j05",
+      "link": "production_area",
+      "label": "J05",
+      "data_collector": [
+      ],
+      "groups": [
+        {
+          "id": "7d76b611-5bc9-4d3d-9e0d-40948d2be395",
+          "index": 0,
+          "label": "SMT",
+          "banner_id": "sdf",
+          "range_form": 0,
+          "range_to": 30
+        }
+      ],
+      "render": {
+        "type": "production_line"
+      },
+      "machines": [
+        {
+          "id": "loader_j05",
+          "label": "Loader",
+          "owner": "automation",
+          "render": {
+            "type": "loader_machine",
             "direction": "left"
+          }
+        },
+        {
+          "id": "gkg_bot_j05",
+          "label": "GKG",
+          "owner": "ee",
+          "render": {
+            "type": "gkg_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "conveyor1_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "spi_bot_j05",
+          "label": "SPI",
+          "owner": "automation",
+          "render": {
+            "type": "spi_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "ng_buffer1_j05",
+          "label": "Buffer",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "conveyor2_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x3_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "shuttle1_bot_j05",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "panasonic_bot_npm1_j05",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "panasonic_bot_npm2_j05",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "shuttle2_bot_j05",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "sliding_bot_j05",
+          "label": "Sliding",
+          "owner": "automation",
+          "render": {
+            "type": "sliding_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "fuzion1_bot_j05",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "fuzion2_bot_j05",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "conveyor4_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "aoi1_bot_j05",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "left"
+          }
+        },
+        {
+          "id": "ng_buffer2_j05",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "top"
+          }
+        },
+        {
+          "id": "conveyor5_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "top"
+          }
+        },
+        {
+          "id": "insert_bot_j05",
+          "label": "Insert Pallet",
+          "owner": "automation",
+          "render": {
+            "type": "insert_machine",
+            "direction": "top"
+          }
+        },
+        {
+          "id": "conveyor6_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "top"
+          }
+        },
+        {
+          "id": "conveyore6_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "co3nveyo2re6_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "con4veyo2re6_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer3_j05",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor7_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "aoi2_bot_j05",
+          "label": "AOI",
+          "owner": "mm",
+          "render": {
+            "type": "aoi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer4_j05",
+          "label": "Buffer NG",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor8_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "rotator_top_j05",
+          "label": "Rotator",
+          "owner": "automation",
+          "render": {
+            "type": "rotator_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor9_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x3_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "gkg_top_j05",
+          "label": "GKG",
+          "owner": "ee",
+          "render": {
+            "type": "gkg_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor10_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "spi_top_j05",
+          "label": "SPI",
+          "owner": "mm",
+          "render": {
+            "type": "spi_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "ng_buffer5_j05",
+          "label": "Buffer",
+          "owner": "automation",
+          "render": {
+            "type": "buffer_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "conveyor11_j05",
+          "label": "Conveyor",
+          "owner": "automation",
+          "render": {
+            "type": "conveyor_x1_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "shuttle1_j05",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm1_j05",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm2_j05",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm3_j05",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "panasonic_top_npm4_j05",
+          "label": "Panasonic",
+          "owner": "automation",
+          "render": {
+            "type": "npm_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "shuttle2_j06",
+          "label": "Shuttle",
+          "owner": "automation",
+          "render": {
+            "type": "shuttle_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "sliding_top_j06",
+          "label": "Sliding",
+          "owner": "automation",
+          "render": {
+            "type": "sliding_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion1_top_j06",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
+          }
+        },
+        {
+          "id": "fuzion2_top_j06",
+          "label": "Fuzion",
+          "owner": "ee",
+          "render": {
+            "type": "fuzion_machine",
+            "direction": "right"
           }
         }
       ]

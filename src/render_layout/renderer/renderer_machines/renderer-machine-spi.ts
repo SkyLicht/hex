@@ -2,9 +2,9 @@ import { RendererMachineContainer } from '@/src/render_layout/renderer/renderer_
 import { ViewBoxType } from '@/src/render_layout/type/view-box-type'
 
 class RendererMachineSPI extends RendererMachineContainer {
-    constructor(x: number, y: number, viewBox: ViewBoxType) {
+    constructor(x: number, y: number, viewBox: ViewBoxType, direction: string) {
         // Call the parent constructor with a ShapePointType
-        super({ x, y })
+        super({ x, y }, direction)
 
         // Set the proper dimensions and calculate anchors
         const dimensions = this.getContainerSize(viewBox)
@@ -14,11 +14,11 @@ class RendererMachineSPI extends RendererMachineContainer {
     getContainerSize(viewBox: ViewBoxType) {
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 30, height: 30 } // Loader-specific dimensions
+                return { width: 40, height: 35 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
-                return { width: 120, height: 60 } // Larger loader for bigger viewport
+                return { width: 50, height: 35 } // Larger loader for bigger viewport
             default:
-                return { width: 100, height: 50 }
+                return { width: 50, height: 35 }
         }
     }
 

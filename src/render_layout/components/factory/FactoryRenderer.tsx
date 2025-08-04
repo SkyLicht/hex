@@ -35,23 +35,23 @@ const FactoryRenderer = ({ factory }: FactoryRenderProps) => {
             viewBox="0 0 1536 384"
             width="100%"
             height="100% "
-            preserveAspectRatio="xMidYMid meet"
-            className="border border-gray-300 bg-white"
+            preserveAspectRatio="xMidYMin meet"
+            className="border border-gray-300 bg-black"
         >
             <g ref={gRef}>
                 {/* Static background */}
-                <rect
-                    x={0}
-                    y={0}
-                    width={1536}
-                    height={384}
-                    fill="#f8fafc"
-                    stroke="#ccc"
-                />
+                {/*<rect*/}
+                {/*    x={0}*/}
+                {/*    y={0}*/}
+                {/*    width={1536}*/}
+                {/*    height={384}*/}
+                {/*    fill="#f8fafc"*/}
+                {/*    stroke="#ccc"*/}
+                {/*/>*/}
                 {/*Render Production Area*/}
-                <FactoryAreaRenderer
-                    dimension={factory.areas.production_area.dimensions}
-                />
+                {/*<FactoryAreaRenderer*/}
+                {/*    dimension={factory.areas.production_area.dimensions}*/}
+                {/*/>*/}
 
                 {/* Machines */}
                 <FactoryLinesRenderer lines={_render.factory.lines} />

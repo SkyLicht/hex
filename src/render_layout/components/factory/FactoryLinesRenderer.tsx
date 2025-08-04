@@ -1,7 +1,7 @@
 import React from 'react'
 import { LineRenderer } from '@/src/render_layout/type/line-render'
 import FactoryMachinesRenderer from '@/src/render_layout/components/factory/FactoryMachinesRenderer'
-import FactoryDataCollectorsRender from '@/src/render_layout/components/factory/FactoryDataCollectorsRender'
+import { FactoryDataCollectorsRender } from '@/src/render_layout/components/factory/FactoryDataCollectorsRender'
 
 interface Props {
     lines: LineRenderer[]
@@ -20,6 +20,7 @@ export const FactoryLinesRenderer = ({ lines }: Props) => {
                             width={line.dimensions.width}
                             height={line.dimensions.height}
                             fill={'#003153'}
+                            stroke={'#fff'}
                         ></rect>
 
                         <FactoryMachinesRenderer machines={line.machines} />
