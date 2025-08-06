@@ -19,9 +19,27 @@ export const FactoryLinesRenderer = ({ lines }: Props) => {
                             y={line.dimensions.y}
                             width={line.dimensions.width}
                             height={line.dimensions.height}
-                            fill={'#003153'}
-                            stroke={'#fff'}
+                            fill={'#1E1F22'}
+                            stroke={'#212123'}
+                            strokeWidth={0}
+                            rx={25}
                         ></rect>
+
+                        <text
+                            x={line.dimensions.x + 15}
+                            y={line.dimensions.y + 25}
+                            textAnchor="start"
+                            fontSize={24}
+                            fontWeight="bold"
+                            fill={'#A6A6A6'}
+                            style={{
+                                dominantBaseline: 'middle',
+                                userSelect: 'none',
+                                pointerEvents: 'none',
+                            }}
+                        >
+                            {line.label}
+                        </text>
 
                         <FactoryMachinesRenderer machines={line.machines} />
 

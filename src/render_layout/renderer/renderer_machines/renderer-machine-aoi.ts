@@ -1,5 +1,6 @@
 import { RendererMachineContainer } from '@/src/render_layout/renderer/renderer_machines/renderer-machine-container'
 import { ViewBoxType } from '@/src/render_layout/type/view-box-type'
+import { ShapeContainerType } from '@/src/render_layout/type/shape/shape-type'
 
 class RendererMachineAoi extends RendererMachineContainer {
     constructor(x: number, y: number, viewBox: ViewBoxType, direction: string) {
@@ -8,17 +9,18 @@ class RendererMachineAoi extends RendererMachineContainer {
 
         // Set the proper dimensions and calculate anchors
         const dimensions = this.getContainerSize(viewBox)
+        this.container.position.offSet = { x: 0, y: 0 }
         this.measureContainer(dimensions)
     }
 
     getContainerSize(viewBox: ViewBoxType) {
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 30, height: 25 } // Loader-specific dimensions
+                return { width: 20, height: 25 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
-                return { width: 30, height: 25 } // Larger loader for bigger viewport
+                return { width: 20, height: 25 } // Larger loader for bigger viewport
             default:
-                return { width: 30, height: 25 }
+                return { width: 20, height: 25 }
         }
     }
 

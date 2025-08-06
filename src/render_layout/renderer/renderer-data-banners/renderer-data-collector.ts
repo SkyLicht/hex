@@ -9,7 +9,7 @@ class RendererDataCollector extends RendererBanner {
     constructor(
         targetAnchors: ShapeAnchorsType,
         anchorPoints: { from: ShapeAnchors; to: ShapeAnchors },
-        distance: number = 10 // Default distance
+        distance: number = 5 // Default distance
     ) {
         super()
 
@@ -19,8 +19,8 @@ class RendererDataCollector extends RendererBanner {
 
     measureShape(): ShapeDimensionsType {
         return {
-            width: 60,
-            height: 30,
+            width: 90,
+            height: 50,
         }
     }
 }

@@ -9,7 +9,7 @@ export default function ManagerLayout({
         <main className={'max-w-screen'}>
             <section
                 className={
-                    'mx-auto w-full max-w-screen min-h-screen max-h-screen h-screen bg-[#1d1d1d] justify-center flex'
+                    'mx-auto w-full max-w-screen min-h-screen max-h-screen h-screen bg-[#1d1d1d] '
                 }
             >
                 {children}

@@ -20,6 +20,16 @@ class RendererMachineConveyor extends RendererMachineContainer {
 
     getContainerSize(viewBox: ViewBoxType) {
         if (this.variant === 'x1') {
+            if (this.direction === 'top') {
+                switch (viewBox) {
+                    case ViewBoxType.H_W_M_1536:
+                        return { width: 15, height: 15 } // Loader-specific dimensions
+                    case ViewBoxType.H_W_L_1080:
+                        return { width: 15, height: 15 } // Larger loader for bigger viewport
+                    default:
+                        return { width: 15, height: 15 }
+                }
+            }
             switch (viewBox) {
                 case ViewBoxType.H_W_M_1536:
                     return { width: 15, height: 15 } // Loader-specific dimensions
@@ -31,6 +41,16 @@ class RendererMachineConveyor extends RendererMachineContainer {
         }
 
         if (this.variant === 'x2') {
+            if (this.direction === 'top' || this.direction === 'bottom') {
+                switch (viewBox) {
+                    case ViewBoxType.H_W_M_1536:
+                        return { width: 15, height: 20 } // Loader-specific dimensions
+                    case ViewBoxType.H_W_L_1080:
+                        return { width: 15, height: 20 } // Larger loader for bigger viewport
+                    default:
+                        return { width: 15, height: 20 }
+                }
+            }
             switch (viewBox) {
                 case ViewBoxType.H_W_M_1536:
                     return { width: 20, height: 15 } // Loader-specific dimensions

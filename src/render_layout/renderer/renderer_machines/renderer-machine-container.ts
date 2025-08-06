@@ -9,6 +9,7 @@ import {
 export class RendererMachineContainer {
     container: ShapeContainerType
     direction: string
+
     constructor(layout: ShapePointType, _direction: string) {
         this.container = this.createInitialShapeContainer(
             layout.x,
@@ -34,7 +35,8 @@ export class RendererMachineContainer {
             dimensions,
             position: {
                 point,
-                offSet: { x: 3, y: 0 },
+                padding: { x: 3, y: 3 },
+                offSet: { x: 0, y: 0 },
             },
             anchors,
         }
@@ -43,7 +45,58 @@ export class RendererMachineContainer {
     measureContainer(dimensions: ShapeDimensionsType) {
         // Set dimensions
         this.container.dimensions = dimensions
-        this.container.position.point.y -= dimensions.height / 2
+
+        switch (this.direction) {
+            case 'top-right':
+                this.container.position.point.x +=
+                    this.container.position.padding.x
+                this.container.position.point.y +=
+                    this.container.position.padding.y
+                break
+            case 'left-top':
+                this.container.position.point.y -=
+                    dimensions.height +
+                    dimensions.height / 2 +
+                    this.container.position.padding.y
+                this.container.position.point.x +=
+                    this.container.position.padding.x
+
+                break
+
+            case 'left-bottom':
+                this.container.position.point.y +=
+                    this.container.position.padding.y + dimensions.height / 2
+                this.container.position.point.x +=
+                    this.container.position.padding.x
+                break
+
+            case 'bottom-right':
+                this.container.position.point.x += 0
+                this.container.position.point.y -= 0
+                break
+            case 'bottom':
+                this.container.position.point.x -=
+                    dimensions.width / 2 -
+                    this.container.position.padding.x * 2 -
+                    this.container.position.padding.x / 2
+                break
+            case 'top':
+                this.container.position.point.y -= dimensions.height
+                this.container.position.point.x -=
+                    dimensions.width / 2 +
+                    this.container.position.padding.x * 2 +
+                    this.container.position.padding.x / 2
+
+                break
+            case 'right':
+                this.container.position.point.y -=
+                    dimensions.height / 2 + this.container.position.offSet.y
+                break
+            case 'left':
+                this.container.position.point.y -= dimensions.height / 2
+                this.container.position.point.x -= dimensions.width
+                break
+        }
 
         const { x, y } = this.container.position.point
         const { width, height } = this.container.dimensions
@@ -66,5 +119,8 @@ export class RendererMachineContainer {
         }
     }
 
+    public getContainer(): ShapeContainerType {
+        return this.container
+    }
     public measureShape() {}
 }

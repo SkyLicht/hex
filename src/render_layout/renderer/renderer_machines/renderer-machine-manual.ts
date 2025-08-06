@@ -2,19 +2,37 @@ import { RendererMachineContainer } from '@/src/render_layout/renderer/renderer_
 import { ViewBoxType } from '@/src/render_layout/type/view-box-type'
 
 class RendererMachineManual extends RendererMachineContainer {
-    constructor(x: number, y: number, viewBox: ViewBoxType, direction: string) {
+    constructor(
+        x: number,
+        y: number,
+        viewBox: ViewBoxType,
+        direction: string,
+        variant: string
+    ) {
         // Call the parent constructor with a ShapePointType
         super({ x, y }, direction)
 
         // Set the proper dimensions and calculate anchors
-        const dimensions = this.getContainerSize(viewBox)
+        const dimensions = this.getContainerSize(viewBox, variant)
         this.measureContainer(dimensions)
     }
 
-    getContainerSize(viewBox: ViewBoxType) {
+    getContainerSize(viewBox: ViewBoxType, variant: string) {
+        if (variant === 'manual_machine') {
+            switch (viewBox) {
+                case ViewBoxType.H_W_M_1536:
+                    return { width: 24, height: 30 } // Loader-specific dimensions
+                case ViewBoxType.H_W_L_1080:
+                    return { width: 24, height: 30 } // Larger loader for bigger viewport
+                default:
+                    return { width: 24, height: 30 }
+            }
+        }
+
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 24, height: 30 } // Loader-specific dimensions
+                // this.container.position.offSet.y = 5
+                return { width: 20, height: 25 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
                 return { width: 24, height: 30 } // Larger loader for bigger viewport
             default:

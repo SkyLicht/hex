@@ -44,6 +44,7 @@ export type ShapeContainerType = {
     dimensions: ShapeDimensionsType
     position: {
         point: ShapePointType
+        padding: ShapePointType
         offSet: ShapePointType
     }
     anchors: ShapeAnchorsType

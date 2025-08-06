@@ -25,6 +25,7 @@ class RendererBanner {
             position: {
                 point: { x: 0, y: 0 },
                 offSet: { x: 0, y: 0 },
+                padding: { x: 0, y: 0 },
             },
         }
     }

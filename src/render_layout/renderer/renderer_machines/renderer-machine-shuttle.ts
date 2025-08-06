@@ -14,11 +14,11 @@ class RendererMachineShuttle extends RendererMachineContainer {
     getContainerSize(viewBox: ViewBoxType) {
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 15, height: 35 } // Loader-specific dimensions
+                return { width: 15, height: 30 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
-                return { width: 15, height: 35 } // Larger loader for bigger viewport
+                return { width: 15, height: 30 } // Larger loader for bigger viewport
             default:
-                return { width: 15, height: 35 }
+                return { width: 15, height: 30 }
         }
     }
 

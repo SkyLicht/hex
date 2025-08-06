@@ -1,196 +1,197 @@
 'use client'
-import React from 'react';
-import {getColorByOwner} from "@/components/layout/shapes/shape-color";
+import React from 'react'
+import { getColorByOwner } from '@/components/layout/shapes/shape-color'
 
 type Props = {
     render: string | null | undefined
-    width: number;
-    height: number;
-    rx: number;
-    owner: string;
-    strokeWidth?: number; // <-- Add this
+    width: number
+    height: number
+    rx: number
+    owner: string
+    strokeWidth?: number // <-- Add this
 }
 
 function StationShapeManager(props: Props) {
+    if (props.render === 'sliding')
+        return (
+            <>
+                <rect
+                    width={props.width / 2}
+                    height={props.height}
+                    rx={props.rx}
+                    fill={'#89a7bc'}
+                />
+                <line
+                    x1={props.width / 2}
+                    y1={props.height + 10}
+                    x2={props.width / 2}
+                    y2={-props.height + 10}
+                    stroke="#89a7bc"
+                    strokeWidth={2}
+                />
+            </>
+        )
 
+    if (props.render === 'ict')
+        return (
+            <>
+                <rect
+                    width={15}
+                    height={20}
+                    rx={props.rx}
+                    fill={getColorByOwner(props.owner)}
+                    x={props.width - 20}
+                />
 
-    if (props.render === "sliding") return (
-        <>
-            <rect
-                width={props.width / 2}
-                height={props.height}
-                rx={props.rx}
-                fill={"#89a7bc"}
-            />
-            <line
-                x1={props.width / 2}
-                y1={props.height + 10}
-                x2={props.width / 2}
-                y2={-props.height + 10}
-                stroke="#89a7bc"
-                strokeWidth={2}
-            />
-        </>
-    );
+                <rect
+                    width={15}
+                    height={20}
+                    rx={props.rx}
+                    fill={getColorByOwner(props.owner)}
+                    x={5}
+                />
+                <rect
+                    width={15}
+                    height={20}
+                    rx={props.rx}
+                    fill={getColorByOwner(props.owner)}
+                    x={props.width - 20}
+                    y={props.height - 20}
+                />
 
-    if (props.render === "ict") return (
-        <>
+                <rect
+                    width={15}
+                    height={20}
+                    rx={props.rx}
+                    fill={getColorByOwner(props.owner)}
+                    x={5}
+                    y={props.height - 20}
+                />
 
+                <rect
+                    width={props.width}
+                    height={15}
+                    rx={props.rx}
+                    fill={'#89a7bc'}
+                    y={props.height / 2 - 7.5}
+                />
+            </>
+        )
 
-            <rect
-                width={15}
-                height={20}
-                rx={props.rx}
-                fill={getColorByOwner(props.owner)}
-                x={props.width - 20}
-            />
+    if (props.render === 'ft_grid')
+        return (
+            <>
+                {(() => {
+                    const totalCells = 24
+                    const cellsPerRow = Math.ceil(totalCells / 2)
+                    const padding = 2
+                    const middleRectHeight = 15
+                    const cellGap = 10 // Small gap between cells and middle rectangle
 
-            <rect
-                width={15}
-                height={20}
-                rx={props.rx}
-                fill={getColorByOwner(props.owner)}
-                x={5}
-            />
-            <rect
-                width={15}
-                height={20}
-                rx={props.rx}
-                fill={getColorByOwner(props.owner)}
-                x={props.width - 20}
-                y={props.height - 20}
-            />
+                    // Calculate cell dimensions
+                    const cellWidth =
+                        (props.width - padding * (cellsPerRow + 1)) /
+                        cellsPerRow
+                    const availableHeightPerRow =
+                        (props.height - middleRectHeight - cellGap * 2) / 2
+                    const cellHeight = availableHeightPerRow - padding
 
-            <rect
-                width={15}
-                height={20}
-                rx={props.rx}
-                fill={getColorByOwner(props.owner)}
-                x={5}
-                y={props.height - 20}
-            />
+                    // Position calculations
+                    const middleRectY = props.height / 2 - middleRectHeight / 2
+                    const topRowY = middleRectY - cellGap - cellHeight
+                    const bottomRowY = middleRectY + middleRectHeight + cellGap
 
-            <rect
-                width={props.width}
-                height={15}
-                rx={props.rx}
-                fill={"#89a7bc"}
-                y={props.height / 2 - 7.5}
-            />
+                    return (
+                        <>
+                            {/* Top row cells */}
+                            {Array.from({ length: cellsPerRow }, (_, index) => {
+                                const x =
+                                    padding + index * (cellWidth + padding)
 
-        </>
-    );
+                                return (
+                                    <rect
+                                        key={`top-${index}`}
+                                        width={cellWidth}
+                                        height={cellHeight}
+                                        x={x}
+                                        y={topRowY}
+                                        rx={props.rx}
+                                        fill={getColorByOwner(props.owner)}
+                                        stroke="#fff"
+                                        strokeWidth={0}
+                                    />
+                                )
+                            })}
 
+                            {/* Middle horizontal rectangle (full width) */}
+                            <rect
+                                width={props.width}
+                                height={middleRectHeight}
+                                x={0}
+                                y={middleRectY}
+                                rx={props.rx}
+                                fill={'#89a7bc'}
+                                stroke="#fff"
+                                strokeWidth={0}
+                            />
 
-    if (props.render === "ft_grid") return (
-        <>
-            {(() => {
-                const totalCells = 24;
-                const cellsPerRow = Math.ceil(totalCells / 2);
-                const padding = 2;
-                const middleRectHeight = 15;
-                const cellGap = 10; // Small gap between cells and middle rectangle
+                            {/* Bottom row cells */}
+                            {Array.from(
+                                { length: totalCells - cellsPerRow },
+                                (_, index) => {
+                                    const x =
+                                        padding + index * (cellWidth + padding)
 
-                // Calculate cell dimensions
-                const cellWidth = (props.width - (padding * (cellsPerRow + 1))) / cellsPerRow;
-                const availableHeightPerRow = (props.height - middleRectHeight - (cellGap * 2)) / 2;
-                const cellHeight = availableHeightPerRow - padding;
+                                    return (
+                                        <rect
+                                            key={`bottom-${index}`}
+                                            width={cellWidth}
+                                            height={cellHeight}
+                                            x={x}
+                                            y={bottomRowY}
+                                            rx={props.rx}
+                                            fill={getColorByOwner(props.owner)}
+                                            stroke="#fff"
+                                            strokeWidth={0}
+                                        />
+                                    )
+                                }
+                            )}
+                        </>
+                    )
+                })()}
+            </>
+        )
 
-                // Position calculations
-                const middleRectY = props.height / 2 - middleRectHeight / 2;
-                const topRowY = middleRectY - cellGap - cellHeight;
-                const bottomRowY = middleRectY + middleRectHeight + cellGap;
+    if (props.render === 'back_plate')
+        return (
+            <>
+                <rect
+                    width={15}
+                    height={20}
+                    rx={props.rx}
+                    fill={getColorByOwner(props.owner)}
+                    x={5}
+                />
 
-                return (
-                    <>
-                        {/* Top row cells */}
-                        {Array.from({length: cellsPerRow}, (_, index) => {
-                            const x = padding + index * (cellWidth + padding);
+                <rect
+                    width={15}
+                    height={20}
+                    rx={props.rx}
+                    fill={getColorByOwner(props.owner)}
+                    x={5}
+                    y={props.height - 20}
+                />
 
-                            return (
-                                <rect
-                                    key={`top-${index}`}
-                                    width={cellWidth}
-                                    height={cellHeight}
-                                    x={x}
-                                    y={topRowY}
-                                    rx={props.rx}
-                                    fill={getColorByOwner(props.owner)}
-                                    stroke="#fff"
-                                    strokeWidth={0}
-                                />
-                            );
-                        })}
-
-                        {/* Middle horizontal rectangle (full width) */}
-                        <rect
-                            width={props.width}
-                            height={middleRectHeight}
-                            x={0}
-                            y={middleRectY}
-                            rx={props.rx}
-                            fill={"#89a7bc"}
-                            stroke="#fff"
-                            strokeWidth={0}
-                        />
-
-                        {/* Bottom row cells */}
-                        {Array.from({length: totalCells - cellsPerRow}, (_, index) => {
-                            const x = padding + index * (cellWidth + padding);
-
-                            return (
-                                <rect
-                                    key={`bottom-${index}`}
-                                    width={cellWidth}
-                                    height={cellHeight}
-                                    x={x}
-                                    y={bottomRowY}
-                                    rx={props.rx}
-                                    fill={getColorByOwner(props.owner)}
-                                    stroke="#fff"
-                                    strokeWidth={0}
-                                />
-                            );
-                        })}
-                    </>
-                );
-            })()}
-        </>
-    );
-
-    if (props.render === "back_plate") return (
-        <>
-
-
-            <rect
-                width={15}
-                height={20}
-                rx={props.rx}
-                fill={getColorByOwner(props.owner)}
-                x={5}
-            />
-
-
-            <rect
-                width={15}
-                height={20}
-                rx={props.rx}
-                fill={getColorByOwner(props.owner)}
-                x={5}
-                y={props.height - 20}
-            />
-
-            <rect
-                width={props.width}
-                height={15}
-                rx={props.rx}
-                fill={"#89a7bc"}
-                y={props.height / 2 - 7.5}
-            />
-
-        </>
-    );
-
+                <rect
+                    width={props.width}
+                    height={15}
+                    rx={props.rx}
+                    fill={'#89a7bc'}
+                    y={props.height / 2 - 7.5}
+                />
+            </>
+        )
 
     return (
         <>
@@ -203,7 +204,7 @@ function StationShapeManager(props: Props) {
                 strokeWidth={props.strokeWidth ?? 0}
             />
         </>
-    );
+    )
 }
 
-export default StationShapeManager;
+export default StationShapeManager

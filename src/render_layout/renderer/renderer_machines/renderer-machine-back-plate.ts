@@ -1,7 +1,7 @@
 import { RendererMachineContainer } from '@/src/render_layout/renderer/renderer_machines/renderer-machine-container'
 import { ViewBoxType } from '@/src/render_layout/type/view-box-type'
 
-class RendererMachineLoader extends RendererMachineContainer {
+class RendererMachineBakPlate extends RendererMachineContainer {
     constructor(x: number, y: number, viewBox: ViewBoxType, direction: string) {
         // Call the parent constructor with a ShapePointType
         super({ x, y }, direction)
@@ -14,11 +14,11 @@ class RendererMachineLoader extends RendererMachineContainer {
     getContainerSize(viewBox: ViewBoxType) {
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 15, height: 35 } // Loader-specific dimensions
+                return { width: 50, height: 60 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
-                return { width: 15, height: 35 } // Larger loader for bigger viewport
+                return { width: 35, height: 35 } // Larger loader for bigger viewport
             default:
-                return { width: 15, height: 35 }
+                return { width: 35, height: 35 }
         }
     }
 
@@ -28,4 +28,4 @@ class RendererMachineLoader extends RendererMachineContainer {
     }
 }
 
-export default RendererMachineLoader
+export default RendererMachineBakPlate

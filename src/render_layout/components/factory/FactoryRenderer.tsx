@@ -8,9 +8,10 @@ import { FactoryLinesRenderer } from '@/src/render_layout/components/factory/Fac
 
 interface FactoryRenderProps {
     factory: FactoryRenderA6
+    resolution: number
 }
-
-const FactoryRenderer = ({ factory }: FactoryRenderProps) => {
+//1536 // 1920 // 2160
+const FactoryRenderer = ({ factory, resolution }: FactoryRenderProps) => {
     const _render = useMemo(() => new LayoutRender(factory), [factory])
 
     const svgRef = useRef<SVGSVGElement | null>(null)
@@ -32,11 +33,11 @@ const FactoryRenderer = ({ factory }: FactoryRenderProps) => {
     return (
         <svg
             ref={svgRef}
-            viewBox="0 0 1536 384"
+            viewBox={`0 0 ${resolution} 384`}
             width="100%"
             height="100% "
-            preserveAspectRatio="xMidYMin meet"
-            className="border border-gray-300 bg-black"
+            preserveAspectRatio="xMidYMin  meet"
+            className=" bg-transparent"
         >
             <g ref={gRef}>
                 {/* Static background */}
