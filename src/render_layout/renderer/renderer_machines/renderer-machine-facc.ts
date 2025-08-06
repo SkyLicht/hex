@@ -14,9 +14,9 @@ class RendererMachineFacc extends RendererMachineContainer {
     getContainerSize(viewBox: ViewBoxType) {
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 20, height: 30 } // Loader-specific dimensions
+                return { width: 20, height: 40 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
-                return { width: 20, height: 30 } // Larger loader for bigger viewport
+                return { width: 30, height: 40 } // Larger loader for bigger viewport
             default:
                 return { width: 20, height: 30 }
         }

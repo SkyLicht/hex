@@ -7,7 +7,7 @@ interface Props {
     variant: string
 }
 const MachineFtRenderer = ({ machine, variant }: Props) => {
-    const color = '#631c85'
+    const color = '#561f71'
     if (variant === 'ft_grid_machine') {
         return (
             <g

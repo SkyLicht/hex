@@ -385,7 +385,7 @@
           "label": "Buffer NG",
           "owner": "automation",
           "render": {
-            "type": "buffer_machine",
+            "type": "sorted_buffer_machine",
             "direction": "right"
           }
         },
@@ -655,7 +655,7 @@
           "label": "Buffer NG",
           "owner": "automation",
           "render": {
-            "type": "buffer_machine",
+            "type": "sorted_buffer_machine",
             "direction": "right"
           }
         },
@@ -6592,7 +6592,7 @@
           "label": "Packing",
           "owner": "production",
           "render": {
-            "type": "packing_j01_machine",
+            "type": "packing_j02_machine",
             "direction": "right"
           }
         }
@@ -7289,7 +7289,7 @@
           "label": "Packing",
           "owner": "production",
           "render": {
-            "type": "packing_j01_machine",
+            "type": "packing_j02_machine",
             "direction": "right"
           }
         }

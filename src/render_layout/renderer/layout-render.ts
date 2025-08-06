@@ -38,6 +38,7 @@ import RendererMachineBakPlate from '@/src/render_layout/renderer/renderer_machi
 import RendererMachineAXXON from '@/src/render_layout/renderer/renderer_machines/renderer-machine-axxon'
 import RendererMachineRouter from '@/src/render_layout/renderer/renderer_machines/renderer-machine-router'
 import RendererConveyorAero from '@/src/render_layout/renderer/renderer_machines/renderer-machine-conveyor-aero'
+import RendererMachineJuki from '@/src/render_layout/renderer/renderer_machines/renderer-machine-juki'
 
 export class LayoutRender {
     factory: FactoryRenderA6
@@ -557,6 +558,9 @@ export class LayoutRender {
 
             case 'conveyor_aero_machine':
                 return new RendererConveyorAero(x, y, this.viewType, direction)
+
+            case 'juki_machine':
+                return new RendererMachineJuki(x, y, this.viewType, direction)
             default:
                 return new RendererMachineConveyor(
                     x,

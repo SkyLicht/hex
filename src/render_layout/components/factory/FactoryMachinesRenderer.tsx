@@ -10,7 +10,10 @@ import MachineFuzionRenderer from '@/src/render_layout/components/factory/machin
 import MachineBufferRenderer from '@/src/render_layout/components/factory/machines/MachineNgBufferRenderer'
 import MachineManualRenderer from '@/src/render_layout/components/factory/machines/MachineManualRenderer'
 import MachinePackingRenderer from '@/src/render_layout/components/factory/machines/MachinePackingRenderer'
-import MachineConveyorAero from '@/src/render_layout/components/factory/machines/MachineConveyorAreoRenderer'
+import MachineConveyorAeroRenderer from '@/src/render_layout/components/factory/machines/MachineConveyorAreoRenderer'
+import MachineRadialRenderer from '@/src/render_layout/components/factory/machines/MachineRadialRenderer'
+import MachineFACCRenderer from '@/src/render_layout/components/factory/machines/MachineFACCRenderer'
+import MachineJUKIRenderer from '@/src/render_layout/components/factory/machines/MachineJUKIRenderer'
 
 interface Props {
     machines: MachineRenderer[]
@@ -117,11 +120,23 @@ const SelectMachine = (machine: MachineRenderer) => {
 
     if (machine.render.type === 'conveyor_aero_machine') {
         return (
-            <MachineConveyorAero
+            <MachineConveyorAeroRenderer
                 machine={machine}
                 variant={'conveyor_aero_machine'}
             />
         )
+    }
+
+    if (machine.render.type === 'radial_machine') {
+        return <MachineRadialRenderer machine={machine} />
+    }
+
+    if (machine.render.type === 'facc_machine') {
+        return <MachineFACCRenderer machine={machine} />
+    }
+
+    if (machine.render.type === 'juki_machine') {
+        return <MachineJUKIRenderer machine={machine} />
     }
 
     return (

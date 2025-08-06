@@ -14,7 +14,7 @@ class RendererMachineWave extends RendererMachineContainer {
     getContainerSize(viewBox: ViewBoxType) {
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 50, height: 25 } // Loader-specific dimensions
+                return { width: 60, height: 25 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
                 return { width: 50, height: 25 } // Larger loader for bigger viewport
             default:

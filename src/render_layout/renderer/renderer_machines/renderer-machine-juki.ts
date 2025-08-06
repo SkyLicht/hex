@@ -14,7 +14,7 @@ class RendererMachineJuki extends RendererMachineContainer {
     getContainerSize(viewBox: ViewBoxType) {
         switch (viewBox) {
             case ViewBoxType.H_W_M_1536:
-                return { width: 35, height: 30 } // Loader-specific dimensions
+                return { width: 35, height: 40 } // Loader-specific dimensions
             case ViewBoxType.H_W_L_1080:
                 return { width: 35, height: 30 } // Larger loader for bigger viewport
             default:

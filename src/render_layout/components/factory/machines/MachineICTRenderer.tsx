@@ -5,7 +5,7 @@ interface Props {
     variant: string
 }
 const MachineIctRenderer = ({ machine, variant }: Props) => {
-    const color = '#631c85'
+    const color = '#561f71'
 
     if (variant === 'ict_grid_machine') {
         return (
