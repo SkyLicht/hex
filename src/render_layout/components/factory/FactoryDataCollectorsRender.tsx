@@ -1,12 +1,38 @@
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
-import React from 'react'
+import React, { useState } from 'react'
+
 interface Props {
     dataCollectors: DataCollectorRenderer[]
+    hourly_data: { [key: string]: number }
+    last_record_time: { [key: string]: number }
+    onDataCollectorSelected: (dataCollector: DataCollectorRenderer) => void
 }
-export const FactoryDataCollectorsRender = ({ dataCollectors }: Props) => {
+
+export const FactoryDataCollectorsRender = ({
+    dataCollectors,
+    hourly_data,
+    last_record_time,
+    onDataCollectorSelected,
+}: Props) => {
+    const [hoveredCollector, setHoveredCollector] = useState<string | null>(
+        null
+    )
+
+    const handleCollectorClick = (dataCollector: DataCollectorRenderer) => {
+        onDataCollectorSelected(dataCollector)
+    }
+
     return (
         <g>
             {dataCollectors.map((dataCollector) => {
+                const _last_record_time = last_record_time.hasOwnProperty(
+                    dataCollector.collector_id
+                )
+                    ? last_record_time[dataCollector.collector_id]
+                    : 0
+
+                const isHovered = hoveredCollector === dataCollector.id
+
                 return (
                     <g key={dataCollector.id}>
                         <line
@@ -20,86 +46,166 @@ export const FactoryDataCollectorsRender = ({ dataCollectors }: Props) => {
                             markerEnd="url(#arrowhead)"
                         />
 
+                        {/* Invisible clickable area that covers the entire data collector */}
                         <rect
-                            key={`data_collector-render-rect-2-${dataCollector.id}`}
-                            x={dataCollector.dimensions.x}
-                            y={dataCollector.dimensions.y}
-                            width={dataCollector.dimensions.width}
-                            height={dataCollector.dimensions.height}
-                            fill={'#2d2d2d'}
-                            stroke={'#1d1d1d'}
-                            rx={6}
-                        ></rect>
-                        <text
-                            x={dataCollector.dimensions.x + 5}
-                            y={dataCollector.dimensions.y + 20}
-                            textAnchor="start"
-                            fontSize={16}
-                            fontWeight="bold"
-                            fill={'#A6A6A6'}
-                            style={{
-                                dominantBaseline: 'middle',
-                                userSelect: 'none',
-                                pointerEvents: 'none',
-                            }}
-                        >
-                            100
-                        </text>
-
-                        <text
-                            x={dataCollector.dimensions.x + 5}
-                            y={dataCollector.dimensions.y + 40}
-                            textAnchor="start"
-                            fontSize={12}
-                            fontWeight="bold"
-                            fill={'#A6A6A6'}
-                            style={{
-                                dominantBaseline: 'middle',
-                                userSelect: 'none',
-                                pointerEvents: 'none',
-                            }}
-                        >
-                            100%
-                        </text>
-
-                        <text
-                            x={dataCollector.dimensions.x + 50}
-                            y={dataCollector.dimensions.y + 30}
-                            textAnchor="start"
-                            fontSize={16}
-                            fontWeight="bold"
-                            fill={'#DC2626'}
-                            style={{
-                                dominantBaseline: 'middle',
-                                userSelect: 'none',
-                                pointerEvents: 'none',
-                            }}
-                        >
-                            36
-                        </text>
+                            x={dataCollector.dimensions.x - 5}
+                            y={dataCollector.dimensions.y - 15}
+                            width={dataCollector.dimensions.width + 10}
+                            height={dataCollector.dimensions.height + 20}
+                            fill="transparent"
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => handleCollectorClick(dataCollector)}
+                            onMouseEnter={() =>
+                                setHoveredCollector(dataCollector.id)
+                            }
+                            onMouseLeave={() => setHoveredCollector(null)}
+                        />
 
                         <g
-                            transform={`translate(${dataCollector.dimensions.x + 60}, ${dataCollector.dimensions.y - 10}) scale(1)`}
+                            key={`data_collector-render-rect-1-${dataCollector.id}`}
+                            transform={`translate(${dataCollector.dimensions.x}, ${dataCollector.dimensions.y})`}
+                            style={{
+                                cursor: 'pointer',
+                                pointerEvents: 'none', // Prevent this group from intercepting clicks
+                            }}
                         >
-                            <path
-                                d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3
-             -1.072-2.143-.224-4.054 2-6
-             .5 2.5 2 4.9 4 6.5
-             2 1.6 3 3.5 3 5.5
-             a7 7 0 1 1-14 0
-             c0-1.153.433-2.294 1-3
-             a2.5 2.5 0 0 0 2.5 2.5z"
-                                fill="none"
-                                stroke="#DC2626"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
+                            <rect
+                                key={`data_collector-render-rect-2-${dataCollector.id}`}
+                                width={dataCollector.dimensions.width}
+                                height={dataCollector.dimensions.height}
+                                fill={isHovered ? '#4a4a4a' : '#2d2d2d'}
+                                stroke={'#1d1d1d'}
+                                strokeWidth={isHovered ? 2 : 1}
+                                rx={6}
+                                style={{
+                                    transition: 'all 0.2s ease-in-out',
+                                }}
                             />
-                        </g>
 
-                        {/*<RenderContainerAnchors*/}
-                        {/*    anchors={dataCollector.dimensions.anchors}*/}
-                        {/*/>*/}
+                            <text
+                                textAnchor="start"
+                                fontSize={12}
+                                y={-7}
+                                x={5}
+                                fontWeight="bold"
+                                fill={isHovered ? '#ffffff' : '#A6A6A6'}
+                                style={{
+                                    dominantBaseline: 'middle',
+                                    userSelect: 'none',
+                                    pointerEvents: 'none',
+                                    transition: 'fill 0.2s ease-in-out',
+                                }}
+                            >
+                                {dataCollector.label}
+                            </text>
+
+                            <text
+                                textAnchor="start"
+                                fontSize={10}
+                                x={52}
+                                y={10}
+                                fontWeight="bold"
+                                fill={isHovered ? '#ffffff' : '#A6A6A6'}
+                                style={{
+                                    dominantBaseline: 'middle',
+                                    userSelect: 'none',
+                                    pointerEvents: 'none',
+                                    transition: 'fill 0.2s ease-in-out',
+                                }}
+                            />
+
+                            <text
+                                x={20}
+                                y={14}
+                                textAnchor="start"
+                                fontSize={18}
+                                fontWeight="bold"
+                                fill={isHovered ? '#ffffff' : '#A6A6A6'}
+                                style={{
+                                    dominantBaseline: 'middle',
+                                    userSelect: 'none',
+                                    pointerEvents: 'none',
+                                    transition: 'fill 0.2s ease-in-out',
+                                }}
+                            >
+                                {hourly_data.hasOwnProperty(
+                                    dataCollector.collector_id
+                                )
+                                    ? hourly_data[dataCollector.collector_id]
+                                    : 0}
+                            </text>
+
+                            <g
+                                transform={`translate(${4}, ${0}) scale(1)`}
+                                style={{ pointerEvents: 'none' }}
+                            >
+                                <path
+                                    d="m2 6 5 5 5-5"
+                                    fill="none"
+                                    stroke={isHovered ? '#ff4444' : '#c61919'}
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    style={{
+                                        transition: 'stroke 0.2s ease-in-out',
+                                    }}
+                                />
+                                <path
+                                    d="m2 13 5 5 5-5"
+                                    fill="none"
+                                    stroke={isHovered ? '#ff4444' : '#c61919'}
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    style={{
+                                        transition: 'stroke 0.2s ease-in-out',
+                                    }}
+                                />
+                            </g>
+
+                            {_last_record_time > 1 ? (
+                                <>
+                                    <text
+                                        x={22}
+                                        y={30}
+                                        textAnchor="start"
+                                        fontSize={16}
+                                        fontWeight="bold"
+                                        fill={isHovered ? '#ff4444' : '#c61919'}
+                                        style={{
+                                            dominantBaseline: 'middle',
+                                            userSelect: 'none',
+                                            pointerEvents: 'none',
+                                            transition: 'fill 0.2s ease-in-out',
+                                        }}
+                                    >
+                                        {_last_record_time}
+                                    </text>
+
+                                    <g
+                                        transform={`translate(${55}, ${14}) scale(1)`}
+                                        style={{ pointerEvents: 'none' }}
+                                    >
+                                        <path
+                                            d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3 -1.072-2.143-.224-4.054 2-6  .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5 a7 7 0 1 1-14 0 c0-1.153.433-2.294 1-3 a2.5 2.5 0 0 0 2.5 2.5z"
+                                            fill="none"
+                                            stroke={
+                                                isHovered
+                                                    ? '#ff4444'
+                                                    : '#DC2626'
+                                            }
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            style={{
+                                                transition:
+                                                    'stroke 0.2s ease-in-out',
+                                            }}
+                                        />
+                                    </g>
+                                </>
+                            ) : null}
+                        </g>
                     </g>
                 )
             })}

@@ -5,7 +5,7 @@ interface Props {
     variant: string
 }
 const MachineNgBufferRenderer = ({ machine, variant }: Props) => {
-    const color = '#0e4357'
+    const color = '#0a3647'
     if (variant === 'buffer_machine') {
         if (machine.render.direction === 'left') {
             return (

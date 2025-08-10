@@ -18,7 +18,7 @@
         {
           "id": "j01_collector_smt_input_bot",
           "label": "INPUT BOT",
-          "collector_id": "SMT_INPUT1",
+          "collector_id": "J01_SMT_INPUT1",
           "link": "conveyor1_j01",
           "render": {
             "from_anchor": "top",
@@ -28,7 +28,7 @@
         {
           "id": "j01_collector_smt_spi_bot",
           "label": "SPI BOT",
-          "collector_id": "SPI1",
+          "collector_id": "J01_SPI1",
           "link": "spi_bot_j01",
           "render": {
             "from_anchor": "topRight",
@@ -38,7 +38,7 @@
         {
           "id": "j01_collector_smt_reflow_bot",
           "label": "REFLOW BOT",
-          "collector_id": "REFLOW_VI1",
+          "collector_id": "J01_REFLOW_VI1",
           "link": "conveyor4_j01",
           "render": {
             "from_anchor": "top",
@@ -48,7 +48,7 @@
         {
           "id": "j01_collector_smt_aoi_bot",
           "label": "AOI BOT",
-          "collector_id": "AOI_B2",
+          "collector_id": "J01_AOI_B2",
           "link": "aoi2_bot_j01",
           "render": {
             "from_anchor": "top",
@@ -58,7 +58,7 @@
         {
           "id": "j01_collector_smt_input_top",
           "label": "INPUT TOP",
-          "collector_id": "SMT_INPUT2",
+          "collector_id": "J01_SMT_INPUT2",
           "link": "conveyor10_j01",
           "render": {
             "from_anchor": "top",
@@ -68,7 +68,7 @@
         {
           "id": "j01_collector_smt_spi_top",
           "label": "SPI TOP",
-          "collector_id": "SPI2",
+          "collector_id": "J01_SPI2",
           "link": "spi_top_j01",
           "render": {
             "from_anchor": "top",
@@ -78,7 +78,7 @@
         {
           "id": "j01_collector_smt_reflow_top",
           "label": "REFLOW TOP",
-          "collector_id": "REFLOW_VI2",
+          "collector_id": "J01_REFLOW_VI2",
           "link": "conveyor14_j01",
           "render": {
             "from_anchor": "top",
@@ -88,7 +88,7 @@
         {
           "id": "j01_collector_smt_aoi_top",
           "label": "AOI TOP",
-          "collector_id": "AOI_B2",
+          "collector_id": "J01_AOI_B2",
           "link": "aoi4_top_j01",
           "render": {
             "from_anchor": "top",
@@ -98,7 +98,7 @@
         {
           "id": "j01_collector_pth_input",
           "label": "PTH Input",
-          "collector_id": "PTH_INPUT",
+          "collector_id": "J01_PTH_INPUT",
           "link": "manual3_j01",
           "render": {
             "from_anchor": "top",
@@ -108,7 +108,7 @@
         {
           "id": "j01_collector_touch_inspect",
           "label": "TOUCH INSPECT",
-          "collector_id": "TOUCH_INSPECT",
+          "collector_id": "J01_TOUCH_INSPECT",
           "link": "conveyor24_j01",
           "render": {
             "from_anchor": "top",
@@ -118,7 +118,7 @@
         {
           "id": "j01_collector_touch_up",
           "label": "TOUCH UP",
-          "collector_id": "TOUCH_UP",
+          "collector_id": "J01_TOUCH_UP",
           "link": "aoi5_pth_j01",
           "render": {
             "from_anchor": "top",
@@ -128,7 +128,7 @@
         {
           "id": "j01_collector_ict",
           "label": "ICT",
-          "collector_id": "ICT",
+          "collector_id": "J01_ICT",
           "link": "ict_auto_j01",
           "render": {
             "from_anchor": "top",
@@ -138,7 +138,7 @@
         {
           "id": "j01_collector_ft",
           "label": "FT",
-          "collector_id": "FT",
+          "collector_id": "J01_FT1",
           "link": "ft_cell1_j01",
           "render": {
             "from_anchor": "top",
@@ -148,7 +148,7 @@
         {
           "id": "j01_collector_final_vi",
           "label": "FINAL VI",
-          "collector_id": "FINAL_VI",
+          "collector_id": "J01_FINAL_VI",
           "link": "aoi6_pth_j01",
           "render": {
             "from_anchor": "top",
@@ -158,7 +158,7 @@
         {
           "id": "j01_collector_final_inspect",
           "label": "FINAL INSPECT",
-          "collector_id": "FINAL_INSPECT",
+          "collector_id": "J01_FINAL_INSPECT",
           "link": "cpu_assembly_j01",
           "render": {
             "from_anchor": "top",
@@ -168,7 +168,7 @@
         {
           "id": "j01_collector_packing",
           "label": "Packing",
-          "collector_id": "PACKING",
+          "collector_id": "J01_PACKING",
           "link": "packing_j01",
           "render": {
             "from_anchor": "topRight",
@@ -184,7 +184,11 @@
           "banner_id": "sdf",
           "range_form": 0,
           "type": "I",
-          "range_to": 55
+          "range_to": 55,
+          "render": {
+            "x": 10,
+            "y": 130
+          }
         },
         {
           "id": "feda8262-c6bb-43d2-bef1-85f3fc9f8bad",
@@ -193,11 +197,19 @@
           "banner_id": "sdf",
           "type": "PTH",
           "range_form": 55,
-          "range_to": 94
+          "range_to": 94,
+          "render": {
+            "x": 150,
+            "y": 270
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 340
       },
       "machines": [
         {
@@ -1053,7 +1065,148 @@
       "link": "production_area",
       "label": "J02",
       "data_collector": [
+        {
+          "id": "j02_collector_smt_input_bot",
+          "label": "INPUT BOT",
+          "collector_id": "J02_SMT_INPUT1",
+          "link": "conveyor1_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j02_collector_smt_spi_bot",
+          "label": "SPI BOT",
+          "collector_id": "J02_SPI1",
+          "link": "spi_bot_j02",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j02_collector_smt_reflow_bot",
+          "label": "REFLOW BOT",
+          "collector_id": "J02_REFLOW_VI1",
+          "link": "conveyor4_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j02_collector_smt_aoi_bot",
+          "label": "AOI BOT",
+          "collector_id": "J02_AOI_B2",
+          "link": "aoi2_bot_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j02_collector_smt_input_top",
+          "label": "INPUT TOP",
+          "collector_id": "J02_SMT_INPUT2",
+          "link": "conveyor10_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j02_collector_smt_spi_top",
+          "label": "SPI TOP",
+          "collector_id": "J02_SPI2",
+          "link": "spi_top_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j02_collector_smt_reflow_top",
+          "label": "REFLOW TOP",
+          "collector_id": "J02_REFLOW_VI2",
+          "link": "conveyor14_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j02_collector_smt_aoi_top",
+          "label": "AOI TOP",
+          "collector_id": "J02_AOI_B2",
+          "link": "aoi4_top_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j02_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "J02_TOUCH_UP",
+          "link": "conveyor19_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j02_collector_ict",
+          "label": "ICT",
+          "collector_id": "J02_ICT",
+          "link": "ict_grid_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j02_collector_ft",
+          "label": "FT",
+          "collector_id": "J02_FT1",
+          "link": "ft_grid_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j02_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "J02_FINAL_VI",
+          "link": "back_plate_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j02_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "J02_FINAL_INSPECT",
+          "link": "assembly4_j02",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j02_collector_packing",
+          "label": "Packing",
+          "collector_id": "J02_PACKING",
+          "link": "packing_j02",
+          "render": {
+            "from_anchor": "right",
+            "to_anchor": "leftBottom"
+          }
+        }
       ],
+
       "groups": [
         {
           "id": "27720e31-d79f-48d1-b167-1cd55cd24d5b",
@@ -1062,7 +1215,11 @@
           "banner_id": "sdf",
           "type": "I",
           "range_form": 0,
-          "range_to": 56
+          "range_to": 56,
+          "render": {
+            "x": 10,
+            "y": 130
+          }
         },
         {
           "id": "0f8e84a2-c279-44bd-b94b-a700acd5030d",
@@ -1071,11 +1228,19 @@
           "type": "PTH",
           "banner_id": "sdf",
           "range_form": 56,
-          "range_to": 69
+          "range_to": 69,
+          "render": {
+            "x": 350,
+            "y": 280
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 350
       },
       "machines": [
         {
@@ -1611,7 +1776,7 @@
           }
         },
         {
-          "id": "ict_auto_j02",
+          "id": "ict_grid_j02",
           "label": "ICT Auto",
           "owner": "test",
           "render": {
@@ -1629,7 +1794,7 @@
           }
         },
         {
-          "id": "ft_cell1_j02",
+          "id": "ft_grid_j02",
           "label": "FT",
           "owner": "test",
           "render": {
@@ -1650,7 +1815,7 @@
         },
         {
           "id": "back_plate_j02",
-          "label": "Cpu Assembly",
+          "label": "Back Plate",
           "owner": "automation",
           "render": {
             "type": "back_plate_machine",
@@ -1709,6 +1874,146 @@
       "link": "production_area",
       "label": "J03",
       "data_collector": [
+        {
+          "id": "j03_collector_smt_input_bot",
+          "label": "INPUT BOT",
+          "collector_id": "J03_SMT_INPUT1",
+          "link": "conveyor1_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j03_collector_smt_spi_bot",
+          "label": "SPI BOT",
+          "collector_id": "J03_SPI1",
+          "link": "spi_bot_j03",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j03_collector_smt_reflow_bot",
+          "label": "REFLOW BOT",
+          "collector_id": "J03_REFLOW_VI1",
+          "link": "conveyor4_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j03_collector_smt_aoi_bot",
+          "label": "AOI BOT",
+          "collector_id": "J03_AOI_B2",
+          "link": "aoi2_bot_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j03_collector_smt_input_top",
+          "label": "INPUT TOP",
+          "collector_id": "J03_SMT_INPUT2",
+          "link": "conveyor10_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j03_collector_smt_spi_top",
+          "label": "SPI TOP",
+          "collector_id": "J03_SPI2",
+          "link": "spi_top_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j03_collector_smt_reflow_top",
+          "label": "REFLOW TOP",
+          "collector_id": "J03_REFLOW_VI2",
+          "link": "conveyor14_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j03_collector_smt_aoi_top",
+          "label": "AOI TOP",
+          "collector_id": "J03_AOI_B2",
+          "link": "aoi4_top_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j03_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "J03_TOUCH_UP",
+          "link": "conveyor19_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j03_collector_ict",
+          "label": "ICT",
+          "collector_id": "J03_ICT",
+          "link": "ict_grid_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j03_collector_ft",
+          "label": "FT",
+          "collector_id": "J03_FT1",
+          "link": "ft_grid_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j03_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "J03_FINAL_VI",
+          "link": "back_plate_j03",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j03_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "J03_FINAL_INSPECT",
+          "link": "assembly4_j03",
+          "render": {
+            "from_anchor": "bot",
+            "to_anchor": "topLeft"
+          }
+        },
+        {
+          "id": "j03_collector_packing",
+          "label": "Packing",
+          "collector_id": "J03_PACKING",
+          "link": "packing_j03",
+          "render": {
+            "from_anchor": "right",
+            "to_anchor": "leftBottom"
+          }
+        }
       ],
       "groups": [
         {
@@ -1718,7 +2023,11 @@
           "banner_id": "sdf",
           "type": "I",
           "range_form": 0,
-          "range_to": 56
+          "range_to": 56,
+          "render": {
+            "x": 10,
+            "y": 130
+          }
         },
         {
           "id": "0f8e84a2-c279-44bd-b94b-a700hcd5030d",
@@ -1727,11 +2036,19 @@
           "type": "PTH",
           "banner_id": "sdf",
           "range_form": 56,
-          "range_to": 69
+          "range_to": 69,
+          "render": {
+            "x": 350,
+            "y": 270
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 350
       },
       "machines": [
         {
@@ -2267,7 +2584,7 @@
           }
         },
         {
-          "id": "ict_auto_j03",
+          "id": "ict_grid_j03",
           "label": "ICT Auto",
           "owner": "test",
           "render": {
@@ -2285,7 +2602,7 @@
           }
         },
         {
-          "id": "ft_cell1_j03",
+          "id": "ft_grid_j03",
           "label": "FT",
           "owner": "test",
           "render": {
@@ -2365,6 +2682,146 @@
       "link": "production_area",
       "label": "J05",
       "data_collector": [
+        {
+          "id": "j05_collector_smt_input_bot",
+          "label": "INPUT BOT",
+          "collector_id": "SMT_INPUT1",
+          "link": "conveyor1_2_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j05_collector_smt_spi_bot",
+          "label": "SPI BOT",
+          "collector_id": "J05_SPI1",
+          "link": "spi_bot_j05",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j05_collector_smt_reflow_bot",
+          "label": "REFLOW BOT",
+          "collector_id": "J05_REFLOW_VI1",
+          "link": "conveyor4_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j05_collector_smt_aoi_bot",
+          "label": "AOI BOT",
+          "collector_id": "J05_AOI_B2",
+          "link": "aoi2_bot_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j05_collector_smt_input_top",
+          "label": "INPUT TOP",
+          "collector_id": "J05_SMT_INPUT2",
+          "link": "conveyor10_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j05_collector_smt_spi_top",
+          "label": "SPI TOP",
+          "collector_id": "J05_SPI2",
+          "link": "spi_top_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j05_collector_smt_reflow_top",
+          "label": "REFLOW TOP",
+          "collector_id": "J05_REFLOW_VI2",
+          "link": "conveyor13_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j05_collector_smt_aoi_top",
+          "label": "AOI TOP",
+          "collector_id": "J05_AOI_B2",
+          "link": "aoi4_top_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j05_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "J05_TOUCH_UP",
+          "link": "conveyor19_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j05_collector_ict",
+          "label": "ICT",
+          "collector_id": "J05_ICT",
+          "link": "ict_grid_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j05_collector_ft",
+          "label": "FT",
+          "collector_id": "J05_FT1",
+          "link": "ft_grid_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j05_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "J05_FINAL_VI",
+          "link": "back_plate_j05",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j05_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "J05_FINAL_INSPECT",
+          "link": "assembly4_j05",
+          "render": {
+            "from_anchor": "bot",
+            "to_anchor": "topLeft"
+          }
+        },
+        {
+          "id": "j05_collector_packing",
+          "label": "Packing",
+          "collector_id": "J05_PACKING",
+          "link": "packing_j05",
+          "render": {
+            "from_anchor": "right",
+            "to_anchor": "leftBottom"
+          }
+        }
       ],
       "groups": [
         {
@@ -2374,7 +2831,11 @@
           "banner_id": "sdf",
           "type": "I",
           "range_form": 0,
-          "range_to": 58
+          "range_to": 58,
+          "render": {
+            "x": 10,
+            "y": 130
+          }
         },
         {
           "id": "0f8e84a2-c279-44bd-b94b-b600acd5030d",
@@ -2383,11 +2844,19 @@
           "type": "I",
           "banner_id": "sdf",
           "range_form": 58,
-          "range_to": 72
+          "range_to": 72,
+          "render": {
+            "x": 200,
+            "y": 280
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 370
       },
       "machines": [
         {
@@ -2940,7 +3409,7 @@
           }
         },
         {
-          "id": "ict_auto_j05",
+          "id": "ict_grid_j05",
           "label": "ICT Auto",
           "owner": "test",
           "render": {
@@ -2958,7 +3427,7 @@
           }
         },
         {
-          "id": "ft_cell1_j05",
+          "id": "ft_grid_j05",
           "label": "FT Cell",
           "owner": "test",
           "render": {
@@ -3061,7 +3530,7 @@
         {
           "id": "j06_collector_smt_spi_bot",
           "label": "SPI BOT",
-          "collector_id": "SPI1",
+          "collector_id": "J06_SPI1",
           "link": "spi_bot_j06",
           "render": {
             "from_anchor": "topRight",
@@ -3071,7 +3540,7 @@
         {
           "id": "j06_collector_smt_reflow_bot",
           "label": "REFLOW BOT",
-          "collector_id": "REFLOW_VI1",
+          "collector_id": "J06_REFLOW_VI1",
           "link": "conveyor5_j06",
           "render": {
             "from_anchor": "top",
@@ -3081,7 +3550,7 @@
         {
           "id": "j06_collector_smt_aoi_bot",
           "label": "AOI BOT",
-          "collector_id": "AOI_B2",
+          "collector_id": "J06_AOI_B2",
           "link": "aoi2_bot_j06",
           "render": {
             "from_anchor": "top",
@@ -3091,7 +3560,7 @@
         {
           "id": "j06_collector_smt_input_top",
           "label": "INPUT TOP",
-          "collector_id": "SMT_INPUT2",
+          "collector_id": "J06_SMT_INPUT2",
           "link": "conveyor14_j06",
           "render": {
             "from_anchor": "top",
@@ -3101,7 +3570,7 @@
         {
           "id": "j06_collector_smt_spi_top",
           "label": "SPI TOP",
-          "collector_id": "SPI2",
+          "collector_id": "J06_SPI2",
           "link": "spi_top_j06",
           "render": {
             "from_anchor": "top",
@@ -3111,7 +3580,7 @@
         {
           "id": "j06_collector_smt_reflow_top",
           "label": "REFLOW TOP",
-          "collector_id": "REFLOW_VI2",
+          "collector_id": "J06_REFLOW_VI2",
           "link": "conveyor16_j06",
           "render": {
             "from_anchor": "top",
@@ -3121,7 +3590,7 @@
         {
           "id": "j06_collector_smt_aoi_top",
           "label": "AOI TOP",
-          "collector_id": "AOI_B2",
+          "collector_id": "J06_AOI_B2",
           "link": "aoi4_top_j06",
           "render": {
             "from_anchor": "top",
@@ -3131,7 +3600,7 @@
         {
           "id": "j06_collector_pth_input",
           "label": "PTH Input",
-          "collector_id": "PTH_INPUT",
+          "collector_id": "J06_PTH_INPUT",
           "link": "conveyor27_j06",
           "render": {
             "from_anchor": "top",
@@ -3141,7 +3610,7 @@
         {
           "id": "j06_collector_touch_inspect",
           "label": "TOUCH INSPECT",
-          "collector_id": "TOUCH_INSPECT",
+          "collector_id": "J06_TOUCH_INSPECT",
           "link": "manual3_j06",
           "render": {
             "from_anchor": "top",
@@ -3151,7 +3620,7 @@
         {
           "id": "j06_collector_touch_up",
           "label": "TOUCH UP",
-          "collector_id": "TOUCH_UP",
+          "collector_id": "J06_TOUCH_UP",
           "link": "aoi5_pth_j02",
           "render": {
             "from_anchor": "top",
@@ -3161,7 +3630,7 @@
         {
           "id": "j06_collector_ict",
           "label": "ICT",
-          "collector_id": "ICT",
+          "collector_id": "J06_ICT",
           "link": "ict_auto_j06",
           "render": {
             "from_anchor": "top",
@@ -3171,7 +3640,7 @@
         {
           "id": "j06_collector_ft",
           "label": "FT",
-          "collector_id": "FT",
+          "collector_id": "J06_FT1",
           "link": "ft_cell1_j06",
           "render": {
             "from_anchor": "top",
@@ -3181,7 +3650,7 @@
         {
           "id": "j06_collector_final_vi",
           "label": "FINAL VI",
-          "collector_id": "FINAL_VI",
+          "collector_id": "J06_FINAL_VI",
           "link": "conveyor34_j06",
           "render": {
             "from_anchor": "top",
@@ -3191,7 +3660,7 @@
         {
           "id": "j06_collector_final_inspect",
           "label": "FINAL INSPECT",
-          "collector_id": "FINAL_INSPECT",
+          "collector_id": "J06_FINAL_INSPECT",
           "link": "aoi6_pth_j06",
           "render": {
             "from_anchor": "top",
@@ -3201,7 +3670,7 @@
         {
           "id": "j06_collector_packing",
           "label": "Packing",
-          "collector_id": "PACKING",
+          "collector_id": "J06_PACKING",
           "link": "packing_j06",
           "render": {
             "from_anchor": "top",
@@ -3217,7 +3686,11 @@
           "label": "SMT",
           "banner_id": "sdf",
           "range_form": 0,
-          "range_to": 60
+          "range_to": 60,
+          "render": {
+            "x": 730,
+            "y": 400
+          }
         },
         {
           "id": "27720e31-d79f-77d1-f167-1cd55cd24d5b",
@@ -3226,11 +3699,19 @@
           "type": "B",
           "banner_id": "sdf",
           "range_form": 60,
-          "range_to": 100
+          "range_to": 100,
+          "render": {
+            "x": 200,
+            "y": 130
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 470
       },
       "machines": [
         {
@@ -4140,6 +4621,167 @@
       "link": "production_area",
       "label": "J08",
       "data_collector": [
+        {
+          "id": "j08_collector_smt_input_bot",
+          "label": "INPUT BOT",
+          "collector_id": "J08_SMT_INPUT1",
+          "link": "conveyor2_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_smt_spi_bot",
+          "label": "SPI BOT",
+          "collector_id": "J08_SPI1",
+          "link": "spi_bot_j08",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j08_collector_smt_reflow_bot",
+          "label": "REFLOW BOT",
+          "collector_id": "J08_REFLOW_VI1",
+          "link": "conveyor5_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_smt_aoi_bot",
+          "label": "AOI BOT",
+          "collector_id": "J08_AOI_B2",
+          "link": "aoi2_bot_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_smt_input_top",
+          "label": "INPUT TOP",
+          "collector_id": "J08_SMT_INPUT2",
+          "link": "conveyor14_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j08_collector_smt_spi_top",
+          "label": "SPI TOP",
+          "collector_id": "J08_SPI2",
+          "link": "spi_top_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j08_collector_smt_reflow_top",
+          "label": "REFLOW TOP",
+          "collector_id": "J08_REFLOW_VI2",
+          "link": "conveyor16_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_smt_aoi_top",
+          "label": "AOI TOP",
+          "collector_id": "J08_AOI_B2",
+          "link": "aoi4_top_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_pth_input",
+          "label": "PTH Input",
+          "collector_id": "J08_PTH_INPUT",
+          "link": "conveyor27_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_touch_inspect",
+          "label": "TOUCH INSPECT",
+          "collector_id": "J08_TOUCH_INSPECT",
+          "link": "conveyor28_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j08_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "J08_TOUCH_UP",
+          "link": "aoi5_pth_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_ict",
+          "label": "ICT",
+          "collector_id": "J08_ICT",
+          "link": "ict_auto_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_ft",
+          "label": "FT",
+          "collector_id": "J08_FT1",
+          "link": "conveyor33_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j01_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "J08_FINAL_VI",
+          "link": "aoi6_pth_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j08_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "J08_FINAL_INSPECT",
+          "link": "conveyor35_j08",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j08_collector_packing",
+          "label": "Packing",
+          "collector_id": "J08_PACKING",
+          "link": "packing_j08",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        }
+
       ],
       "groups": [
         {
@@ -4149,7 +4791,11 @@
           "label": "PTH",
           "banner_id": "sdf",
           "range_form": 0,
-          "range_to": 58
+          "range_to": 58,
+          "render": {
+            "x": 800,
+            "y": 130
+          }
         },
         {
           "id": "86720e31-d79f-77d1-f167-1cd55cd24d5b",
@@ -4158,11 +4804,19 @@
           "type": "J08_PTH",
           "banner_id": "sdf",
           "range_form": 58,
-          "range_to": 96
+          "range_to": 96,
+          "render": {
+            "x": 300,
+            "y": 390
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 470
       },
       "machines": [
         {
@@ -4193,7 +4847,7 @@
           }
         },
         {
-          "id": "conveyor2_j07",
+          "id": "conveyor2_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -4202,7 +4856,7 @@
           }
         },
         {
-          "id": "spi_bot_j07",
+          "id": "spi_bot_j08",
           "label": "SPI",
           "owner": "automation",
           "render": {
@@ -4292,7 +4946,7 @@
           }
         },
         {
-          "id": "conveyor5_j07",
+          "id": "conveyor5_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -4418,7 +5072,7 @@
           }
         },
         {
-          "id": "aoi2_bot_j07",
+          "id": "aoi2_bot_j08",
           "label": "AOI",
           "owner": "mm",
           "render": {
@@ -4472,7 +5126,7 @@
           }
         },
         {
-          "id": "conveyor14_j07",
+          "id": "conveyor14_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -4481,7 +5135,7 @@
           }
         },
         {
-          "id": "spi_top_j07",
+          "id": "spi_top_j08",
           "label": "SPI",
           "owner": "mm",
           "render": {
@@ -4589,7 +5243,7 @@
           }
         },
         {
-          "id": "conveyor16_j07",
+          "id": "conveyor16_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -4661,7 +5315,7 @@
           }
         },
         {
-          "id": "aoi4_top_j07",
+          "id": "aoi4_top_j08",
           "label": "AOI",
           "owner": "mm",
           "render": {
@@ -4805,7 +5459,7 @@
           }
         },
         {
-          "id": "conveyor27_j07",
+          "id": "conveyor27_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -4877,7 +5531,7 @@
           }
         },
         {
-          "id": "conveyor28_j07",
+          "id": "conveyor28_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -4886,7 +5540,7 @@
           }
         },
         {
-          "id": "aoi5_pth_j07",
+          "id": "aoi5_pth_j08",
           "label": "AOI",
           "owner": "mm",
           "render": {
@@ -4913,7 +5567,7 @@
           }
         },
         {
-          "id": "ict_auto_j07",
+          "id": "ict_auto_j08",
           "label": "ICT Auto",
           "owner": "test",
           "render": {
@@ -4967,7 +5621,7 @@
           }
         },
         {
-          "id": "conveyor33_j07",
+          "id": "conveyor33_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -4994,7 +5648,7 @@
           }
         },
         {
-          "id": "aoi6_pth_j07",
+          "id": "aoi6_pth_j08",
           "label": "AOI",
           "owner": "mm",
           "render": {
@@ -5003,7 +5657,7 @@
           }
         },
         {
-          "id": "conveyor35_j07",
+          "id": "conveyor35_j08",
           "label": "Conveyor",
           "owner": "automation",
           "render": {
@@ -5021,7 +5675,7 @@
           }
         },
         {
-          "id": "packing_j07",
+          "id": "packing_j08",
           "label": "Packing",
           "owner": "production",
           "render": {
@@ -5036,6 +5690,167 @@
       "link": "production_area",
       "label": "J09",
       "data_collector": [
+        {
+          "id": "j09_collector_smt_input_bot",
+          "label": "INPUT BOT",
+          "collector_id": "SMT_INPUT1",
+          "link": "conveyor2_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_smt_spi_bot",
+          "label": "SPI BOT",
+          "collector_id": "J09_SPI1",
+          "link": "spi_bot_j09",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j0_collector_smt_reflow_bot",
+          "label": "REFLOW BOT",
+          "collector_id": "J09_REFLOW_VI1",
+          "link": "conveyor5_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_smt_aoi_bot",
+          "label": "AOI BOT",
+          "collector_id": "J09_AOI_B2",
+          "link": "aoi2_bot_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_smt_input_top",
+          "label": "J09_INPUT TOP",
+          "collector_id": "SMT_INPUT2",
+          "link": "conveyor14_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j09_collector_smt_spi_top",
+          "label": "J09_SPI TOP",
+          "collector_id": "SPI2",
+          "link": "spi_top_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j09_collector_smt_reflow_top",
+          "label": "REFLOW TOP",
+          "collector_id": "J09_REFLOW_VI2",
+          "link": "conveyor16_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_smt_aoi_top",
+          "label": "AOI TOP",
+          "collector_id": "J09_AOI_B2",
+          "link": "aoi4_top_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_pth_input",
+          "label": "PTH Input",
+          "collector_id": "J09_PTH_INPUT",
+          "link": "conveyor27_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_touch_inspect",
+          "label": "TOUCH INSPECT",
+          "collector_id": "J09_TOUCH_INSPECT",
+          "link": "conveyor28_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j09_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "J09_TOUCH_UP",
+          "link": "aoi5_pth_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_ict",
+          "label": "ICT",
+          "collector_id": "J09_ICT",
+          "link": "ict_grid_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_ft",
+          "label": "FT",
+          "collector_id": "J09_FT1",
+          "link": "ft_grid_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "J09_FINAL_VI",
+          "link": "back_plate_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j09_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "J09_FINAL_INSPECT",
+          "link": "assembly4_j09",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_packing",
+          "label": "Packing",
+          "collector_id": "J09_PACKING",
+          "link": "packing_j09",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        }
+
       ],
       "groups": [
         {
@@ -5045,7 +5860,11 @@
           "label": "SMT",
           "banner_id": "sdf",
           "range_form": 0,
-          "range_to": 58
+          "range_to": 58,
+          "render": {
+            "x": 700,
+            "y": 250
+          }
         },
         {
           "id": "86720e31-d79f-77d1-f167-1cd55cd24d5b",
@@ -5054,11 +5873,19 @@
           "type": "J09_PTH",
           "banner_id": "sdf",
           "range_form": 58,
-          "range_to": 96
+          "range_to": 92,
+          "render": {
+            "x": 100,
+            "y": 380
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 480
       },
       "machines": [
         {
@@ -5801,7 +6628,7 @@
           }
         },
         {
-          "id": "ict_auto_j09",
+          "id": "ict_grid_j09",
           "label": "ICT Auto",
           "owner": "test",
           "render": {
@@ -5819,7 +6646,7 @@
           }
         },
         {
-          "id": "ft_cell2_j09",
+          "id": "ft_grid_j09",
           "label": "FT Cell",
           "owner": "test",
           "render": {
@@ -5896,29 +6723,203 @@
       "id": "production_line_j10",
       "link": "production_area",
       "label": "J10",
-      "data_collector":[],
+      "data_collector": [
+        {
+          "id": "j10_collector_smt_input_bot",
+          "label": "INPUT BOT",
+          "collector_id": "J10_SMT_INPUT1",
+          "link": "conveyor2_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_spi_bot",
+          "label": "SPI BOT",
+          "collector_id": "J10_SPI1",
+          "link": "spi_bot_j10",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j10_collector_smt_reflow_bot",
+          "label": "REFLOW BOT",
+          "collector_id": "J10_REFLOW_VI1",
+          "link": "conveyor5_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_aoi_bot",
+          "label": "AOI BOT",
+          "collector_id": "J10_AOI_B2",
+          "link": "aoi2_bot_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_input_top",
+          "label": "INPUT TOP",
+          "collector_id": "J10_SMT_INPUT2",
+          "link": "conveyor14_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j10_collector_smt_spi_top",
+          "label": "SPI TOP",
+          "collector_id": "J10_SPI2",
+          "link": "spi_top_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j10_collector_smt_reflow_top",
+          "label": "REFLOW TOP",
+          "collector_id": "J10_REFLOW_VI2",
+          "link": "conveyor16_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_aoi_top",
+          "label": "AOI TOP",
+          "collector_id": "J10_AOI_B2",
+          "link": "aoi4_top_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_pth_input",
+          "label": "PTH Input",
+          "collector_id": "J10_PTH_INPUT",
+          "link": "manual1_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_touch_inspect",
+          "label": "TOUCH INSPECT",
+          "collector_id": "J10_TOUCH_INSPECT",
+          "link": "manual6_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j10_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "J10_TOUCH_UP",
+          "link": "aoi5_pth_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_ict",
+          "label": "ICT",
+          "collector_id": "J10_ICT",
+          "link": "ict_grid_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j010_collector_ft",
+          "label": "FT",
+          "collector_id": "J10_FT1",
+          "link": "ft_grid_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "J10_FINAL_VI",
+          "link": "back_plate_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j10_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "J10_FINAL_INSPECT",
+          "link": "conveyor32_j10",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_packing",
+          "label": "Packing",
+          "collector_id": "J10_PACKING",
+          "link": "packing_j10",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        }
+
+      ],
       "groups": [
         {
-          "id": "8fe70fa3-5a5c-469f-b74a-b0d981d5d790",
+          "id": "8fe70fa3-5v5c-469f-b74a-b0d981d5d790",
           "index": 0,
           "label": "SMT",
           "banner_id": "sdf",
           "range_form": 0,
           "type": "I",
-          "range_to": 50
+          "range_to": 50,
+          "render": {
+            "x": 10,
+            "y": 130
+          }
         },
         {
-          "id": "feda8262-c6bb-43d2-bef1-85f3fc9f8bad",
+          "id": "feda82s2-c6bb-43d2-bef1-85f3fc9f8bad",
           "index": 1,
           "label": "PTH",
           "banner_id": "sdf",
           "type": "PTH",
           "range_form": 50,
-          "range_to": 75
+          "range_to": 75,
+          "render": {
+            "x": 300,
+            "y": 270
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 370
       },
       "machines": [
         {
@@ -6534,7 +7535,7 @@
           }
         },
         {
-          "id": "ict_auto_j10",
+          "id": "ict_grid_j10",
           "label": "ICT Auto",
           "owner": "test",
           "render": {
@@ -6552,7 +7553,7 @@
           }
         },
         {
-          "id": "ft_cell1_j10",
+          "id": "ft_grid_j10",
           "label": "FT Cell",
           "owner": "test",
           "render": {
@@ -6570,11 +7571,11 @@
           }
         },
         {
-          "id": "install_socket_j10",
+          "id": "back_plate_j10",
           "label": "Install Socket",
           "owner": "automation",
           "render": {
-            "type": "install_socket_machine",
+            "type": "back_plate_machine",
             "direction": "right"
           }
         },
@@ -6602,7 +7603,169 @@
       "id": "production_line_j11",
       "link": "production_area",
       "label": "J11",
-      "data_collector":[],
+      "data_collector": [
+        {
+          "id": "j11_collector_smt_input_bot",
+          "label": "INPUT BOT",
+          "collector_id": "J11_SMT_INPUT1",
+          "link": "conveyor2_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_spi_bot",
+          "label": "SPI BOT",
+          "collector_id": "J11_SPI1",
+          "link": "spi_bot_j11",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j10_collector_smt_reflow_bot",
+          "label": "REFLOW BOT",
+          "collector_id": "J11_REFLOW_VI1",
+          "link": "conveyor5_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_aoi_bot",
+          "label": "AOI BOT",
+          "collector_id": "J11_AOI_B2",
+          "link": "aoi2_bot_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_input_top",
+          "label": "INPUT TOP",
+          "collector_id": "J11_SMT_INPUT2",
+          "link": "conveyor14_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j10_collector_smt_spi_top",
+          "label": "SPI TOP",
+          "collector_id": "J11_SPI2",
+          "link": "spi_top_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomLeft"
+          }
+        },
+        {
+          "id": "j10_collector_smt_reflow_top",
+          "label": "REFLOW TOP",
+          "collector_id": "J11_REFLOW_VI2",
+          "link": "conveyor16_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_smt_aoi_top",
+          "label": "AOI TOP",
+          "collector_id": "J11_AOI_B2",
+          "link": "aoi4_top_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_pth_input",
+          "label": "PTH Input",
+          "collector_id": "J11_PTH_INPUT",
+          "link": "manual1_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_touch_inspect",
+          "label": "TOUCH INSPECT",
+          "collector_id": "J11_TOUCH_INSPECT",
+          "link": "manual6_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j10_collector_touch_up",
+          "label": "TOUCH UP",
+          "collector_id": "J11_TOUCH_UP",
+          "link": "aoi5_pth_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_ict",
+          "label": "ICT",
+          "collector_id": "J11_ICT",
+          "link": "ict_grid_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j010_collector_ft",
+          "label": "FT",
+          "collector_id": "J11_FT1",
+          "link": "ft_grid_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j10_collector_final_vi",
+          "label": "FINAL VI",
+          "collector_id": "J11_FINAL_VI",
+          "link": "back_plate_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomRight"
+          }
+        },
+        {
+          "id": "j10_collector_final_inspect",
+          "label": "FINAL INSPECT",
+          "collector_id": "J11_FINAL_INSPECT",
+          "link": "conveyor32_j11",
+          "render": {
+            "from_anchor": "top",
+            "to_anchor": "bottomCenter"
+          }
+        },
+        {
+          "id": "j09_collector_packing",
+          "label": "Packing",
+          "collector_id": "J11_PACKING",
+          "link": "packing_j11",
+          "render": {
+            "from_anchor": "topRight",
+            "to_anchor": "bottomLeft"
+          }
+        }
+
+      ],
       "groups": [
         {
           "id": "8fe70fa3-5a5c-485f-b74a-b0d981d5d790",
@@ -6611,7 +7774,11 @@
           "banner_id": "sdf",
           "range_form": 0,
           "type": "I",
-          "range_to": 50
+          "range_to": 50,
+          "render": {
+            "x": 10,
+            "y": 130
+          }
         },
         {
           "id": "feda8262-c6b=lb-43d2-bef1-85f3fc9f8bad",
@@ -6620,11 +7787,19 @@
           "banner_id": "sdf",
           "type": "PTH",
           "range_form": 50,
-          "range_to": 74
+          "range_to": 74,
+          "render": {
+            "x": 300,
+            "y": 270
+          }
         }
       ],
       "render": {
-        "type": "production_line"
+        "type": "production_line",
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 370
       },
       "machines": [
         {
@@ -7231,7 +8406,7 @@
           }
         },
         {
-          "id": "ict_auto_j11",
+          "id": "ict_grid_j11",
           "label": "ICT Auto",
           "owner": "test",
           "render": {
@@ -7249,7 +8424,7 @@
           }
         },
         {
-          "id": "ft_cell1_j11",
+          "id": "ft_grid_j11",
           "label": "FT Cell",
           "owner": "test",
           "render": {
@@ -7267,11 +8442,11 @@
           }
         },
         {
-          "id": "install_socket_j11",
+          "id": "back_plate_j11",
           "label": "Install Socket",
           "owner": "automation",
           "render": {
-            "type": "install_socket_machine",
+            "type": "back_plate_machine",
             "direction": "right"
           }
         },

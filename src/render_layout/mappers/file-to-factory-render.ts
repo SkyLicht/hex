@@ -108,10 +108,7 @@ export function fileToFactoryRender(file): FactoryRenderA6 {
                 height: 0,
                 anchors: emptyAnchors,
             },
-            render: {
-                type: _l.render.type,
-                direction: _l.render.direction,
-            },
+            render: _l.render,
             machines: machines_render,
             data_collectors: data_collectors_render,
             groups: _l.groups,

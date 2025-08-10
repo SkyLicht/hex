@@ -19,8 +19,8 @@ class RendererDataCollector extends RendererBanner {
 
     measureShape(): ShapeDimensionsType {
         return {
-            width: 90,
-            height: 50,
+            width: 82,
+            height: 40,
         }
     }
 }

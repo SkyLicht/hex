@@ -1,20 +1,169 @@
+// page.tsx
 'use client'
-import React from 'react'
-import PPIDDeltasDisplayV2 from '@/components/statistics/data_collector/DataCollectorDeltasV2'
-import RenderLayout from '@/src/render_layout/components/RenderLayout'
-import FactoryRenderer from '@/src/render_layout/components/factory/FactoryRenderer'
+import React, { useMemo } from 'react'
+import { FactoryRenderer } from '@/src/render_layout/components/factory/FactoryRenderer'
 import { fileToFactoryRender } from '@/src/render_layout/mappers/file-to-factory-render'
 import render_layout from '@/public/render/render_layout.json'
+import { useWebSocketDataCollectorV2 } from '@/src/hooks/use-data-collecotr-socket-v2'
+import AnimatedGraph from '@/src/render_layout/components/graphs/AnimatedGraph'
+import LineSelector from '@/src/render_layout/components/widgets/LineSelector'
 
 const ManagerPage = () => {
-    return (
-        <div className={' max-w-screen w-full h-full border-black border-2 '}>
-            {/*<AnimatedGraph/>*/}
+    const {
+        hourlySummary,
+        wipSummary,
+        latestRecordSummary,
+        connectionStatus,
+        error,
+        reconnect,
+    } = useWebSocketDataCollectorV2('ws://10.13.33.131:8051/ws/monitor', {
+        onHourlySummary: (data) => {
+            console.log('Hourly summary updated:', data)
+        },
+        onWipSummary: (data) => {
+            console.log('WIP summary updated:', data)
+        },
+        onLatestRecordSummary: (data) => {
+            console.log('Latest records updated:', data)
+        },
+    })
 
+    // Memoize the factory so its identity stays stable across renders
+    const factory = useMemo(() => fileToFactoryRender(render_layout), [])
+
+    return (
+        <div className="!min-w-[1024px] w-full h-full border-black border-2 relative">
             <FactoryRenderer
-                factory={fileToFactoryRender(render_layout)}
+                factory={factory}
                 resolution={1536}
+                hourly={hourlySummary}
+                last_record={latestRecordSummary}
             />
+
+            <section className="absolute top-0 right-0 w-fit h-[50px] text-white text-center flex items-center justify-between pr-4">
+                <div></div>
+                <LineSelector />
+            </section>
+
+            <section className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1000px] h-[200px] text-white flex items-center justify-center pb-4">
+                <section className="w-full h-full flex flex-col backdrop-blur-md bg-neutral-500/10 border border-neutral-400/20 rounded-xl p-2">
+                    {/*<p>*/}
+                    {/*    {connectionStatus === 'connected'*/}
+                    {/*        ? 'Connected'*/}
+                    {/*        : 'Disconnected'}*/}
+                    {/*</p>*/}
+                    {/*<div className="w-full h-full flex items-center ">*/}
+                    {/*    <AnimatedGraph />*/}
+                    {/*    <svg className="w-full h-auto">*/}
+                    {/*        <g className="">*/}
+                    {/*            <defs>*/}
+                    {/*                <linearGradient*/}
+                    {/*                    id="wk_smt_electric_blue"*/}
+                    {/*                    x1="0"*/}
+                    {/*                    y1="0"*/}
+                    {/*                    x2="0"*/}
+                    {/*                    y2="1"*/}
+                    {/*                >*/}
+                    {/*                    <stop*/}
+                    {/*                        offset="10%"*/}
+                    {/*                        stopColor={'#0284c7'}*/}
+                    {/*                        stopOpacity={0.8}*/}
+                    {/*                    />*/}
+                    {/*                    <stop*/}
+                    {/*                        offset="90%"*/}
+                    {/*                        stopColor={'#1e40af'}*/}
+                    {/*                        stopOpacity={1}*/}
+                    {/*                    />*/}
+                    {/*                </linearGradient>*/}
+                    {/*            </defs>*/}
+
+                    {/*            <defs>*/}
+                    {/*                <linearGradient*/}
+                    {/*                    id="wk_smt_in_green"*/}
+                    {/*                    x1="0"*/}
+                    {/*                    y1="0"*/}
+                    {/*                    x2="0"*/}
+                    {/*                    y2="1"*/}
+                    {/*                >*/}
+                    {/*                    <stop*/}
+                    {/*                        offset="10%"*/}
+                    {/*                        stopColor={'#84cc16'}*/}
+                    {/*                        stopOpacity={0.8}*/}
+                    {/*                    />*/}
+                    {/*                    <stop*/}
+                    {/*                        offset="90%"*/}
+                    {/*                        stopColor={'#3f6212'}*/}
+                    {/*                        stopOpacity={1}*/}
+                    {/*                    />*/}
+                    {/*                </linearGradient>*/}
+                    {/*            </defs>*/}
+
+                    {/*            <defs>*/}
+                    {/*                <linearGradient*/}
+                    {/*                    id="wk_smt_in_red"*/}
+                    {/*                    x1="0"*/}
+                    {/*                    y1="0"*/}
+                    {/*                    x2="0"*/}
+                    {/*                    y2="1"*/}
+                    {/*                >*/}
+                    {/*                    <stop*/}
+                    {/*                        offset="10%"*/}
+                    {/*                        stopColor={'#dc2626'}*/}
+                    {/*                        stopOpacity={0.8}*/}
+                    {/*                    />*/}
+                    {/*                    <stop*/}
+                    {/*                        offset="90%"*/}
+                    {/*                        stopColor={'#7f1d1d'}*/}
+                    {/*                        stopOpacity={1}*/}
+                    {/*                    />*/}
+                    {/*                </linearGradient>*/}
+                    {/*            </defs>*/}
+                    {/*            <rect*/}
+                    {/*                width={20}*/}
+                    {/*                height={100}*/}
+                    {/*                x={30}*/}
+                    {/*                fill="url(#wk_smt_in_green)"*/}
+                    {/*                rx={10}*/}
+                    {/*            ></rect>*/}
+                    {/*            <rect*/}
+                    {/*                width={20}*/}
+                    {/*                height={100}*/}
+                    {/*                x={60}*/}
+                    {/*                fill="url(#wk_smt_in_red)"*/}
+                    {/*                rx={10}*/}
+                    {/*            ></rect>*/}
+                    {/*            <rect*/}
+                    {/*                width={20}*/}
+                    {/*                height={100}*/}
+                    {/*                fill="url(#wk_smt_electric_blue)"*/}
+                    {/*                rx={10}*/}
+                    {/*            ></rect>*/}
+                    {/*        </g>*/}
+                    {/*    </svg>*/}
+                    {/*</div>*/}
+
+                    <div
+                        className={
+                            ' w-fit px-2 flex flex-row gap-2 text-lg font-semibold text-stone-300'
+                        }
+                    >
+                        <h2>Luxor MG ee</h2>
+                        <p>YGHGSD</p>
+
+                        <p>UPH: 231</p>
+
+                        <p>Commit: 4000</p>
+                    </div>
+
+                    <div
+                        className={
+                            ' w-fit px-2 flex flex-row gap-2 font-semibold text-neutral-300'
+                        }
+                    >
+                        <h3 className={'text-6xl text-stone-400'}>36</h3>
+                    </div>
+                </section>
+            </section>
         </div>
     )
 }

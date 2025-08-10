@@ -70,19 +70,21 @@ export class LayoutRender {
     }
 
     measureProductionLine() {
+        let currentY = 0
         this.factory.lines.forEach((line, index) => {
             line.dimensions.width = this.resolution.width
-            line.dimensions.height = 400
+            line.dimensions.height = line.render.height
             line.dimensions.x = 0
-            line.dimensions.y = index * 410 // Spacing >= height to avoid overlap
+            line.dimensions.y = currentY // Spacing >= height to avoid overlap
 
             this.measureMachines(
                 line.machines,
                 line.groups,
-                10,
-                line.dimensions.y + 125
+                0,
+                line.dimensions.y
             )
             this.measureDataCollectors(line.data_collectors, line.machines)
+            currentY += line.render.height + 10
         })
     }
 
@@ -203,10 +205,10 @@ export class LayoutRender {
             }
 
             const groupX = baseX
-            const groupY = baseY + groupIndex * 125 // Adjust vertical spacing between groups
+            const groupY = baseY // Adjust vertical spacing between groups
 
-            let currentX = groupX + lineTypeOffset().x
-            let currentY = groupY + lineTypeOffset().y
+            let currentX = groupX + group.render.x
+            let currentY = groupY + group.render.y
 
             // Get machines for this group based on range
             const groupMachines = machines.slice(
