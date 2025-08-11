@@ -7,6 +7,8 @@ import render_layout from '@/public/render/render_layout.json'
 import { useWebSocketDataCollectorV2 } from '@/src/hooks/use-data-collecotr-socket-v2'
 import AnimatedGraph from '@/src/render_layout/components/graphs/AnimatedGraph'
 import LineSelector from '@/src/render_layout/components/widgets/LineSelector'
+import LineMetricsOverPane from '@/src/components/widgets/line_metrics/LineMetricsOverPane'
+import { XIcon } from 'lucide-react'
 
 const ManagerPage = () => {
     const {
@@ -41,12 +43,16 @@ const ManagerPage = () => {
             />
 
             <section className="absolute top-0 right-0 w-fit h-[50px] text-white text-center flex items-center justify-between pr-4">
-                <div></div>
                 <LineSelector />
             </section>
 
-            <section className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1000px] h-[200px] text-white flex items-center justify-center pb-4">
-                <section className="w-full h-full flex flex-col backdrop-blur-md bg-neutral-500/10 border border-neutral-400/20 rounded-xl p-2">
+            <section className="absolute top-0 left-0 w-fit h-[50px] text-white text-center flex items-center justify-between pl-4 bg-blue-600">
+                "sakldhy
+            </section>
+
+            <section className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1200px] h-[250px] text-white flex items-center justify-center pb-4">
+                <section className="w-full h-full flex flex-col backdrop-blur-md bg-neutral-500/10 border border-neutral-400/20 rounded-xl px-2 pt-1">
+                    <LineMetricsOverPane />
                     {/*<p>*/}
                     {/*    {connectionStatus === 'connected'*/}
                     {/*        ? 'Connected'*/}
@@ -142,26 +148,42 @@ const ManagerPage = () => {
                     {/*    </svg>*/}
                     {/*</div>*/}
 
+                    {/*<div*/}
+                    {/*    className={*/}
+                    {/*        ' w-fit px-2 flex flex-row gap-2 text-lg font-semibold text-stone-300'*/}
+                    {/*    }*/}
+                    {/*>*/}
+                    {/*    <h2>Luxor MG ee</h2>*/}
+                    {/*    <p>YGHGSD</p>*/}
+
+                    {/*    <p>UPH: 231</p>*/}
+
+                    {/*    <p>Commit: 4000</p>*/}
+                    {/*</div>*/}
+
+                    {/*<div*/}
+                    {/*    className={*/}
+                    {/*        ' w-fit px-2 flex flex-row gap-2 font-semibold text-neutral-300'*/}
+                    {/*    }*/}
+                    {/*>*/}
+                    {/*    <h3 className={'text-6xl text-stone-400'}>36</h3>*/}
+                    {/*</div>*/}
+                </section>
+            </section>
+
+            <section className="absolute z-50 top-0 left-0 transform  w-[600px] h-[600px] text-white flex items-center justify-center p-4">
+                <section className="w-full h-full flex flex-col backdrop-blur-sm bg-neutral-500/10 border border-neutral-400/20 rounded-xl p-2 font-sans ">
                     <div
                         className={
-                            ' w-fit px-2 flex flex-row gap-2 text-lg font-semibold text-stone-300'
+                            'flex flex-col gap-2 text-stone-300  font-semibold '
                         }
                     >
-                        <h2>Luxor MG ee</h2>
-                        <p>YGHGSD</p>
-
-                        <p>UPH: 231</p>
-
-                        <p>Commit: 4000</p>
+                        <div className={'flex flex-row justify-between'}>
+                            <h3>AOI TOP</h3>
+                            <XIcon />
+                        </div>
                     </div>
-
-                    <div
-                        className={
-                            ' w-fit px-2 flex flex-row gap-2 font-semibold text-neutral-300'
-                        }
-                    >
-                        <h3 className={'text-6xl text-stone-400'}>36</h3>
-                    </div>
+                    <div>More</div>
                 </section>
             </section>
         </div>
