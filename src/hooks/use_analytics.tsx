@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { DeltasModel } from '@/src/types/hex_api'
+import { ProcessDeltas } from '@/src/handlers/handle_deltas'
 
-export const useGetDeltas = () => {
+export const useGetDeltas = (line: string, group: string) => {
     return useQuery({
         queryKey: ['deltas'],
         queryFn: async () => {
             const { data, status } = await axios.get(
-                `http://10.13.33.131:3010/api/v1/sfc_clon/getDeltasByGroupAndLine?group_name=PACKING&line_name=J01`
+                `http://192.168.100.113:3010/api/v1/sfc_clon/getDeltasByGroupAndLine?group_name=${group}&line_name=${line}`
             )
 
             if (status !== 200) throw new Error('fdsghg')
@@ -14,15 +16,7 @@ export const useGetDeltas = () => {
             console.log(data)
 
             return {
-                deltas: data.listed_deltas as {
-                    delta_minute: number
-                    delta_seconds: number
-                    from_ppid: string
-                    from_timestamp: string //"2025-08-12 14:30:22"
-                    hour_by_hour: 14
-                    to_ppid: string
-                    to_timestamp: string //"2025-08-12 14:30:38"
-                }[],
+                deltas: ProcessDeltas(data.listed_deltas as DeltasModel[]),
             }
         },
     })

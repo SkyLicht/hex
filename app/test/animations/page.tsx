@@ -4,11 +4,7 @@ import PPIDDeltasDisplayV2 from '@/components/statistics/data_collector/DataColl
 import DeltasByHourChart from '@/src/components/charts/DeltasByHourChart'
 
 const ManagerPage = () => {
-    return (
-        <div className={'h-full w-full'}>
-            <DeltasByHourChart />
-        </div>
-    )
+    return <div className={'h-full w-full'}>{/*<DeltasByHourChart />*/}</div>
 }
 
 export default ManagerPage

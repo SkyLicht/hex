@@ -53,3 +53,13 @@ export interface WorkPlanModel {
     updated_at?: string
     platform: PlatformModel
 }
+
+export interface DeltasModel {
+    delta_minute: number
+    delta_seconds: number
+    from_ppid: string
+    from_timestamp: string //"2025-08-12 14:30:22"
+    hour_by_hour: number
+    to_ppid: string
+    to_timestamp: string //"2025-08-12 14:30:38"
+}

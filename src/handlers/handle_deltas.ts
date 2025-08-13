@@ -1,4 +1,6 @@
 // Convert timestamp to seconds within the hour
+import { DeltasModel } from '@/src/types/hex_api'
+
 const convertTimestampToSeconds = (timestamp: string): number => {
     const date = new Date(timestamp)
     const minutes = date.getMinutes()
@@ -12,26 +14,21 @@ const getHour = (timestamp: string): number => {
 }
 
 // Process deltas to handle cross-hour cases
-const processDeltas = (
-    deltas: {
-        delta_minute: number
-        delta_seconds: number
-        from_ppid: string
-        from_timestamp: string
-        hour_by_hour: 14
-        to_ppid: string
-        to_timestamp: string
-    }[]
-) => {
+export const ProcessDeltas = (deltas: DeltasModel[]) => {
     const hourlyDeltas: Record<
         number,
-        Array<{
-            startSeconds: number
-            endSeconds: number
-            duration: number
-            originalDelta: (typeof data.deltas)[0]
-            type: 'complete' | 'start' | 'end' | 'cross'
-        }>
+        {
+            metrics: {
+                duration: number
+            }
+            deltas: Array<{
+                startSeconds: number
+                endSeconds: number
+                duration: number
+                originalDelta: DeltasModel
+                type: 'complete' | 'start' | 'end' | 'cross'
+            }>
+        }
     > = {}
 
     deltas.forEach((delta) => {
@@ -43,49 +40,87 @@ const processDeltas = (
             const startSeconds = convertTimestampToSeconds(delta.from_timestamp)
             const endSeconds = convertTimestampToSeconds(delta.to_timestamp)
 
-            if (!hourlyDeltas[startHour]) hourlyDeltas[startHour] = []
-            hourlyDeltas[startHour].push({
+            if (!hourlyDeltas[startHour]) {
+                hourlyDeltas[startHour] = {
+                    metrics: { duration: 0 },
+                    deltas: [],
+                }
+            }
+
+            const deltaEntry = {
                 startSeconds,
                 endSeconds,
                 duration: delta.delta_seconds,
                 originalDelta: delta,
-                type: 'complete',
-            })
+                type: 'complete' as const,
+            }
+
+            hourlyDeltas[startHour].deltas.push(deltaEntry)
+            hourlyDeltas[startHour].metrics.duration += delta.delta_seconds
         } else {
             // Cross-hour case
             const startSeconds = convertTimestampToSeconds(delta.from_timestamp)
             const endSeconds = convertTimestampToSeconds(delta.to_timestamp)
+            const startHourDuration = 3600 - startSeconds
+            const endHourDuration = endSeconds
 
             // Add to start hour (from start time to end of hour)
-            if (!hourlyDeltas[startHour]) hourlyDeltas[startHour] = []
-            hourlyDeltas[startHour].push({
+            if (!hourlyDeltas[startHour]) {
+                hourlyDeltas[startHour] = {
+                    metrics: { duration: 0 },
+                    deltas: [],
+                }
+            }
+
+            const startEntry = {
                 startSeconds,
                 endSeconds: 3600, // End of hour
-                duration: 3600 - startSeconds,
+                duration: startHourDuration,
                 originalDelta: delta,
-                type: 'start',
-            })
+                type: 'start' as const,
+            }
+
+            hourlyDeltas[startHour].deltas.push(startEntry)
+            hourlyDeltas[startHour].metrics.duration += startHourDuration
 
             // Add to end hour (from start of hour to end time)
-            if (!hourlyDeltas[endHour]) hourlyDeltas[endHour] = []
-            hourlyDeltas[endHour].push({
+            if (!hourlyDeltas[endHour]) {
+                hourlyDeltas[endHour] = {
+                    metrics: { duration: 0 },
+                    deltas: [],
+                }
+            }
+
+            const endEntry = {
                 startSeconds: 0, // Start of hour
                 endSeconds,
-                duration: endSeconds,
+                duration: endHourDuration,
                 originalDelta: delta,
-                type: 'end',
-            })
+                type: 'end' as const,
+            }
+
+            hourlyDeltas[endHour].deltas.push(endEntry)
+            hourlyDeltas[endHour].metrics.duration += endHourDuration
 
             // Add to any hours in between (full hour gaps)
             for (let hour = startHour + 1; hour < endHour; hour++) {
-                if (!hourlyDeltas[hour]) hourlyDeltas[hour] = []
-                hourlyDeltas[hour].push({
+                if (!hourlyDeltas[hour]) {
+                    hourlyDeltas[hour] = {
+                        metrics: { duration: 0 },
+                        deltas: [],
+                    }
+                }
+
+                const crossEntry = {
                     startSeconds: 0,
                     endSeconds: 3600,
                     duration: 3600,
                     originalDelta: delta,
-                    type: 'cross',
-                })
+                    type: 'cross' as const,
+                }
+
+                hourlyDeltas[hour].deltas.push(crossEntry)
+                hourlyDeltas[hour].metrics.duration += 3600
             }
         }
     })

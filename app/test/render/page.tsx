@@ -224,7 +224,9 @@ const ManagerPage = () => {
                                 />
                             </div>
                         </div>
-                        <DataCollectorDeltas />
+                        <DataCollectorDeltas
+                            dataCollector={selectedCollector.collector_id}
+                        />
                     </section>
                 </section>
             )}
