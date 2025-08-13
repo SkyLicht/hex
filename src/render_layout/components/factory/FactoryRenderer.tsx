@@ -16,7 +16,7 @@ interface FactoryRenderProps {
     resolution: number
     hourly: HourlySummaryData
     last_record: LatestRecordSummaryData
-    onDataCollectorSelected?: (collector: DataCollectorRenderer) => void
+    onDataCollectorSelected: (collector: DataCollectorRenderer) => void
 }
 
 export const FactoryRenderer = ({
@@ -24,6 +24,7 @@ export const FactoryRenderer = ({
     resolution,
     hourly,
     last_record,
+    onDataCollectorSelected,
 }: FactoryRenderProps) => {
     const _render = useMemo(() => new LayoutRender(factory), [factory])
     const searchParams = useSearchParams()
@@ -107,7 +108,7 @@ export const FactoryRenderer = ({
                     lines={_render.factory.lines}
                     hourly_data={hourly || {}}
                     last_record={last_record || {}}
-                    onDataCollectorSelected={() => {}}
+                    onDataCollectorSelected={onDataCollectorSelected}
                 />
             </g>
         </svg>

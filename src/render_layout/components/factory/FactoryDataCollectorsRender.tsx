@@ -99,20 +99,20 @@ export const FactoryDataCollectorsRender = ({
                                 {dataCollector.label}
                             </text>
 
-                            <text
-                                textAnchor="start"
-                                fontSize={10}
-                                x={52}
-                                y={10}
-                                fontWeight="bold"
-                                fill={isHovered ? '#ffffff' : '#A6A6A6'}
-                                style={{
-                                    dominantBaseline: 'middle',
-                                    userSelect: 'none',
-                                    pointerEvents: 'none',
-                                    transition: 'fill 0.2s ease-in-out',
-                                }}
-                            />
+                            {/*<text*/}
+                            {/*    textAnchor="start"*/}
+                            {/*    fontSize={10}*/}
+                            {/*    x={52}*/}
+                            {/*    y={10}*/}
+                            {/*    fontWeight="bold"*/}
+                            {/*    fill={isHovered ? '#ffffff' : '#A6A6A6'}*/}
+                            {/*    style={{*/}
+                            {/*        dominantBaseline: 'middle',*/}
+                            {/*        userSelect: 'none',*/}
+                            {/*        pointerEvents: 'none',*/}
+                            {/*        transition: 'fill 0.2s ease-in-out',*/}
+                            {/*    }}*/}
+                            {/*/>*/}
 
                             <text
                                 x={20}
@@ -166,7 +166,7 @@ export const FactoryDataCollectorsRender = ({
                             {_last_record_time > 1 ? (
                                 <>
                                     <text
-                                        x={22}
+                                        x={40}
                                         y={30}
                                         textAnchor="start"
                                         fontSize={16}

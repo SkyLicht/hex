@@ -1,6 +1,7 @@
 import React from 'react'
 
 interface Props {
+    line: string
     variant: string
     platform: string
     sku: string
@@ -8,7 +9,7 @@ interface Props {
     commit: number
 }
 
-function WorkPlanPane({ variant, sku, uph, commit, platform }: Props) {
+function WorkPlanPane({ line, variant, sku, uph, commit, platform }: Props) {
     if (variant === 'header') {
         return (
             <div
@@ -16,15 +17,16 @@ function WorkPlanPane({ variant, sku, uph, commit, platform }: Props) {
                     'flex flex-row text-stone-300 font-sans font-bold text-2xl gap-4  items-center '
                 }
             >
+                <h3 className=" ">{line}</h3>
                 <h3 className=" ">{platform}</h3>
                 <h3 className="">{sku}</h3>
                 <div className={'flex flex-row  gap-2  items-end'}>
                     <h3 className="text-xl">UPH</h3>
-                    <h3 className="">{uph}</h3>
+                    <h3 className="text-stone-400">{uph}</h3>
                 </div>
                 <div className={'flex flex-row  gap-2 items-end'}>
                     <h3 className=" text-xl">COMMIT</h3>
-                    <h3 className=" ">{commit}</h3>
+                    <h3 className=" text-stone-400">{commit}</h3>
                 </div>
             </div>
         )

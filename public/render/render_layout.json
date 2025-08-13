@@ -2685,11 +2685,11 @@
         {
           "id": "j05_collector_smt_input_bot",
           "label": "INPUT BOT",
-          "collector_id": "SMT_INPUT1",
+          "collector_id": "J05_SMT_INPUT1",
           "link": "conveyor1_2_j05",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -3520,7 +3520,7 @@
         {
           "id": "j06_collector_smt_input_bot",
           "label": "INPUT BOT",
-          "collector_id": "SMT_INPUT1",
+          "collector_id": "J06_SMT_INPUT1",
           "link": "conveyor1_j06",
           "render": {
             "from_anchor": "top",
@@ -4628,7 +4628,7 @@
           "link": "conveyor2_j08",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -4638,7 +4638,7 @@
           "link": "spi_bot_j08",
           "render": {
             "from_anchor": "topRight",
-            "to_anchor": "bottomLeft"
+            "to_anchor": "bottomRight"
           }
         },
         {
@@ -4728,7 +4728,7 @@
           "link": "aoi5_pth_j08",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -4748,7 +4748,7 @@
           "link": "conveyor33_j08",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomRight"
           }
         },
         {
@@ -4768,7 +4768,7 @@
           "link": "conveyor35_j08",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -5693,11 +5693,11 @@
         {
           "id": "j09_collector_smt_input_bot",
           "label": "INPUT BOT",
-          "collector_id": "SMT_INPUT1",
+          "collector_id": "J09_SMT_INPUT1",
           "link": "conveyor2_j09",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -5707,7 +5707,7 @@
           "link": "spi_bot_j09",
           "render": {
             "from_anchor": "topRight",
-            "to_anchor": "bottomLeft"
+            "to_anchor": "bottomRight"
           }
         },
         {
@@ -5797,7 +5797,7 @@
           "link": "aoi5_pth_j09",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -5837,7 +5837,7 @@
           "link": "assembly4_j09",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomRight"
           }
         },
         {
@@ -6731,7 +6731,7 @@
           "link": "conveyor2_j10",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -6741,7 +6741,7 @@
           "link": "spi_bot_j10",
           "render": {
             "from_anchor": "topRight",
-            "to_anchor": "bottomLeft"
+            "to_anchor": "bottomRight"
           }
         },
         {
@@ -6801,7 +6801,7 @@
           "link": "aoi4_top_j10",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -7611,7 +7611,7 @@
           "link": "conveyor2_j11",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {
@@ -7621,7 +7621,7 @@
           "link": "spi_bot_j11",
           "render": {
             "from_anchor": "topRight",
-            "to_anchor": "bottomLeft"
+            "to_anchor": "bottomRight"
           }
         },
         {
@@ -7681,7 +7681,7 @@
           "link": "aoi4_top_j11",
           "render": {
             "from_anchor": "top",
-            "to_anchor": "bottomCenter"
+            "to_anchor": "bottomLeft"
           }
         },
         {

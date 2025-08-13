@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { cn } from '@/lib/utils'
 
 const lines: string[] = [
     'J01',
@@ -23,9 +24,12 @@ const LineSelector = () => {
             {lines.map((line) => (
                 <Button
                     key={`line-selector-${line}`}
-                    className={
-                        'rounded-full font-semibold h-fit py-1 text-md cursor-pointer'
-                    }
+                    className={cn(
+                        'rounded-full font-semibold h-fit py-1 text-md cursor-pointer',
+                        params.get('selected_line') === line
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-secondary text-secondary-foreground'
+                    )}
                     onClick={() => {
                         router.push(`?selected_line=${line}`)
                     }}

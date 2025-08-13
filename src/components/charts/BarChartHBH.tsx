@@ -11,111 +11,6 @@ import {
 } from 'recharts'
 import { X } from 'lucide-react'
 
-const dummy = [
-    {
-        hour: 0,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 1,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 2,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 3,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 4,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 5,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 6,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 7,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 8,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 9,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 10,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 11,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 12,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 13,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 14,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 15,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 16,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 17,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 18,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 19,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 20,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 21,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 22,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-    {
-        hour: 23,
-        qy: Math.floor(Math.random() * (126 - 54 + 1)) + 54,
-    },
-]
-
-interface Props {
-    data: {
-        hour: number
-        qy: number
-    }[]
-}
 type PropsCustomLabel = {
     x: number
     y: number
@@ -188,7 +83,14 @@ const PackingLabel = ({
 //     }
 // };
 
-const BarChartHbh = () => {
+interface Props {
+    uph: number
+    chartData: {
+        hour: number
+        qy: number
+    }[]
+}
+const BarChartHbh = ({ chartData, uph }: Props) => {
     return (
         <ResponsiveContainer
             width="100%"
@@ -198,7 +100,7 @@ const BarChartHbh = () => {
             <BarChart
                 width={500}
                 height={300}
-                data={dummy}
+                data={chartData}
                 margin={{
                     top: 0,
                     right: 0,
@@ -236,14 +138,21 @@ const BarChartHbh = () => {
                 </defs>
 
                 <ReferenceLine
-                    y={96}
+                    y={uph}
                     strokeDasharray="3 3"
                     stroke={'#d4d4d8'}
                     strokeWidth={2}
                 ></ReferenceLine>
 
                 <XAxis dataKey="hour" stroke={'#d4d4d8'} />
-                <YAxis hide={true} domain={[0, 126 * 1.2]} />
+                <YAxis
+                    hide={true}
+                    domain={[
+                        0,
+                        chartData.reduce((m, c) => (c.qy > m ? c.qy : m), 0) *
+                            1.2,
+                    ]}
+                />
                 <Bar
                     stackId="a"
                     dataKey="qy"
@@ -260,11 +169,12 @@ const BarChartHbh = () => {
                             index={value.name}
                         />
                     )}
+                    isAnimationActive={false}
                 >
-                    {dummy?.map((entry, index) => (
+                    {chartData?.map((entry, index) => (
                         <Cell
                             key={`cell-${index}`}
-                            fill={fillCell(entry.qy, 96)}
+                            fill={fillCell(entry.qy, uph)}
                         />
                     ))}
                 </Bar>

@@ -1,5 +1,9 @@
-import React from 'react'
+'use client'
 
+import React from 'react'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient } from '@tanstack/query-core'
+const queryClient = new QueryClient()
 export default function ManagerLayout({
     children,
 }: Readonly<{
@@ -12,7 +16,9 @@ export default function ManagerLayout({
                     'mx-auto w-full max-w-screen min-w-[1024px]  min-h-screen max-h-screen h-screen bg-[#1d1d1d] flex justify-center'
                 }
             >
-                {children}
+                <QueryClientProvider client={queryClient}>
+                    {children}
+                </QueryClientProvider>
             </section>
         </main>
     )

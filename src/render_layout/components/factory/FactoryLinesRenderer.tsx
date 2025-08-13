@@ -50,7 +50,7 @@ export const FactoryLinesRenderer = ({
                                 pointerEvents: 'none',
                             }}
                         >
-                            {line.label}
+                            Line {line.label}
                         </text>
 
                         <FactoryMachinesRenderer machines={line.machines} />
