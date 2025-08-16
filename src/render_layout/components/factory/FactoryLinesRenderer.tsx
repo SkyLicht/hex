@@ -2,12 +2,16 @@ import React from 'react'
 import { LineRenderer } from '@/src/render_layout/type/line-render'
 import FactoryMachinesRenderer from '@/src/render_layout/components/factory/FactoryMachinesRenderer'
 import { FactoryDataCollectorsRender } from '@/src/render_layout/components/factory/FactoryDataCollectorsRender'
-import { LatestRecordSummaryData } from '@/src/hooks/use-data-collecotr-socket-v2'
+import {
+    LatestRecordSummaryData,
+    WipSummaryData,
+} from '@/src/hooks/use-data-collecotr-socket-v2'
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
 
 interface Props {
     lines: LineRenderer[]
     hourly_data: { [key: string]: number }
+    wip: WipSummaryData
     last_record: LatestRecordSummaryData
     onDataCollectorSelected: (dataCollector: DataCollectorRenderer) => void
 }
@@ -15,6 +19,7 @@ interface Props {
 export const FactoryLinesRenderer = ({
     lines,
     hourly_data,
+    wip,
     last_record,
     onDataCollectorSelected,
 }: Props) => {
@@ -58,6 +63,7 @@ export const FactoryLinesRenderer = ({
                         <FactoryDataCollectorsRender
                             dataCollectors={line.data_collectors}
                             hourly_data={hourly_data}
+                            wip={wip}
                             last_record_time={_last_record_time}
                             onDataCollectorSelected={onDataCollectorSelected}
                         />

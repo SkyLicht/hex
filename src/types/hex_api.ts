@@ -63,3 +63,12 @@ export interface DeltasModel {
     to_ppid: string
     to_timestamp: string //"2025-08-12 14:30:38"
 }
+
+export interface WipModel {
+    ppid: 'MX0XF2C1FC60057U07PWA01'
+    line_name: string
+    next_station: string
+    collected_timestamp: string
+    station_name: string
+    group_name: string
+}

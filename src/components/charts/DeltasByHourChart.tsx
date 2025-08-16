@@ -19,7 +19,8 @@ interface Props {
 
 const DeltasByHourChart = ({ data }: Props) => {
     // Scale seconds to fit screen width
-    const TIMELINE_WIDTH = 1300
+    const TIMELINE_WIDTH = 1100
+    const LABEL_WIDTH = 60 // Width for hour and qy labels
     const scaleSecondToPixel = (seconds: number): number => {
         return (seconds / 3600) * TIMELINE_WIDTH
     }
@@ -34,8 +35,8 @@ const DeltasByHourChart = ({ data }: Props) => {
     // Color configuration - easy to modify
     const COLOR_THRESHOLDS = [
         { min: 60, color: '#ba1b1b' }, // Red for >= 60s
-        { min: 30, color: '#cab641' }, // Orange for >= 30s
-        { min: 0, color: '#4e8520' }, // Yellow for >= 10s
+        { min: 30, color: '#e4c313' }, // Orange for >= 30s
+        { min: 0, color: '#509f0b' }, // Yellow for >= 10s
         // { min: 0, color: 'transparent' }, // Light yellow for < 10s
     ]
 
@@ -49,15 +50,41 @@ const DeltasByHourChart = ({ data }: Props) => {
 
     return (
         <div className={'w-full h-full flex flex-col overflow-y-auto'}>
-            <div className={'border rounded-lg px-2'}>
-                <svg width={TIMELINE_WIDTH} height="800" className={'w-full'}>
+            <div className={'flex justify-between items-center'}>...</div>
+            <div className={' rounded-lg  font-mono'}>
+                <svg
+                    width={TIMELINE_WIDTH + LABEL_WIDTH * 2}
+                    height="800"
+                    className={'w-full'}
+                >
                     {Object.entries(data).map(([hour, hourDataObj], index) => {
                         const yPosition = OFFSET + index * ROW_SPACING
 
                         return (
                             <g key={hour} className={''}>
+                                {/* Hour label before deltaSegments */}
+                                <rect
+                                    x={0}
+                                    y={yPosition}
+                                    width={LABEL_WIDTH}
+                                    height={BACKGROUND_HEIGHT}
+                                    fill="transparent"
+                                    rx="4"
+                                />
+                                <text
+                                    x={LABEL_WIDTH / 2}
+                                    y={yPosition + BACKGROUND_HEIGHT / 2 + 4}
+                                    textAnchor="middle"
+                                    fontSize="16"
+                                    fill="#daddec"
+                                    fontWeight="bold"
+                                >
+                                    {hour}:00
+                                </text>
+
                                 {/* Background representing the full hour */}
                                 <rect
+                                    x={LABEL_WIDTH}
                                     width={TIMELINE_WIDTH}
                                     height={BACKGROUND_HEIGHT}
                                     y={yPosition}
@@ -68,9 +95,11 @@ const DeltasByHourChart = ({ data }: Props) => {
                                 {/* Render delta segments */}
                                 {hourDataObj.deltas.map(
                                     (deltaSegment, deltaIndex) => {
-                                        const x = scaleSecondToPixel(
-                                            deltaSegment.startSeconds
-                                        )
+                                        const x =
+                                            LABEL_WIDTH +
+                                            scaleSecondToPixel(
+                                                deltaSegment.startSeconds
+                                            )
                                         const width = Math.max(
                                             scaleSecondToPixel(
                                                 deltaSegment.endSeconds -
@@ -237,13 +266,32 @@ const DeltasByHourChart = ({ data }: Props) => {
                                         )
                                     }
                                 )}
+
+                                {/* QY label after deltaSegments */}
+                                <rect
+                                    x={LABEL_WIDTH + TIMELINE_WIDTH}
+                                    y={yPosition}
+                                    width={LABEL_WIDTH}
+                                    height={BACKGROUND_HEIGHT}
+                                    fill="transparent"
+                                    rx="4"
+                                />
+                                <text
+                                    x={LABEL_WIDTH + TIMELINE_WIDTH + 5}
+                                    y={yPosition + BACKGROUND_HEIGHT / 2 + 4}
+                                    fontSize="14"
+                                    fill="#daddec"
+                                    fontWeight="bold"
+                                >
+                                    {hourDataObj.deltas.length}pz
+                                </text>
                             </g>
                         )
                     })}
 
-                    {/* Time markers (every 10 minutes) */}
+                    {/* Time markers (every 10 minutes) - adjusted for label offset */}
                     {[0, 10, 20, 30, 40, 50, 60].map((minute) => {
-                        const x = scaleSecondToPixel(minute * 60)
+                        const x = LABEL_WIDTH + scaleSecondToPixel(minute * 60)
                         return (
                             <g key={minute}>
                                 <line
@@ -259,7 +307,7 @@ const DeltasByHourChart = ({ data }: Props) => {
                         )
                     })}
                     {[0, 10, 20, 30, 40, 50, 60].map((minute) => {
-                        const x = scaleSecondToPixel(minute * 60)
+                        const x = LABEL_WIDTH + scaleSecondToPixel(minute * 60)
                         return (
                             <g key={minute}>
                                 <text
@@ -277,30 +325,6 @@ const DeltasByHourChart = ({ data }: Props) => {
                     })}
                 </svg>
             </div>
-
-            {/*{Object.entries(data.deltas).map(([hour, hourDataObj]) => {*/}
-            {/*    return (*/}
-            {/*        <div key={hour} className={'mb-4'}>*/}
-            {/*            /!*<div*!/*/}
-            {/*            /!*    className={*!/*/}
-            {/*            /!*        'flex flex-row items-center justify-between mb-2'*!/*/}
-            {/*            /!*    }*!/*/}
-            {/*            /!*>*!/*/}
-            {/*            /!*    <h3*!/*/}
-            {/*            /!*        className={*!/*/}
-            {/*            /!*            'text-lg font-semibold text-stone-200'*!/*/}
-            {/*            /!*        }*!/*/}
-            {/*            /!*    >*!/*/}
-            {/*            /!*        Hour {hour}:00 - {hour}:59*!/*/}
-            {/*            /!*    </h3>*!/*/}
-            {/*            /!*    <div className={'text-sm text-stone-400'}>*!/*/}
-            {/*            /!*        {hourDataObj.deltas.length} segments | Total:{' '}*!/*/}
-            {/*            /!*        {Math.round(hourDataObj.metrics.duration)}s*!/*/}
-            {/*            /!*    </div>*!/*/}
-            {/*            /!*</div>*!/*/}
-            {/*        </div>*/}
-            {/*    )*/}
-            {/*})}*/}
         </div>
     )
 }

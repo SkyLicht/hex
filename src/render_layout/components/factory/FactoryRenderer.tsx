@@ -8,6 +8,7 @@ import { FactoryLinesRenderer } from '@/src/render_layout/components/factory/Fac
 import {
     HourlySummaryData,
     LatestRecordSummaryData,
+    WipSummaryData,
 } from '@/src/hooks/use-data-collecotr-socket-v2'
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
 
@@ -15,6 +16,7 @@ interface FactoryRenderProps {
     factory: FactoryRenderA6
     resolution: number
     hourly: HourlySummaryData
+    wip: WipSummaryData
     last_record: LatestRecordSummaryData
     onDataCollectorSelected: (collector: DataCollectorRenderer) => void
 }
@@ -23,6 +25,7 @@ export const FactoryRenderer = ({
     factory,
     resolution,
     hourly,
+    wip,
     last_record,
     onDataCollectorSelected,
 }: FactoryRenderProps) => {
@@ -107,6 +110,7 @@ export const FactoryRenderer = ({
                     key="cd03a32f-9c7a-4d3d-ad84-aff64e4d5457" // Add a stable key
                     lines={_render.factory.lines}
                     hourly_data={hourly || {}}
+                    wip={wip || {}}
                     last_record={last_record || {}}
                     onDataCollectorSelected={onDataCollectorSelected}
                 />

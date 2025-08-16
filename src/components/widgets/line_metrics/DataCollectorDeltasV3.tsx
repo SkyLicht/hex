@@ -13,28 +13,23 @@ const parseDataCollector = (dataCollector: string) => {
 
 interface DataCollectorDeltasProps {
     dataCollector: string
+    groupName: string
+    lineName: string
 }
-const DataCollectorDeltas = ({ dataCollector }: DataCollectorDeltasProps) => {
+const DataCollectorDeltasV3 = ({ dataCollector }: DataCollectorDeltasProps) => {
     const { line, station } = parseDataCollector(dataCollector)
 
-    const { data, isLoading, isError } = useGetDeltas(line, station)
+    const { data, isLoading, isError, error } = useGetDeltas(line, station)
 
     if (isLoading) return <div>Loading...</div>
-    if (isError) return <div>Error</div>
+    if (isError) return <div>Error: {error.message}</div>
     if (!data) return <div>No data</div>
 
     return (
-        <div className={'w-full h-full flex flex-col p-4 overflow-y-auto'}>
+        <div className={'w-full h-full flex flex-col px-1 overflow-y-auto'}>
             <DeltasByHourChart data={data.deltas} />
         </div>
     )
 }
 
-export default DataCollectorDeltas
-// <rect
-// width={TIMELINE_WIDTH}
-// height="60"
-// y="10"
-// fill="#374151"
-// rx="4"
-//     />
+export default DataCollectorDeltasV3

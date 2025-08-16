@@ -145,3 +145,36 @@
     outline: none !important;
 }
 
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-muted);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ring);
+}
+
+
+/* Dark theme specific */
+.dark ::-webkit-scrollbar-track {
+    background: oklch(0.269 0 0);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: oklch(1 0 0 / 10%);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: oklch(1 0 0 / 20%);
+}
