@@ -1,16 +1,24 @@
 import React from 'react'
+import { HistoricStationHourSummary } from '@/src/components/widgets/historic/historic_types'
 
 interface Props {
     id: string
+    data: HistoricStationHourSummary
 }
-const DataCollectorDetailsContainer = ({ id }: Props) => {
+const DataCollectorDetailsContainer = ({ id, data }: Props) => {
     return (
         <div className={'w-full h-[400px] flex flex-col p-4 font-sans '}>
             <div className={'w-full h-[50px] bg-amber-400'}></div>
             <div className={'w-1/4 h-full flex flex-row border-2 border-black'}>
                 <div className={'w-full h-full grid grid-cols-2 gap-2'}>
-                    <DataCollectorDetails label={'UNITS'} num1={100} />
-                    <DataCollectorDetails label={'FAIL UNITS'} num1={100} />
+                    <DataCollectorDetails
+                        label={'UNITS'}
+                        num1={data.units_pass}
+                    />
+                    <DataCollectorDetails
+                        label={'FAIL UNITS'}
+                        num1={data.units_fail}
+                    />
                     <DataCollectorDetails label={'WIP'} num1={100} />
                     <DataCollectorDetails label={'DOWNTIME'} num1={100} />
                 </div>

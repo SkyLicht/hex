@@ -1,7 +1,11 @@
 'use client'
 import React from 'react'
 import DataCollectorDetailsContainer from '@/src/components/widgets/historic/data_collector_details/DataCollectorDetailsContainer'
-
+import by_hour from '@/public/dummy/by_hour.json'
+import {
+    HistoricHourSummary,
+    HistoricStationHourSummary,
+} from '@/src/components/widgets/historic/historic_types'
 interface Props {
     selectedDate: string
 }
@@ -12,7 +16,7 @@ interface Props {
 //'FINAL_VI', 'FINAL_INSPECT', 'PACKING'
 
 type DataCollectorDetailsState = {
-    hour: number
+    hour: string
     data_collector: string
 }
 const data_collectors_low_runner = {
@@ -84,7 +88,7 @@ const data_collectors_low_runner = {
             },
             {
                 label: 'FT',
-                data_collector: 'FT',
+                data_collector: 'FT1',
             },
         ],
     },
@@ -108,9 +112,33 @@ const data_collectors_low_runner = {
 }
 
 const hour_24 = [
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-    21, 22, 23,
+    '00',
+    '01',
+    '02',
+    '03',
+    '04',
+    '05',
+    '06',
+    '07',
+    '08',
+    '09',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
 ]
+
+const dummy_data = by_hour as HistoricHourSummary
 
 function HistoricalData({ selectedDate }: Props) {
     const [selected, setSelected] = React.useState<
@@ -121,7 +149,8 @@ function HistoricalData({ selectedDate }: Props) {
             <div className={'w-full h-full flex flex-col gap-2'}>
                 {hour_24.map((_h) => (
                     <HourlySummary
-                        key={`sdfdsgffdsgdgfdgfdgfd=${_h}`}
+                        key={`ana-hourly-summary-${_h}`}
+                        data={dummy_data.by_hour['11']}
                         hour={_h}
                         isDataCollectorSelected={selected}
                         onDataCollectorSelected={(state) => {
@@ -143,14 +172,19 @@ function HistoricalData({ selectedDate }: Props) {
 }
 
 const HourlySummary = ({
+    data,
     hour,
     onDataCollectorSelected,
     isDataCollectorSelected,
 }: {
-    hour: number
+    data: Record<string, HistoricStationHourSummary> | undefined
+    hour: string
     isDataCollectorSelected: DataCollectorDetailsState | undefined
     onDataCollectorSelected: (state: DataCollectorDetailsState) => void
 }) => {
+    if (!data) {
+        return null
+    }
     return (
         <div className={'w-full '}>
             <div className={'w-fit h-full flex flex-row gap-2'}>
@@ -158,6 +192,7 @@ const HourlySummary = ({
                 {data_collectors_low_runner.smt_bot.collectors.map((_d) => (
                     <DataCollectorSummary
                         key={_d.data_collector}
+                        data={data[_d.data_collector]}
                         id={_d.data_collector}
                         label={_d.label}
                         onSelected={() => {
@@ -172,6 +207,7 @@ const HourlySummary = ({
                 {data_collectors_low_runner.smt_bot.collectors.map((_d) => (
                     <DataCollectorSummary
                         key={_d.data_collector}
+                        data={data[_d.data_collector]}
                         id={_d.data_collector}
                         label={_d.label}
                         onSelected={() => {
@@ -186,6 +222,7 @@ const HourlySummary = ({
                 {data_collectors_low_runner.pth.collectors.map((_d) => (
                     <DataCollectorSummary
                         key={_d.data_collector}
+                        data={data[_d.data_collector]}
                         id={_d.data_collector}
                         label={_d.label}
                         onSelected={() => {
@@ -200,6 +237,7 @@ const HourlySummary = ({
                 {data_collectors_low_runner.test.collectors.map((_d) => (
                     <DataCollectorSummary
                         key={_d.data_collector}
+                        data={data[_d.data_collector]}
                         id={_d.data_collector}
                         label={_d.label}
                         onSelected={() => {
@@ -214,6 +252,7 @@ const HourlySummary = ({
                 {data_collectors_low_runner.packing.collectors.map((_d) => (
                     <DataCollectorSummary
                         key={_d.data_collector}
+                        data={data[_d.data_collector]}
                         id={_d.data_collector}
                         label={_d.label}
                         onSelected={() => {
@@ -229,6 +268,7 @@ const HourlySummary = ({
                 isDataCollectorSelected.hour === hour && (
                     <DataCollectorDetailsContainer
                         id={isDataCollectorSelected.data_collector}
+                        data={data[isDataCollectorSelected.data_collector]}
                     />
                 )}
         </div>
@@ -237,10 +277,12 @@ const HourlySummary = ({
 
 const DataCollectorSummary = ({
     id,
+    data,
     label,
     onSelected,
 }: {
     id: string
+    data: HistoricStationHourSummary
     label: string
     onSelected: () => void
 }) => {
@@ -255,12 +297,12 @@ const DataCollectorSummary = ({
                 <h3>{label}</h3>
             </div>
             <div className={'flex flex-row gap-2'}>
-                <div>300</div>
-                <div>100</div>
+                <div>{data.units_pass}</div>
+                <div>-</div>
             </div>
             <div className={'flex flex-row gap-2'}>
-                <div>100</div>
-                <div>999 </div>
+                <div>{data.units_fail}</div>
+                <div>+</div>
             </div>
         </div>
     )
