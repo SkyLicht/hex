@@ -150,7 +150,7 @@ function HistoricalData({ selectedDate }: Props) {
                 {hour_24.map((_h) => (
                     <HourlySummary
                         key={`ana-hourly-summary-${_h}`}
-                        data={dummy_data.by_hour['11']}
+                        data={dummy_data.by_hour[_h]}
                         hour={_h}
                         isDataCollectorSelected={selected}
                         onDataCollectorSelected={(state) => {
@@ -182,9 +182,10 @@ const HourlySummary = ({
     isDataCollectorSelected: DataCollectorDetailsState | undefined
     onDataCollectorSelected: (state: DataCollectorDetailsState) => void
 }) => {
-    if (!data) {
+    if (!data || Object.keys(data).length === 0) {
         return null
     }
+
     return (
         <div className={'w-full '}>
             <div className={'w-fit h-full flex flex-row gap-2'}>

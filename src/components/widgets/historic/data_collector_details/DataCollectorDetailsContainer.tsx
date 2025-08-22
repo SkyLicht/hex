@@ -1,5 +1,10 @@
 import React from 'react'
-import { HistoricStationHourSummary } from '@/src/components/widgets/historic/historic_types'
+import {
+    HistoricRecord,
+    HistoricStationHourSummary,
+} from '@/src/components/widgets/historic/historic_types'
+import { ProcessUnitsToDeltas } from '@/src/handlers/handle_deltas'
+import DeltaHourChart from '@/src/components/charts/DeltaHourChart'
 
 interface Props {
     id: string
@@ -8,7 +13,7 @@ interface Props {
 const DataCollectorDetailsContainer = ({ id, data }: Props) => {
     return (
         <div className={'w-full h-[400px] flex flex-col p-4 font-sans '}>
-            <div className={'w-full h-[50px] bg-amber-400'}></div>
+            <DataCollectorsDetailsDeltas units={data.records} />
             <div className={'w-1/4 h-full flex flex-row border-2 border-black'}>
                 <div className={'w-full h-full grid grid-cols-2 gap-2'}>
                     <DataCollectorDetails
@@ -24,6 +29,19 @@ const DataCollectorDetailsContainer = ({ id, data }: Props) => {
                 </div>
                 <div></div>
             </div>
+        </div>
+    )
+}
+
+const DataCollectorsDetailsDeltas = ({
+    units,
+}: {
+    units: HistoricRecord[]
+}) => {
+    const parser = ProcessUnitsToDeltas(units)
+    return (
+        <div className={'w-full h-[60px] '}>
+            <DeltaHourChart data={parser} />
         </div>
     )
 }
