@@ -10,10 +10,9 @@ import { useSearchParams } from 'next/navigation'
 import { useWorkPlan } from '@/src/hooks/use_work_plan'
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
 import DataCollectorTabs from '@/src/components/widgets/line_metrics/DataCollectorTabs'
-import DataCollectorHeldPCB from '@/src/components/widgets/line_metrics/DataCollectorHeldPCB'
 import { Button } from '@/components/ui/button'
-import HistoricalDataContainer from '@/src/components/widgets/historic/HistoricalDataContainer'
-import { Calendar1Icon, CalendarIcon } from 'lucide-react'
+import HistoricalDataContainer from '@/src/components/widgets/historical_data/HistoricalDataContainer'
+import { CalendarIcon } from 'lucide-react'
 
 const ManagerPage = () => {
     const {
@@ -124,13 +123,15 @@ const ManagerPage = () => {
                         'w-full h-full bg-black/10 absolute top-0 left-0 z-50'
                     }
                 >
-                    <section className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1500px] h-full text-white flex items-center justify-center py-4">
+                    <section className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1500px] h-full text-white flex items-center justify-center py-4 bg-transparent">
                         <section className="w-full h-full flex flex-col backdrop-blur-md bg-neutral-500/10 border border-neutral-400/20 rounded-xl px-2 pt-1">
                             {selected_line && (
                                 <HistoricalDataContainer
                                     onClose={() => setIsPane(false)}
                                 />
                             )}
+
+                            {/*<DataCollectorHeldPCB lineName={'J01'} />*/}
                         </section>
                     </section>
                 </section>

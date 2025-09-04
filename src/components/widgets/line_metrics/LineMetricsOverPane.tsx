@@ -1,7 +1,7 @@
 'use client'
 import React, { useMemo, useState } from 'react'
 import WorkPlanPane from '@/src/components/info/work_plan/WorkPlanPane'
-import BarChartHbh from '@/src/components/charts/BarChartHBH'
+import HourByHourBarChart from '@/src/components/charts/HourByHourBarChart'
 import ProductionLineMetrics from '@/src/components/info/ProductionLineMetrics'
 import { Button } from '@/components/ui/button'
 import { ChartNoAxesColumn, ClipboardIcon } from 'lucide-react'
@@ -102,7 +102,10 @@ function LineMetricsOverPane({ selectedLine, workPlan, hourlySummary }: Props) {
                 </div>
 
                 {chartView === 'hbh' ? (
-                    <BarChartHbh chartData={hbh.chart_data} uph={hbh.uph} />
+                    <HourByHourBarChart
+                        chartData={hbh.chart_data}
+                        uph={hbh.uph}
+                    />
                 ) : (
                     <BarChartDeltasByStation />
                 )}

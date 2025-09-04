@@ -1,7 +1,7 @@
 import React from 'react'
 import { XIcon } from 'lucide-react'
 import { Calendar28 } from '@/src/components/ui/Calendar28'
-import HistoricalData from '@/src/components/widgets/historic/HistoricalData'
+import HistoricalData from '@/src/components/widgets/historical_data/HistoricalData'
 
 interface Props {
     onClose: () => void
@@ -26,7 +26,9 @@ const HistoricalDataContainer = ({ onClose }: Props) => {
                 <XIcon className={'w-6 h-6 cursor-pointer'} onClick={onClose} />
             </div>
             <div className={'w-full h-full flex  overflow-y-auto'}>
-                {date && <HistoricalData selectedDate={date} />}
+                {date && (
+                    <HistoricalData selectedDate={date} selected_line={''} />
+                )}
             </div>
         </div>
     )

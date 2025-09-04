@@ -9,4 +9,4 @@ export interface TabConfig {
     }>
 }
 
-export type TabKey = 'deltas' | 'wip' | 'held_pcb'
+export type TabKey = 'deltas' | 'wip'

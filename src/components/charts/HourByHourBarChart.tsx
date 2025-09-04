@@ -90,7 +90,7 @@ interface Props {
         qy: number
     }[]
 }
-const BarChartHbh = ({ chartData, uph }: Props) => {
+const HourByHourBarChart = ({ chartData, uph }: Props) => {
     return (
         <ResponsiveContainer
             width="100%"
@@ -192,4 +192,4 @@ const fillCell = (value: number, max: number) => {
     }
 }
 
-export default BarChartHbh
+export default HourByHourBarChart

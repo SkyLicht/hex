@@ -17,8 +17,8 @@ const parseDataCollector = (dataCollector: string) => {
 }
 
 interface DataCollectorHeldPCBProps {
-    dataCollector: string
-    groupName: string
+    // dataCollector: string
+    // groupName: string
     lineName: string
 }
 
@@ -233,10 +233,7 @@ const BatchSuspiciousModal = ({
     )
 }
 
-const DataCollectorHeldPCB = ({
-    dataCollector,
-    lineName,
-}: DataCollectorHeldPCBProps) => {
+const DataCollectorHeldPCB = ({ lineName }: DataCollectorHeldPCBProps) => {
     // const { line } = parseDataCollector(dataCollector)
     const { data, isLoading, isError, error } =
         useGetProductionHidingPatterns(lineName)
@@ -529,7 +526,7 @@ const DataCollectorHeldPCB = ({
                                     }}
                                     className="bg-neutral-900/50 border border-neutral-700/50 rounded-lg p-2 transition-colors cursor-pointer hover:bg-neutral-700/30"
                                 >
-                                    <div className="flex items-start justify-between gap-2">
+                                    <div className="flex  items-start justify-between gap-2">
                                         <div>
                                             <p className="text-stone-400 text-[11px] uppercase tracking-wide">
                                                 Batch

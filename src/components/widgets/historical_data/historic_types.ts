@@ -15,6 +15,12 @@ export interface HistoricStationHourSummary {
     records: HistoricRecord[]
 }
 
+export interface HistoricStationGroupByStation {
+    hour: number
+    units_pass: number
+    units_fail: number
+}
 export interface HistoricHourSummary {
     by_hour: Record<string, Record<string, HistoricStationHourSummary>>
+    hours_by_group: Record<string, HistoricStationGroupByStation[]>
 }

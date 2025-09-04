@@ -65,10 +65,21 @@ export interface DeltasModel {
 }
 
 export interface WipModel {
-    ppid: 'MX0XF2C1FC60057U07PWA01'
+    ppid: string
     line_name: string
     next_station: string
     collected_timestamp: string
     station_name: string
     group_name: string
+}
+export interface UnitItem {
+    ppid: string
+    group_name: string
+    timestamp: string
+    line_name: string
+}
+
+export interface UnitsSummaryResponse {
+    summary: number
+    units: UnitItem[]
 }

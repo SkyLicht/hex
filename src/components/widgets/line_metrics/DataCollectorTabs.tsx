@@ -27,11 +27,11 @@ const TAB_CONFIGS: Record<TabKey, TabConfig> = {
         label: 'WIP',
         component: DataCollectorWip,
     },
-    held_pcb: {
-        key: 'held_pcb',
-        label: 'Held PCBs',
-        component: DataCollectorHeldPCB,
-    },
+    // held_pcb: {
+    //     key: 'held_pcb',
+    //     label: 'Held PCBs',
+    //     component: DataCollectorHeldPCB,
+    // },
 }
 
 const DataCollectorTabs = ({

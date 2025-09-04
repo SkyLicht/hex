@@ -268,8 +268,6 @@ export const ProcessUnitsToDeltas = (
 } => {
     const deltas = TransformUnitsToDeltas(units)
 
-    console.log(deltas)
-
     const hourlyData: {
         metrics: { duration: number }
         deltas: Array<{
