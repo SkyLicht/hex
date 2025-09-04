@@ -1,10 +1,25 @@
 'use client'
 import React from 'react'
-import PPIDDeltasDisplayV2 from '@/components/statistics/data_collector/DataCollectorDeltasV2'
-import DeltasByHourChart from '@/src/components/charts/DeltasByHourChart'
+import {useSocket} from "@/src/hooks/use-socket";
 
 const ManagerPage = () => {
-    return <div className={'h-full w-full'}>{/*<DeltasByHourChart />*/}</div>
+
+
+
+    const {} = useSocket('ws://10.13.32.220:9091/ws/monitor', {
+        onConnect: () => {
+            console.log('Connected')
+        }
+        ,
+        onDisconnect: () => {
+            console.log('Disconnected')
+        },
+        onMessage: (message) => {
+            console.log('Message received:', message)
+        }
+    })
+
+    return <div className={'h-full w-full'}>{'Hello'}</div>
 }
 
 export default ManagerPage
