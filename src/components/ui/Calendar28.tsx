@@ -12,7 +12,7 @@ import {
     PopoverTrigger,
 } from '@/components/ui/popover'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 
 function formatDate(date: Date | undefined) {
     if (!date) {
@@ -49,7 +49,7 @@ interface Props {
 
 export function Calendar28({ onDateChange }: Props) {
     const [open, setOpen] = React.useState(false)
-    const [date, setDate] = React.useState<Date | undefined>(new Date())
+    const [date, setDate] = React.useState<Date | undefined>(undefined)
     const [month, setMonth] = React.useState<Date | undefined>(date)
     const [value, setValue] = React.useState(formatDate(date))
     const router = useRouter()
@@ -62,6 +62,7 @@ export function Calendar28({ onDateChange }: Props) {
         },
         [searchParams, router]
     )
+
     return (
         <div className="flex flex-col gap-3">
             <div className="relative flex gap-2">

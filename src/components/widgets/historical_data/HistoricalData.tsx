@@ -11,6 +11,7 @@ import { useGetDataGroupNameByHourAndDayLine } from '@/src/components/widgets/hi
 interface Props {
     selectedDate: string
     selected_line: string
+    isLoading: boolean
 }
 
 //'SMT_INPUT2', 'SPI2', 'REFLOW_VI2', 'AOI_T2'
@@ -186,11 +187,12 @@ const hour_24 = [
 
 // const dummy_data = by_hour as HistoricHourSummary
 
-function HistoricalData({ selectedDate }: Props) {
-    const { data, isLoading, isError } = useGetDataGroupNameByHourAndDayLine(
-        selectedDate,
-        'J01'
-    )
+function HistoricalData({ selectedDate, selected_line, isLoading }: Props) {
+    const {
+        data,
+        isLoading: isLoad,
+        isError,
+    } = useGetDataGroupNameByHourAndDayLine(selectedDate, selected_line)
 
     const [selected, setSelected] = React.useState<
         DataCollectorDetailsState | undefined
@@ -200,7 +202,7 @@ function HistoricalData({ selectedDate }: Props) {
         undefined
     )
 
-    if (isLoading) {
+    if (isLoad) {
         return <div>Loading...</div>
     }
 

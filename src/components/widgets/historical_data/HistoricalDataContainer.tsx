@@ -2,6 +2,8 @@ import React from 'react'
 import { XIcon } from 'lucide-react'
 import { Calendar28 } from '@/src/components/ui/Calendar28'
 import HistoricalData from '@/src/components/widgets/historical_data/HistoricalData'
+import { LineSelector28 } from '@/src/components/ui/combo_box/LineSelector28'
+import QueryButton from '@/src/components/ui/buttons/QueryButton'
 
 interface Props {
     onClose: () => void
@@ -9,6 +11,10 @@ interface Props {
 
 const HistoricalDataContainer = ({ onClose }: Props) => {
     const [date, setDate] = React.useState<string | undefined>(undefined)
+    const [selected_line, setSelectedLine] = React.useState<string | undefined>(
+        undefined
+    )
+
     return (
         <div className={'w-full h-full flex flex-col '}>
             <div
@@ -22,12 +28,28 @@ const HistoricalDataContainer = ({ onClose }: Props) => {
                             setDate(_date)
                         }}
                     />
+                    <LineSelector28
+                        onSelect={(line) => {
+                            console.log('line selected', line)
+                        }}
+                    />
+
+                    <QueryButton
+                        onQuery={() => {
+                            console.log('query')
+                        }}
+                        isDisabled
+                    />
                 </div>
                 <XIcon className={'w-6 h-6 cursor-pointer'} onClick={onClose} />
             </div>
             <div className={'w-full h-full flex  overflow-y-auto'}>
-                {date && (
-                    <HistoricalData selectedDate={date} selected_line={''} />
+                {date && selected_line && (
+                    <HistoricalData
+                        selectedDate={date}
+                        selected_line={selected_line}
+                        isLoading={false}
+                    />
                 )}
             </div>
         </div>
