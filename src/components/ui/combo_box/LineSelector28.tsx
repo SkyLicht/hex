@@ -84,14 +84,14 @@ export function LineSelector28({ onSelect }: Props) {
                         ? frameworks.find(
                               (framework) => framework.value === value
                           )?.label
-                        : 'Select framework...'}
+                        : 'Select Line'}
                     <ChevronsUpDown className="opacity-50" />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] p-0">
                 <Command>
                     <CommandInput
-                        placeholder="Search framework..."
+                        placeholder="Search line..."
                         className="h-9"
                     />
                     <CommandList>

@@ -13,24 +13,43 @@ import DataCollectorTabs from '@/src/components/widgets/line_metrics/DataCollect
 import { Button } from '@/components/ui/button'
 import HistoricalDataContainer from '@/src/components/widgets/historical_data/HistoricalDataContainer'
 import { CalendarIcon } from 'lucide-react'
+import { useSocket } from '@/src/hooks/use-socket'
 
 const ManagerPage = () => {
+    // const {
+    //     hourlySummary,
+    //     wipSummary,
+    //     latestRecordSummary,
+    //     connectionStatus,
+    //     error,
+    //     reconnect,
+    // } = useWebSocketDataCollectorV2('ws://10.13.33.131:8051/ws/monitor', {
+    //     onHourlySummary: (data) => {
+    //         // console.log('Hourly summary updated:', data)
+    //     },
+    //     onWipSummary: (data) => {
+    //         // console.log('WIP summary updated:', data)
+    //     },
+    //     onLatestRecordSummary: (data) => {
+    //         // console.log('Latest records updated:', data)
+    //     },
+    // })
+
     const {
         hourlySummary,
-        wipSummary,
         latestRecordSummary,
         connectionStatus,
         error,
         reconnect,
-    } = useWebSocketDataCollectorV2('ws://10.13.33.131:8051/ws/monitor', {
-        onHourlySummary: (data) => {
-            // console.log('Hourly summary updated:', data)
+    } = useSocket('ws://10.13.32.220:9091/ws/monitor', {
+        onConnect: () => {
+            console.log('Connected')
         },
-        onWipSummary: (data) => {
-            // console.log('WIP summary updated:', data)
+        onDisconnect: () => {
+            console.log('Disconnected')
         },
-        onLatestRecordSummary: (data) => {
-            // console.log('Latest records updated:', data)
+        onMessage: (message) => {
+            console.log('Message received:', message)
         },
     })
 
@@ -39,8 +58,6 @@ const ManagerPage = () => {
     >(undefined)
 
     const [isPane, setIsPane] = useState(false)
-
-    const { data, isLoading, isError } = useWorkPlan()
 
     const searchParams = useSearchParams()
     const selected_line = searchParams.get('selected_line')
@@ -54,8 +71,8 @@ const ManagerPage = () => {
                 factory={factory}
                 resolution={1536}
                 hourly={hourlySummary}
-                wip={wipSummary}
-                last_record={latestRecordSummary}
+                wip={undefined}
+                last_record={undefined}
                 onDataCollectorSelected={(dataCollector) => {
                     if (selectedCollector === dataCollector) {
                         setSelectedCollector(undefined)
@@ -86,15 +103,9 @@ const ManagerPage = () => {
 
             <section className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1300px] h-[250px] text-white flex items-center justify-center pb-4">
                 <section className="w-full h-full flex flex-col backdrop-blur-md bg-neutral-500/10 border border-neutral-400/20 rounded-xl px-2 pt-1 select-none">
-                    {data && (
-                        <LineMetricsOverPane
-                            selectedLine={selected_line || 'none'}
-                            workPlan={data.find(
-                                (p) => p.line.name === selected_line
-                            )}
-                            hourlySummary={hourlySummary}
-                        />
-                    )}
+                    <HourByHourContainer
+                        selected_line={selected_line || 'none'}
+                    />
                 </section>
             </section>
 
@@ -125,11 +136,9 @@ const ManagerPage = () => {
                 >
                     <section className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1500px] h-full text-white flex items-center justify-center py-4 bg-transparent">
                         <section className="w-full h-full flex flex-col backdrop-blur-md bg-neutral-500/10 border border-neutral-400/20 rounded-xl px-2 pt-1">
-                            {selected_line && (
-                                <HistoricalDataContainer
-                                    onClose={() => setIsPane(false)}
-                                />
-                            )}
+                            <HistoricalDataContainer
+                                onClose={() => setIsPane(false)}
+                            />
 
                             {/*<DataCollectorHeldPCB lineName={'J01'} />*/}
                         </section>
@@ -137,6 +146,20 @@ const ManagerPage = () => {
                 </section>
             )}
         </div>
+    )
+}
+
+const HourByHourContainer = ({ selected_line }: { selected_line: string }) => {
+    const { data, isLoading, isError, error } = useWorkPlan()
+
+    if (isLoading) return <p>Loading...</p>
+    if (isError) return <p>{error.message}</p>
+    if (!data) return <p>No data available</p>
+    return (
+        <LineMetricsOverPane
+            selectedLine={selected_line || 'none'}
+            workPlan={data.find((p) => p.line.name === selected_line)}
+        />
     )
 }
 

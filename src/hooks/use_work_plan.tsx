@@ -16,6 +16,9 @@ export const useWorkPlan = () => {
                 throw new Error('Error getting the work plan')
             }
 
+            if (response.data.data === null)
+                throw new Error(response.data.message as string)
+
             return response.data as WorkPlanModel[]
         },
         refetchOnWindowFocus: true,

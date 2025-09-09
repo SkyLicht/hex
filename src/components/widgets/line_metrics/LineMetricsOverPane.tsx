@@ -14,7 +14,6 @@ import { WorkPlanModel } from '@/src/types/hex_api'
 interface Props {
     selectedLine: string
     workPlan?: WorkPlanModel
-    hourlySummary: { [key: string]: number }
 }
 // export function sumHourlySummary(hourlySummary: {
 //     [key: string]: number
@@ -24,7 +23,7 @@ interface Props {
 //     }, 0)
 // }
 
-function LineMetricsOverPane({ selectedLine, workPlan, hourlySummary }: Props) {
+function LineMetricsOverPane({ selectedLine, workPlan }: Props) {
     const { isError, data, isLoading } = useGetCurrentDayHBH()
 
     const hbh = useMemo(() => {

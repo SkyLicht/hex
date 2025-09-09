@@ -69,7 +69,7 @@ export function Calendar28({ onDateChange }: Props) {
                 <Input
                     id="date"
                     value={value}
-                    placeholder="June 01, 2025"
+                    placeholder="select a date"
                     className="bg-background pr-10"
                     onChange={(e) => {
                         const date = new Date(e.target.value)

@@ -30,29 +30,43 @@ const HistoricalDataContainer = ({ onClose }: Props) => {
                     />
                     <LineSelector28
                         onSelect={(line) => {
-                            console.log('line selected', line)
+                            setSelectedLine(line)
                         }}
-                    />
-
-                    <QueryButton
-                        onQuery={() => {
-                            console.log('query')
-                        }}
-                        isDisabled
                     />
                 </div>
                 <XIcon className={'w-6 h-6 cursor-pointer'} onClick={onClose} />
             </div>
             <div className={'w-full h-full flex  overflow-y-auto'}>
-                {date && selected_line && (
-                    <HistoricalData
-                        selectedDate={date}
-                        selected_line={selected_line}
-                        isLoading={false}
-                    />
-                )}
+                <HistoricalDataResultContainer
+                    isDate={date}
+                    isLine={selected_line}
+                />
             </div>
         </div>
+    )
+}
+
+const HistoricalDataResultContainer = ({
+    isDate,
+    isLine,
+}: {
+    isDate?: string
+    isLine?: string
+}) => {
+    if (isDate === undefined) {
+        return <div>Select a date</div>
+    }
+
+    if (isLine === undefined) {
+        return <div>Select a line</div>
+    }
+
+    return (
+        <HistoricalData
+            selectedDate={isDate}
+            selected_line={isLine}
+            isLoading={false}
+        />
     )
 }
 

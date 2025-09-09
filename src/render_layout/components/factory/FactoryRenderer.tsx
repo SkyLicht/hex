@@ -16,8 +16,8 @@ interface FactoryRenderProps {
     factory: FactoryRenderA6
     resolution: number
     hourly: HourlySummaryData
-    wip: WipSummaryData
-    last_record: LatestRecordSummaryData
+    wip?: WipSummaryData
+    last_record?: LatestRecordSummaryData
     onDataCollectorSelected: (collector: DataCollectorRenderer) => void
 }
 

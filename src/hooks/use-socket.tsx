@@ -1,5 +1,4 @@
-import {useState, useEffect, useRef, useCallback} from 'react'
-
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 export interface HourlySummary {
     [key: string]: number
@@ -19,9 +18,16 @@ export interface LatestRecordSummaryMessage {
     massage: LatestRecordSummaryData
 }
 
-export type WebSocketMessage3 = HourlySummaryMessage | LatestRecordSummaryMessage
-
-
+export type WebSocketMessage3 =
+    | HourlySummaryMessage
+    | LatestRecordSummaryMessage
+export type WebSocketReturn = {
+    hourlySummary: HourlySummary
+    latestRecordSummary: LatestRecordSummaryData
+    connectionStatus: 'connecting' | 'connected' | 'disconnected' | 'error'
+    error: string | null
+    reconnect: () => void
+}
 export const useSocket = (
     url: string,
     options?: {
@@ -31,10 +37,11 @@ export const useSocket = (
         onConnect?: () => void
         onDisconnect?: () => void
         onMessage?: (message: WebSocketMessage3) => void
-
     }
-) => {
-
+): WebSocketReturn => {
+    const [hourlySummary, setHourlySummary] = useState<HourlySummary>({})
+    const [latestRecordSummary, setLatestRecordSummary] =
+        useState<LatestRecordSummaryData>({})
 
     const [connectionStatus, setConnectionStatus] = useState<
         'connecting' | 'connected' | 'disconnected' | 'error'
@@ -45,7 +52,6 @@ export const useSocket = (
     const reconnectTimeoutRef = useRef<NodeJS.Timeout | null>(null)
     const reconnectAttemptsRef = useRef(0)
     const optionsRef = useRef(options)
-
 
     // Update options ref when options change
     useEffect(() => {
@@ -74,7 +80,7 @@ export const useSocket = (
             onError,
             onConnect,
             onDisconnect,
-            onMessage
+            onMessage,
         } = opts
 
         try {
@@ -93,24 +99,20 @@ export const useSocket = (
 
             wsRef.current.onmessage = (event) => {
                 try {
-
                     const message: WebSocketMessage3 = JSON.parse(event.data)
-                    
 
                     onMessage?.(message)
 
-
                     switch (message.massage_type) {
-
                         case 'LAST_HOUR':
-                            console.log(message.massage)
+                            // console.log(message.massage)
+                            setHourlySummary(message.massage)
                             break
                         case 'LAST_UPDATE':
-                            console.log(message.massage)
+                            // console.log(message.massage)
+                            setLatestRecordSummary(message.massage)
                             break
                     }
-
-
                 } catch (parseError) {
                     console.error(
                         'Failed to parse WebSocket message:',
@@ -212,6 +214,8 @@ export const useSocket = (
     }, [connect])
 
     return {
+        hourlySummary,
+        latestRecordSummary,
         connectionStatus,
         error,
         reconnect,
