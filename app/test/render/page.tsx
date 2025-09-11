@@ -3,7 +3,6 @@ import React, { useMemo, useState } from 'react'
 import { FactoryRenderer } from '@/src/render_layout/components/factory/FactoryRenderer'
 import { fileToFactoryRender } from '@/src/render_layout/mappers/file-to-factory-render'
 import render_layout from '@/public/render/render_layout.json'
-import { useWebSocketDataCollectorV2 } from '@/src/hooks/use-data-collecotr-socket-v2'
 import LineSelector from '@/src/render_layout/components/widgets/LineSelector'
 import LineMetricsOverPane from '@/src/components/widgets/line_metrics/LineMetricsOverPane'
 import { useSearchParams } from 'next/navigation'
@@ -71,8 +70,7 @@ const ManagerPage = () => {
                 factory={factory}
                 resolution={1536}
                 hourly={hourlySummary}
-                wip={undefined}
-                last_record={undefined}
+                last_record={latestRecordSummary}
                 onDataCollectorSelected={(dataCollector) => {
                     if (selectedCollector === dataCollector) {
                         setSelectedCollector(undefined)

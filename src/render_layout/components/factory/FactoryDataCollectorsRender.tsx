@@ -1,13 +1,11 @@
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
 import React, { useState } from 'react'
-import { WipSummaryData } from '@/src/hooks/use-data-collecotr-socket-v2'
 import ClockIcon from '@/src/components/icons/ClockIcon'
 
 interface Props {
     dataCollectors: DataCollectorRenderer[]
     hourly_data: { [key: string]: number }
     last_record_time: { [key: string]: number }
-    wip: WipSummaryData
     onDataCollectorSelected: (dataCollector: DataCollectorRenderer) => void
 }
 
@@ -15,7 +13,6 @@ export const FactoryDataCollectorsRender = ({
     dataCollectors,
     hourly_data,
     last_record_time,
-    wip,
     onDataCollectorSelected,
 }: Props) => {
     const [hoveredCollector, setHoveredCollector] = useState<string | null>(

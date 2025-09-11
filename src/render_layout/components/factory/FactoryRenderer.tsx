@@ -5,19 +5,14 @@ import { useSearchParams } from 'next/navigation'
 import { FactoryRenderA6 } from '@/src/render_layout/type/factory-render-a6'
 import { LayoutRender } from '@/src/render_layout/renderer/layout-render'
 import { FactoryLinesRenderer } from '@/src/render_layout/components/factory/FactoryLinesRenderer'
-import {
-    HourlySummaryData,
-    LatestRecordSummaryData,
-    WipSummaryData,
-} from '@/src/hooks/use-data-collecotr-socket-v2'
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
+import { HourlySummary, LatestRecordSummaryData } from '@/src/hooks/use-socket'
 
 interface FactoryRenderProps {
     factory: FactoryRenderA6
     resolution: number
-    hourly: HourlySummaryData
-    wip?: WipSummaryData
-    last_record?: LatestRecordSummaryData
+    hourly: HourlySummary
+    last_record: LatestRecordSummaryData
     onDataCollectorSelected: (collector: DataCollectorRenderer) => void
 }
 
@@ -25,7 +20,6 @@ export const FactoryRenderer = ({
     factory,
     resolution,
     hourly,
-    wip,
     last_record,
     onDataCollectorSelected,
 }: FactoryRenderProps) => {
@@ -109,9 +103,8 @@ export const FactoryRenderer = ({
                 <FactoryLinesRenderer
                     key="cd03a32f-9c7a-4d3d-ad84-aff64e4d5457" // Add a stable key
                     lines={_render.factory.lines}
-                    hourly_data={hourly || {}}
-                    wip={wip || {}}
-                    last_record={last_record || {}}
+                    hourly_data={hourly}
+                    last_record={last_record}
                     onDataCollectorSelected={onDataCollectorSelected}
                 />
             </g>
