@@ -9,7 +9,7 @@ export default function WorkPlanLayout({
         <main className={'max-w-screen'}>
             <section
                 className={
-                    'mx-auto w-full max-w-screen-2xl  min-h-screen max-h-screen h-screen'
+                    'mx-auto w-full max-w-screen-2xl  min-h-screen max-h-screen h-screen bg-[#1d1d1d]'
                 }
             >
                 {children}

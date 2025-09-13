@@ -40,7 +40,7 @@ const ManagerPage = () => {
         connectionStatus,
         error,
         reconnect,
-    } = useSocket('ws://10.13.32.220:9091/ws/monitor', {
+    } = useSocket('ws://10.13.32.222:9091/ws/monitor', {
         onConnect: () => {
             console.log('Connected')
         },

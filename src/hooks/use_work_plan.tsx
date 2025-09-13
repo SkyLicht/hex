@@ -9,7 +9,7 @@ export const useWorkPlan = () => {
         queryKey: ['work_plan-1'],
         queryFn: async () => {
             const response = await axios.get(
-                `${work_url_hex_api}planner/get_work_plans_by_str_date?str_date=${'2025-08-11'}`
+                `${work_url_hex_api}planner/get_work_plans_by_str_date?str_date=${'2025-09-12'}`
             )
 
             if (response.status !== 200) {
