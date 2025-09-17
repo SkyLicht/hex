@@ -1,14 +1,14 @@
-import { UphRecordDTO } from '@/src/dto/dto-uph_record'
+import { UphRecordDTO } from '@/src/dto/planner_dto'
 import { ServerUnreachableError } from '@/lib/sl-request'
 
-export const getWorkPlan = async (): Promise<UphRecordDTO[]> => {
+export const getUphrecords = async (): Promise<UphRecordDTO[]> => {
     'use server'
 
     // Wait 3 seconds
     // await new Promise((resolve) => setTimeout(resolve, 3000))
 
     const response = await fetch(
-        'http://10.13.32.220:3010/api/v1/uph/get_uph?page=1&page_size=20'
+        `${process.env.HEX_API_IP}uph/get_uph?page=1&page_size=20`
     )
 
     if (!response.ok) {
