@@ -6,12 +6,14 @@ import { Button } from '@/components/ui/button'
 import {
     Dialog,
     DialogContent,
+    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
-import { PlusIcon } from 'lucide-react'
-import UPHRecordForm from '@/src/components/forms/UphRecordForm'
+import { MoreHorizontal, PlusIcon } from 'lucide-react'
+import UphRecordFormCreate from '@/src/components/forms/UphRecordFormCreate'
+import DeleteUHPForm from '@/src/components/forms/UphRecordFormDelete'
 
 interface Props {
     uphRecords: UphRecordDTO[]
@@ -25,9 +27,34 @@ const UPHRecordsTable: React.FC<Props> = ({
     uphRecords,
 }: Props) => {
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false)
+    const [selectedRecord, setSelectedRecord] = useState<UphRecordDTO | null>()
 
     return (
         <div className="w-full h-full overflow-y-auto flex flex-col bg-neutral-900">
+            <Dialog open={isMoreMenuOpen} onOpenChange={setIsMoreMenuOpen}>
+                <DialogContent
+                    className=" h-fit container"
+                    aria-description="alert-dialog"
+                >
+                    <DialogHeader className="flex  items-start justify-center ">
+                        <DialogTitle className="">{'Delete'}</DialogTitle>
+                        <DialogDescription asChild>
+                            {selectedRecord && (
+                                <div>
+                                    <DeleteUHPForm
+                                        id={selectedRecord.id}
+                                        onClose={() => {
+                                            setIsMoreMenuOpen(false)
+                                            setSelectedRecord(null)
+                                        }}
+                                    ></DeleteUHPForm>
+                                </div>
+                            )}
+                        </DialogDescription>
+                    </DialogHeader>
+                </DialogContent>
+            </Dialog>
             <div className="w-full h-fit p-4">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-xl font-bold text-stone-300">
@@ -46,7 +73,7 @@ const UPHRecordsTable: React.FC<Props> = ({
                                     Add UPH Record
                                 </DialogTitle>
                             </DialogHeader>
-                            <UPHRecordForm
+                            <UphRecordFormCreate
                                 lines={lines}
                                 platforms={platforms}
                                 onSuccess={() => setIsModalOpen(false)}
@@ -73,11 +100,14 @@ const UPHRecordsTable: React.FC<Props> = ({
                                 <th className="px-3 py-2 text-left w-[50px]">
                                     UPH
                                 </th>
-                                <th className="px-3 py-2 text-left w-[250px]">
+                                <th className="px-3 py-2 text-left w-[200px]">
                                     Start Date
                                 </th>
-                                <th className="px-3 py-2 text-left w-[250px]">
+                                <th className="px-3 py-2 text-left w-[200px]">
                                     End Date
+                                </th>
+                                <th className="px-3 py-2 text-left w-[40px]">
+                                    Action
                                 </th>
                             </tr>
                         </thead>
@@ -112,6 +142,22 @@ const UPHRecordsTable: React.FC<Props> = ({
                                     <td className="px-2 py-1 font-mono text-stone-300">
                                         {formatDate(record.end_date)}
                                     </td>
+                                    <td className=" px-2 py-1 font-mono text-stone-300  ">
+                                        <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            asChild
+                                            className={
+                                                'inline-flex items-center'
+                                            }
+                                            onClick={() => {
+                                                setSelectedRecord(record)
+                                                setIsMoreMenuOpen(true)
+                                            }}
+                                        >
+                                            <MoreHorizontal />
+                                        </Button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -131,7 +177,6 @@ const formatDate = (dateStr: string) => {
         day: '2-digit',
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit',
         hour12: false, // 24h format
         timeZone: 'UTC', // <-- prevents adding local offset
     }).format(date)

@@ -9,11 +9,11 @@ import { cn } from '@/lib/utils'
 import BarChartDeltasByStation from '@/src/components/charts/BarChartDeltasByStation'
 import { useGetCurrentDayHBH } from '@/src/hooks/use_hbb_api'
 import HandleInfoPane from '@/src/handlers/handle_info_pane'
-import { WorkPlanModel } from '@/src/types/hex_api'
+import { UphRecordDTO } from '@/src/dto/planner_dto'
 
 interface Props {
     selectedLine: string
-    workPlan?: WorkPlanModel
+    uph?: UphRecordDTO
 }
 // export function sumHourlySummary(hourlySummary: {
 //     [key: string]: number
@@ -23,13 +23,13 @@ interface Props {
 //     }, 0)
 // }
 
-function LineMetricsOverPane({ selectedLine, workPlan }: Props) {
+function LineMetricsOverPane({ selectedLine, uph }: Props) {
     const { isError, data, isLoading } = useGetCurrentDayHBH()
 
     const hbh = useMemo(() => {
-        const _h = new HandleInfoPane(selectedLine, data, workPlan)
+        const _h = new HandleInfoPane(selectedLine, data, uph)
         return _h.generateInfoPane()
-    }, [data, selectedLine, workPlan])
+    }, [data, selectedLine, uph])
 
     const [chartView, setChartView] = useState('hbh')
 
@@ -53,14 +53,14 @@ function LineMetricsOverPane({ selectedLine, workPlan }: Props) {
             </div>
             <div className={'h-full w-full  flex flex-col '}>
                 <div className={'flex flex-row justify-between '}>
-                    {workPlan ? (
+                    {uph ? (
                         <WorkPlanPane
                             variant={'header'}
                             line={selectedLine}
-                            platform={workPlan.platform.platform}
+                            platform={uph.platform.platform}
                             commit={hbh.commit}
-                            sku={workPlan.platform.sku}
-                            uph={workPlan.uph_i}
+                            sku={uph.platform.sku}
+                            uph={uph.uph}
                         />
                     ) : (
                         <div>Not </div>

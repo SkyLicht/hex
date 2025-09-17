@@ -1,15 +1,15 @@
 import { HBHModel } from '@/src/types/hbh_api_models'
 import { InfoPaneModel } from '@/src/types/info_pane_model'
-import { WorkPlanModel } from '@/src/types/hex_api'
+import { UphRecordDTO } from '@/src/dto/planner_dto'
 
 class HandleInfoPane {
-    private work_plan: WorkPlanModel | undefined
+    private work_plan: UphRecordDTO | undefined
     private line: string
     private hbh?: { [key: string]: HBHModel[] }
     constructor(
         line: string,
         hbh?: { [key: string]: HBHModel[] },
-        wp?: WorkPlanModel
+        wp?: UphRecordDTO
     ) {
         this.line = line
         this.hbh = hbh
@@ -82,7 +82,7 @@ class HandleInfoPane {
         const commit =
             // this.work_plan.platform.uph *
             // this.work_plan.target_oee *
-            this.work_plan.uph_i * this.work_plan.planned_hours
+            this.work_plan.uph * 23.5
         return {
             line: 'J01',
             current: current_hour,
@@ -90,8 +90,8 @@ class HandleInfoPane {
             oee: 0,
             fpy: 0,
             chart_data: _to_chart,
-            uph: this.work_plan.uph_i,
-            uph_i: this.work_plan.uph_i,
+            uph: this.work_plan.uph,
+            uph_i: this.work_plan.uph,
             commit: commit,
         }
     }

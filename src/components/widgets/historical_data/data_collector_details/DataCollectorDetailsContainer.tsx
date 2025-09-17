@@ -15,7 +15,9 @@ interface Props {
     id: string
     data: HistoricStationHourSummary
     hour_by_hour: HistoricStationGroupByStation[]
+    uph: number
     date: string
+    label: string
     line: string
     group_a: string
     group_b: string
@@ -26,8 +28,10 @@ const DataCollectorDetailsContainer = ({
     data,
     hour_by_hour,
     date,
+    uph,
     selected_hour,
     line,
+    label,
     group_a,
     group_b,
 }: Props) => {
@@ -35,7 +39,23 @@ const DataCollectorDetailsContainer = ({
     const [selectedUnits, setSelectedUnits] = React.useState<UnitItem[]>([])
     return (
         <>
-            <div className={'w-full h-[420px] flex flex-col p-4 font-sans '}>
+            <div className={'w-full h-[480px] flex flex-col p-4 font-sans '}>
+                <div
+                    className={
+                        'w-full h-[60px] flex flex-row gap-2 text-stone-400 font-semibold text-2xl    '
+                    }
+                >
+                    <h3>Line {line}</h3>
+                    <h3>
+                        Hour{' '}
+                        {selected_hour <= 9
+                            ? `0${selected_hour}`
+                            : selected_hour}
+                        :00
+                    </h3>
+
+                    <h3>{label}</h3>
+                </div>
                 <DataCollectorsDetailsDeltas units={data.records} />
                 <div className={"'w-full h-full flex flex-row "}>
                     <div className={'w-1/5 h-full flex flex-col gap-3 '}>
@@ -91,7 +111,7 @@ const DataCollectorDetailsContainer = ({
                         <div className={'w-full h-2/5'}></div>
                         <div className={'w-full h-3/5 p-2'}>
                             <HourByHourBarChart
-                                uph={192}
+                                uph={uph}
                                 chartData={hour_by_hour.map((_h) => {
                                     return { hour: _h.hour, qy: _h.units_pass }
                                 })}

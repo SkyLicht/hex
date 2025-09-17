@@ -3,7 +3,6 @@ import { XIcon } from 'lucide-react'
 import { Calendar28 } from '@/src/components/ui/Calendar28'
 import HistoricalData from '@/src/components/widgets/historical_data/HistoricalData'
 import { LineSelector28 } from '@/src/components/ui/combo_box/LineSelector28'
-import QueryButton from '@/src/components/ui/buttons/QueryButton'
 
 interface Props {
     onClose: () => void

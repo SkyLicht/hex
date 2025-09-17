@@ -8,6 +8,7 @@ import {
 } from '@/src/components/widgets/historical_data/historic_types'
 import { cn } from '@/lib/utils'
 import { useGetDataGroupNameByHourAndDayLine } from '@/src/components/widgets/historical_data/use-get-data-group-name-by-hour-and-day-line'
+import { uph_less_quantity } from '@/src/components/widgets/historical_data/uph_operations'
 interface Props {
     selectedDate: string
     selected_line: string
@@ -22,6 +23,7 @@ interface Props {
 type DataCollectorDetailsState = {
     hour: string
     data_collector: string
+    label: string
 }
 const data_collectors_low_runner = {
     smt_bot: {
@@ -130,6 +132,7 @@ const data_collectors_low_runner = {
         ],
     },
 }
+
 const FLOW = [
     'SMT_INPUT1',
     'SPI1',
@@ -219,11 +222,12 @@ function HistoricalData({ selectedDate, selected_line, isLoading }: Props) {
                 {hour_24.map((_h) => (
                     <HourlySummary
                         key={`ana-hourly-summary-${_h}`}
-                        data={data.by_hour[_h]}
+                        data={data.historical.by_hour[_h]}
                         hour={_h}
-                        selected_line={'J01'}
+                        uph={data.uph[0].uph}
+                        selected_line={selected_line}
                         selected_date={selectedDate}
-                        byGroups={data.hours_by_group}
+                        byGroups={data.historical.hours_by_group}
                         selectedId={selectedId}
                         isDataCollectorSelected={selected}
                         setSelectedId={(id) => {
@@ -254,6 +258,7 @@ function HistoricalData({ selectedDate, selected_line, isLoading }: Props) {
 const HourlySummary = ({
     data,
     hour,
+    uph,
     byGroups,
     onDataCollectorSelected,
     selected_date,
@@ -264,6 +269,7 @@ const HourlySummary = ({
 }: {
     data: Record<string, HistoricStationHourSummary> | undefined
     hour: string
+    uph: number
     selected_line: string
     selected_date: string
     byGroups: Record<string, HistoricStationGroupByStation[]> | undefined
@@ -291,10 +297,12 @@ const HourlySummary = ({
                         key={_d.data_collector}
                         data={data[_d.data_collector]}
                         id={`${hour}-${_d.data_collector}`}
+                        uph={uph}
                         selectedId={selectedId}
                         label={_d.label}
                         onSelected={() => {
                             onDataCollectorSelected({
+                                label: _d.label,
                                 data_collector: _d.data_collector,
                                 hour: hour,
                             })
@@ -309,9 +317,11 @@ const HourlySummary = ({
                         data={data[_d.data_collector]}
                         id={`${hour}-${_d.data_collector}`}
                         selectedId={selectedId}
+                        uph={uph}
                         label={_d.label}
                         onSelected={() => {
                             onDataCollectorSelected({
+                                label: _d.label,
                                 data_collector: _d.data_collector,
                                 hour: hour,
                             })
@@ -324,11 +334,13 @@ const HourlySummary = ({
                     <DataCollectorSummary
                         key={_d.data_collector}
                         data={data[_d.data_collector]}
+                        uph={uph}
                         id={`${hour}-${_d.data_collector}`}
                         label={_d.label}
                         selectedId={selectedId}
                         onSelected={() => {
                             onDataCollectorSelected({
+                                label: _d.label,
                                 data_collector: _d.data_collector,
                                 hour: hour,
                             })
@@ -341,11 +353,13 @@ const HourlySummary = ({
                     <DataCollectorSummary
                         key={_d.data_collector}
                         data={data[_d.data_collector]}
+                        uph={uph}
                         id={`${hour}-${_d.data_collector}`}
                         label={_d.label}
                         selectedId={selectedId}
                         onSelected={() => {
                             onDataCollectorSelected({
+                                label: _d.label,
                                 data_collector: _d.data_collector,
                                 hour: hour,
                             })
@@ -359,10 +373,12 @@ const HourlySummary = ({
                         key={_d.data_collector}
                         data={data[_d.data_collector]}
                         id={`${hour}-${_d.data_collector}`}
+                        uph={uph}
                         selectedId={selectedId}
                         label={_d.label}
                         onSelected={() => {
                             onDataCollectorSelected({
+                                label: _d.label,
                                 data_collector: _d.data_collector,
                                 hour: hour,
                             })
@@ -382,9 +398,11 @@ const HourlySummary = ({
                                 isDataCollectorSelected.data_collector
                             ] ?? []
                         }
+                        uph={uph}
                         date={selected_date}
                         selected_hour={Number(hour)}
                         line={selected_line}
+                        label={isDataCollectorSelected.label}
                         group_a={data_collectors_low_runner_list(
                             isDataCollectorSelected.data_collector
                         )}
@@ -401,12 +419,14 @@ const DataCollectorSummary = ({
     label,
     onSelected,
     selectedId,
+    uph,
 }: {
     id: string
     data: HistoricStationHourSummary | undefined
     label: string
     onSelected: () => void
     selectedId: string | undefined
+    uph: number
 }) => {
     if (!data) {
         return (
@@ -464,7 +484,14 @@ const DataCollectorSummary = ({
                 }
             >
                 <div>
-                    <h3 className={'text-2xl font-semibold'}>
+                    <h3
+                        className={cn(
+                            'text-2xl font-semibold',
+                            uph_less_quantity(uph, data.units_pass) >= 0
+                                ? ''
+                                : 'text-red-600'
+                        )}
+                    >
                         {data.units_pass}
                     </h3>
                 </div>

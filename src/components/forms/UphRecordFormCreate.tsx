@@ -26,7 +26,7 @@ interface Props {
     onSuccess: () => void
 }
 
-const UPHRecordForm = (props: Props) => {
+const UphRecordFormCreate = (props: Props) => {
     const [errors, setErrors] = useState<Record<string, string>>({})
 
     const [formValues, setFormValues] = useState({
@@ -297,4 +297,4 @@ const UPHRecordForm = (props: Props) => {
     )
 }
 
-export default UPHRecordForm
+export default UphRecordFormCreate

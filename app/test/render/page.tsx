@@ -6,7 +6,7 @@ import render_layout from '@/public/render/render_layout.json'
 import LineSelector from '@/src/render_layout/components/widgets/LineSelector'
 import LineMetricsOverPane from '@/src/components/widgets/line_metrics/LineMetricsOverPane'
 import { useSearchParams } from 'next/navigation'
-import { useWorkPlan } from '@/src/hooks/use_work_plan'
+import { useGetLastUPH } from '@/src/hooks/use_uph_record'
 import { DataCollectorRenderer } from '@/src/render_layout/type/data-collector-renderer'
 import DataCollectorTabs from '@/src/components/widgets/line_metrics/DataCollectorTabs'
 import { Button } from '@/components/ui/button'
@@ -15,25 +15,6 @@ import { CalendarIcon } from 'lucide-react'
 import { useSocket } from '@/src/hooks/use-socket'
 
 const ManagerPage = () => {
-    // const {
-    //     hourlySummary,
-    //     wipSummary,
-    //     latestRecordSummary,
-    //     connectionStatus,
-    //     error,
-    //     reconnect,
-    // } = useWebSocketDataCollectorV2('ws://10.13.33.131:8051/ws/monitor', {
-    //     onHourlySummary: (data) => {
-    //         // console.log('Hourly summary updated:', data)
-    //     },
-    //     onWipSummary: (data) => {
-    //         // console.log('WIP summary updated:', data)
-    //     },
-    //     onLatestRecordSummary: (data) => {
-    //         // console.log('Latest records updated:', data)
-    //     },
-    // })
-
     const {
         hourlySummary,
         latestRecordSummary,
@@ -148,7 +129,7 @@ const ManagerPage = () => {
 }
 
 const HourByHourContainer = ({ selected_line }: { selected_line: string }) => {
-    const { data, isLoading, isError, error } = useWorkPlan()
+    const { data, isLoading, isError, error } = useGetLastUPH()
 
     if (isLoading) return <p>Loading...</p>
     if (isError) return <p>{error.message}</p>
@@ -156,7 +137,7 @@ const HourByHourContainer = ({ selected_line }: { selected_line: string }) => {
     return (
         <LineMetricsOverPane
             selectedLine={selected_line || 'none'}
-            workPlan={data.find((p) => p.line.name === selected_line)}
+            uph={data.find((p) => p.line.name === selected_line)}
         />
     )
 }
